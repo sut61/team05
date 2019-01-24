@@ -35,5 +35,15 @@ constructor(
       return this.httpClient.get(this.API + '/Gender');
       }
 
+      getInformationemp(): Observable<any> {
+      return this.httpClient.get(this.API + '/Informationemp');
+      }
 
+      getPosition(): Observable<any> {
+      return this.httpClient.get(this.API + '/Position');
+      }
+
+      getBankemp(): Observable<any> {
+        return this.httpClient.get(this.API + '/Bankemp');
+      }
 }
