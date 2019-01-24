@@ -1,0 +1,44 @@
+<body background = "https://wallpaper.thaiware.com/upload/wallpaper/2011_12/20906_10577_111224192410_x6.jpg">
+<div style="text-align:center">
+  <br><br>
+  <h1>
+    <a style="color:black;">Receiver</a>
+  </h1>
+  <mat-form-field appearance="outline">
+    <mat-label>Firstname</mat-label>
+    <input matInput placeholder="Firstname" [(ngModel)]="views.firstnamerecInput" name="firstnamerec" >
+  </mat-form-field><br>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Lastname</mat-label>
+    <input matInput placeholder="Lastname" [(ngModel)]="views.lastnamerecInput" name="lastnamerec">
+  </mat-form-field><br>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Address</mat-label>
+    <textarea matInput placeholder="Address" [(ngModel)]="views.addressrecInput" name="addressrec"></textarea>
+  </mat-form-field><br>
+
+  <mat-form-field appearance="outline">
+    <mat-select placeholder="province" [(ngModel)]="views.provinceNameSelect" name="province" >
+      <mat-option *ngFor="let province of province" [value]="province.province">
+        {{province.province}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+  <mat-form-field class="three" appearance="outline">
+    <mat-label>Telephone</mat-label>
+    <input matInput placeholder="Postcode"[(ngModel)]="views.postcoderecInput" name="postcoderec">
+  </mat-form-field>
+  &nbsp;
+  <mat-form-field class="four" appearance="outline">
+    <mat-label>PostCode</mat-label>
+    <input matInput placeholder="Phone"[(ngModel)]="views.phonerecInput" name="phonerec">
+  </mat-form-field>
+
+  <br>
+  <button mat-raised-button color="warn" class="button-1" (click)="save_func()">บันทึกข้อมูล</button>
+</div>
+</body>
+
