@@ -1,0 +1,68 @@
+<router-outlet></router-outlet>
+
+<div class="w3-display-middle">
+  <mat-card class="card1">
+    <h2 style="text-align:center"><b>ลงทะเบียนพนักงาน</b></h2>
+
+    <form #regisForm="ngForm" (ngSubmit)="save()">
+    <div style="text-align:center">
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Fritstname" [(ngModel)]="views.firstname" name="firstname"  >
+      </mat-form-field><br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Lastname" [(ngModel)]="views.lastname" name="firstname">
+      </mat-form-field><br>
+
+      <mat-form-field>
+          <mat-select  placeholder="Gender" [(ngModel)]="views.genderid" name="gender" >
+              <mat-option *ngFor="let gender of gender" [value]="gender.genderid"  >
+                  {{gender.sex}}</mat-option>
+          </mat-select>
+      </mat-form-field><br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Phone " [(ngModel)]="views.phone" name="phone">
+      </mat-form-field><br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Address " [(ngModel)]="views.address" name="address">
+      </mat-form-field><br>
+
+      <mat-form-field>
+        <mat-select  placeholder="Position" [(ngModel)]="views.positionid" name="position" >
+          <mat-option *ngFor="let Position of position" [value]="Position.positionid"  >
+          {{Position.positionlevel}}</mat-option>
+        </mat-select>
+      </mat-form-field><br>
+
+      <mat-form-field>
+        <mat-select  placeholder="Bank" [(ngModel)]="views.bankempid" name="gender" >
+            <mat-option *ngFor="let bank of bank" [value]="bank.bankempid"  >
+                {{bank.bankname}}</mat-option>
+        </mat-select>
+      </mat-form-field><br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Banknumber" [(ngModel)]="views.banknumber" name="banknumber">
+      </mat-form-field><br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="E-mail " [(ngModel)]="views.email" name="email">
+      </mat-form-field><br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Password " [(ngModel)]="views.password" name="password">
+      </mat-form-field><br>
+
+
+        <div style="text-align:center;">
+            <button mat-raised-button color="warn"  id="reg" [disabled]="regisForm.invalid || checkSelected == false ">ยืนยันการลงทะเบียน</button>&nbsp;&nbsp;
+          </div>
+
+    </div>
+  </form>
+  </mat-card>
+
+</div>
