@@ -1,0 +1,28 @@
+.mat-radio-button {
+    padding-right: 8px;
+  }
+ 
+  button {
+    background-color: #df4646fd;
+    color: white;
+    padding: 10px 10px;
+    margin: 10px 0px;
+    cursor: pointer;
+    width: 140px;
+}
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+  }
+
+  table{
+    text-align: left;
+    border: 1px ;
+  }
+  .mat-form-field {
+    font-size: 14px;
+    color: red;
+}
