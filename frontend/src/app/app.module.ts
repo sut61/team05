@@ -22,6 +22,7 @@ import { RegisterComponent } from './register/register.component';
 import { IncorrectComponent } from './incorrect/incorrect.component';
 import { RegDComponent } from './reg-d/reg-d.component';
 import { IceComponent } from './ice/ice.component';
+import { RepairinfoComponent } from './repairinfo/repairinfo.component';
 
 
 const appRoutes: Routes = [
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
     { path: 'incorrect',component: IncorrectComponent },
     { path: 'reg-d' ,component:RegDComponent },
     { path: 'ice' ,component:IceComponent },
+    { path: 'repairinfo', component: RepairinfoComponent },
 
 
 ];
@@ -42,7 +44,7 @@ const appRoutes: Routes = [
     IncorrectComponent,
     RegDComponent,
     IceComponent,
-
+    RepairinfoComponent,
   ],
   imports: [
     BrowserModule,
