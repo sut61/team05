@@ -1,0 +1,25 @@
+<body background = "https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-903ea3cb.jpg">
+<br>
+<button mat-raised-button class="button1" color="warn" [routerLink]="['/register']">สร้างบัญชีผู้ใช้ใหม่</button>
+<div style="text-align:center">
+  <br><br><br><br>
+  <h1>MEMBER REGISTRATATION</h1>
+  <form class="form">
+    <mat-form-field class="form-ice" appearance="outline">
+      <input matInput placeholder="E-mail" [(ngModel)] = "email" [ngModelOptions]="{standalone: true}">
+    </mat-form-field><br>
+
+    <mat-form-field class="form-ice" appearance="outline">
+      <input matInput placeholder="Password" [(ngModel)] = "password" [ngModelOptions]="{standalone: true}" ng-hide ="showpassword" type="password">
+    </mat-form-field>
+  </form>
+
+    <button mat-raised-button class="button2" color="warn" (click)="login()">เข้าระบบ</button>
+
+
+</div>
+<br><br>
+</body>
+
+
+
