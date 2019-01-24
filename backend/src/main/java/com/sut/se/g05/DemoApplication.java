@@ -24,7 +24,9 @@ public class DemoApplication {
 						   LinkRepository linkRepository, SenderRepository senderRepository,
 						   ReceiverRepository receiverRepository, ProvincesenRepository provincesenRepository, RepairinfoRepository repairinfoRepository,
 						   DamageRepository damageRepository,
-						   DriverRepository driverRepository) {
+						   DriverRepository driverRepository,
+						   CarInformationRepository carInformationRepository,
+						   CarRepository carRepository) {
 		return args -> {
 			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท"
 					,"ชัยภูมิ","ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช"
@@ -96,6 +98,33 @@ public class DemoApplication {
 
 			damageRepository.findAll().forEach(System.out::println);
 			driverRepository.findAll().forEach(System.out::println);
+
+
+/*tanz*/
+
+			Car c1 = new Car();
+			c1.setCarbrand("รถยนต์กะบะ");
+			c1.setlicenseplate("กก-99");
+			Car c2 = new Car();
+			c2.setCarbrand("สิบล้อ");
+			c2.setlicenseplate("กก-999");
+			Car c3 = new Car();
+			c3.setCarbrand("รถพ่วง");
+			c3.setlicenseplate("กก-9999");
+
+			carRepository.save(c1);
+			carRepository.save(c2);
+			carRepository.save(c3);
+
+			CarInformation c = new CarInformation();
+			c.setName("tanz benjamas");
+			c.setAddress("suranaree");
+			c.setTelephone("0988313467");
+			c.setAge(22);
+			c.setCarbrand(c3);
+
+			carInformationRepository.save(c);
+
 		};
 	}
 }
