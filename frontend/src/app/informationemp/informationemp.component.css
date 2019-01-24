@@ -1,0 +1,17 @@
+
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    text-align: center;
+    font-size: 18px;
+  }
+  .card1{
+    width: 1500px;
+    height : 750px;
+    background-image: url("http://redwoodpictures.net/wp-content/uploads/2012/12/website-bg.jpg");
+  }
+  .abc{
+    font-size: 20px;
+  }
