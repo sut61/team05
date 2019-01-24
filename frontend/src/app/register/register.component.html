@@ -1,0 +1,61 @@
+<body background = "https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-903ea3cb.jpg">
+<div style="text-align:center">
+  <br><br>
+      <h1>
+        <a style="color:black;">REGISTER</a>
+      </h1>
+      <mat-form-field appearance="outline">
+        <mat-label>Firstname</mat-label>
+        <input matInput placeholder="Firstname" [(ngModel)]="views.firstnamesenInput" name="firstnamesen" >
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Lastname</mat-label>
+        <input matInput placeholder="Lastname" [(ngModel)]="views.lastnamesenInput" name="lastnamesen">
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
+        <mat-select placeholder="Gender" [(ngModel)]="views.genderNameSelect" name="gender" >
+          <mat-option *ngFor="let gender of gender" [value]="gender.gender">
+           {{gender.gender}}
+        </mat-option>
+      </mat-select>
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Address</mat-label>
+          <textarea matInput placeholder="Address" [(ngModel)]="views.addresssenInput" name="addresssen"></textarea>
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
+        <mat-select placeholder="province" [(ngModel)]="views.provincesenNameSelect" name="provincesen" >
+          <mat-option *ngFor="let provincesen of provincesen" [value]="provincesen.provincesen">
+            {{provincesen.provincesen}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br>
+
+      <mat-form-field class="three" appearance="outline">
+        <mat-label>Postcode</mat-label>
+          <input matInput placeholder="Postcode"[(ngModel)]="views.postcodesenInput" name="postcodesen">
+      </mat-form-field>
+      &nbsp;
+      <mat-form-field class="four" appearance="outline">
+        <mat-label>Phone</mat-label>
+          <input matInput placeholder="Phone"[(ngModel)]="views.phonesenInput" name="phonesen">
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>E-mail</mat-label>
+          <input matInput placeholder="E-mail"[(ngModel)]="views.emailInput" name="email">
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Password</mat-label>
+          <input matInput placeholder="Password"[(ngModel)]="views.passwordInput" name="password">
+      </mat-form-field>
+      <br>
+  <button mat-raised-button color="warn" (click)="save_func()" [routerLink]="['/login']">ยืนยันการลงทะเบียน</button>
+</div>
+</body>
+
