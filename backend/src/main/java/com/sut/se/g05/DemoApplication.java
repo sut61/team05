@@ -23,8 +23,8 @@ public class DemoApplication {
 	ApplicationRunner init(GenderRepository genderRepository, ProvinceRepository provinceRepository,
 						   LinkRepository linkRepository, SenderRepository senderRepository,
 						   ReceiverRepository receiverRepository, ProvincesenRepository provincesenRepository, RepairinfoRepository repairinfoRepository,
-						   DamageRepository damageRepository,
-						   DriverRepository driverRepository,
+						   DamageRepository damageRepository,BankempRepository bankempRepository,InformationempRepository informationempRepository,
+						   DriverRepository driverRepository,PositionRepository positionRepository,
 						   CarInformationRepository carInformationRepository,
 						   CarRepository carRepository) {
 		return args -> {
@@ -89,6 +89,25 @@ public class DemoApplication {
 			r.setProvince(province);
 			Provincesen provincesen = provincesenRepository.findByprovincesen("พิษณุโลก");
 			s.setProvincesen(provincesen);
+
+			Bankemp bankemp1 = new Bankemp("Thai Bank");
+			bankempRepository.save(bankemp1);
+			Bankemp bankemp2 = new Bankemp("K Bank");
+			bankempRepository.save(bankemp2);
+
+
+			Position position1 = new Position("Driver");
+			positionRepository.save(position1);
+			Position position2 = new Position("Manager");
+			positionRepository.save(position2);
+			Position position3 = new Position("Secretar");
+			positionRepository.save(position3);
+			Position position4 = new Position("HR");
+			positionRepository.save(position4);
+
+
+			bankempRepository.findAll().forEach(System.out::println);
+			positionRepository.findAll().forEach(System.out::println);
 
 
 			senderRepository.save(s);
