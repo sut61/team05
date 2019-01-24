@@ -22,7 +22,9 @@ public class DemoApplication {
 	@Bean
 	ApplicationRunner init(GenderRepository genderRepository, ProvinceRepository provinceRepository,
 						   LinkRepository linkRepository, SenderRepository senderRepository,
-						   ReceiverRepository receiverRepository, ProvincesenRepository provincesenRepository) {
+						   ReceiverRepository receiverRepository, ProvincesenRepository provincesenRepository, RepairinfoRepository repairinfoRepository,
+						   DamageRepository damageRepository,
+						   DriverRepository driverRepository) {
 		return args -> {
 			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท"
 					,"ชัยภูมิ","ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช"
@@ -39,6 +41,18 @@ public class DemoApplication {
 				ps.setProvincesen(provinces);
 				provincesenRepository.save(ps);
 
+			});
+
+			Stream.of("หม้อน้ำเสื่อมสภาพ","ยางรถยนตร์เสื่อมสภาพ","เครื่องยนตร์เสื่อมสภาพ","อุบัติเหตุทางรถยนตร์").forEach(damageName -> {
+				Damage damage = new Damage();
+				damage.setDamageName(damageName);
+				damageRepository.save(damage);
+			});
+
+			Stream.of("สมชาย","สมหญิง","สมหมาย","สมศรี").forEach(driverName -> {
+				Driver driver = new Driver();
+				driver.setDriverName(driverName);
+				driverRepository.save(driver);
 			});
 
 			Gender g = new Gender();
@@ -80,6 +94,8 @@ public class DemoApplication {
 			receiverRepository.save(r);
 			receiverRepository.findAll().forEach(System.out::println);
 
+			damageRepository.findAll().forEach(System.out::println);
+			driverRepository.findAll().forEach(System.out::println);
 		};
 	}
 }
