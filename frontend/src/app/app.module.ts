@@ -24,6 +24,7 @@ import { RegDComponent } from './reg-d/reg-d.component';
 import { IceComponent } from './ice/ice.component';
 import { RepairinfoComponent } from './repairinfo/repairinfo.component';
 import { InformationempComponent } from './informationemp/informationemp.component';
+import { CarinformationComponent } from './carinformation/carinformation.component';
 
 
 const appRoutes: Routes = [
@@ -34,6 +35,7 @@ const appRoutes: Routes = [
     { path: 'ice' ,component:IceComponent },
     { path: 'repairinfo', component: RepairinfoComponent },
     { path: 'informationemp', component: InformationempComponent },
+
 
 ];
 
@@ -47,6 +49,7 @@ const appRoutes: Routes = [
     IceComponent,
     RepairinfoComponent,
     InformationempComponent,
+    CarinformationComponent
   ],
   imports: [
     BrowserModule,
