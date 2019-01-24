@@ -1,0 +1,48 @@
+body {
+    background-position: center;
+    height: 910px;
+}
+
+h1{
+  font-size: 25px;
+    text-align: center;
+    color:white;
+}
+
+table{
+  text-align: left;
+  border: 1px ;
+
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+button {
+    background-color: #ff3333;
+    color: white;
+    margin: 5px 0;
+    cursor: pointer;
+    width: 160px;
+}
+.mat-radio-button {
+  padding-right: 8px;
+}
+
+div {
+  text-align:center;
+}
+
+.mat-form-field {
+  width: 41%;
+}
+
+.three {
+  width: 20%;
+}
+
+.four {
+  width: 20%;
+}
