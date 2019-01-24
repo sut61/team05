@@ -46,4 +46,10 @@ constructor(
       getBankemp(): Observable<any> {
         return this.httpClient.get(this.API + '/Bankemp');
       }
+      getCarInformation(): Observable<any> {
+          return this.http.get(this.API + '/CarInformation');
+      }
+       getCarbrand(): Observable<any>{
+        return this.http.get(this.API + '/Car');
+      }
 }
