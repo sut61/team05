@@ -23,6 +23,7 @@ import { IncorrectComponent } from './incorrect/incorrect.component';
 import { RegDComponent } from './reg-d/reg-d.component';
 import { IceComponent } from './ice/ice.component';
 import { RepairinfoComponent } from './repairinfo/repairinfo.component';
+import { InformationempComponent } from './informationemp/informationemp.component';
 
 
 const appRoutes: Routes = [
@@ -32,7 +33,7 @@ const appRoutes: Routes = [
     { path: 'reg-d' ,component:RegDComponent },
     { path: 'ice' ,component:IceComponent },
     { path: 'repairinfo', component: RepairinfoComponent },
-
+    { path: 'informationemp', component: InformationempComponent },
 
 ];
 
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     RegDComponent,
     IceComponent,
     RepairinfoComponent,
+    InformationempComponent,
   ],
   imports: [
     BrowserModule,
