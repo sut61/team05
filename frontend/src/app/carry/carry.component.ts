@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Controller } from '../controller/controller.service';
+import { Controller } from '../controller/controller';
 import { Router } from "@angular/router";
 
 @Component({

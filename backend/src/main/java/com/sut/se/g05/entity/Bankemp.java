@@ -1,9 +1,7 @@
 package com.sut.se.g05.entity;
 
-
 import lombok.*;
 import javax.persistence.*;
-
 
 @Data
 @Entity

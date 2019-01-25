@@ -28,11 +28,11 @@ public class Receiver {
 
     private Long receiverId;
     private @NonNull String receiver;
-    private @NonNull String firstnamerec;
-    private @NonNull String lastnamerec;
-    private @NonNull String addressrec;
-    private @NonNull String postcoderec;
-    private @NonNull String phonerec;
+    private @NonNull String firstname;
+    private @NonNull String lastname;
+    private @NonNull String address;
+    private @NonNull String postcode;
+    private @NonNull String phone;
 
 
     //Many To One with Province
@@ -47,78 +47,7 @@ public class Receiver {
     @JsonIgnore
     private Link link;
 
-    public Receiver(String receiver, String firstnamerec, String lastnamerec, String addressrec, String postcoderec, String phonerec, Province province, Link link) {
-        this.receiver = receiver;
-        this.firstnamerec = firstnamerec;
-        this.lastnamerec = lastnamerec;
-        this.addressrec = addressrec;
-        this.postcoderec = postcoderec;
-        this.phonerec = phonerec;
-        this.province = province;
-        this.link = link;
-    }
 
-    public String getReceiver() {
-        return receiver;
-    }
 
-    public void setReceiver(String receiver) {
-        this.receiver = receiver;
-    }
 
-    public String getFirstnamerec() {
-        return firstnamerec;
-    }
-
-    public void setFirstnamerec(String firstnamerec) {
-        this.firstnamerec = firstnamerec;
-    }
-
-    public String getLastnamerec() {
-        return lastnamerec;
-    }
-
-    public void setLastnamerec(String lastnamerec) {
-        this.lastnamerec = lastnamerec;
-    }
-
-    public String getAddressrec() {
-        return addressrec;
-    }
-
-    public void setAddressrec(String addressrec) {
-        this.addressrec = addressrec;
-    }
-
-    public String getPostcoderec() {
-        return postcoderec;
-    }
-
-    public void setPostcoderec(String postcoderec) {
-        this.postcoderec = postcoderec;
-    }
-
-    public String getPhonerec() {
-        return phonerec;
-    }
-
-    public void setPhonerec(String phonerec) {
-        this.phonerec = phonerec;
-    }
-
-    public Province getProvince() {
-        return province;
-    }
-
-    public void setProvince(Province province) {
-        this.province = province;
-    }
-
-    public Link getLink() {
-        return link;
-    }
-
-    public void setLink(Link link) {
-        this.link = link;
-    }
 }

@@ -1,6 +1,6 @@
-package com.sut.se.g05.contronller;
+package com.sut.se.g05.controller;
 import com.sut.se.g05.entity.*;
-import com.sut.se.g05.repositoty.*;
+import com.sut.se.g05.repository.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -29,9 +30,9 @@ public class CarInformationController{
     private ProvinceRepository provinceRepository;
 
     public CarInformationController(CarInformationRepository carInformationRepository,
-    CarRepository carRepository,
-    GenderRepository genderRepository,
-    ProvinceRepository provinceRepository){
+                                    CarRepository carRepository,
+                                    GenderRepository genderRepository,
+                                    ProvinceRepository provinceRepository){
         this.carInformationRepository = carInformationRepository;
         this.carRepository = carRepository;
         this.genderRepository = genderRepository;
@@ -43,12 +44,12 @@ public class CarInformationController{
     public Collection<CarInformation> getCarInformation(){
         return carInformationRepository.findAll().stream().collect(Collectors.toList());
     }
-        @GetMapping(path = "/CarInformation/{carInformationId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/CarInformation/{carInformationId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public CarInformation getOneCarInformation(@PathVariable Long carInformationId){
         return carInformationRepository.findById(carInformationId).get();
     }
-   //car
-   @GetMapping(path = "/Car",produces = MediaType.APPLICATION_JSON_VALUE)
+    //car
+    @GetMapping(path = "/Car",produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Car> getCar(){
         return carRepository.findAll().stream().collect(Collectors.toList());
     }
@@ -57,24 +58,11 @@ public class CarInformationController{
         return carRepository.findById(carId).get();
     }
     //gender
-    @GetMapping(path = "/Gender", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Gender> getGender() {
-        return genderRepository.findAll().stream().collect(Collectors.toList());
-    }
-    @GetMapping(path = "/Gender/{genderId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Gender getOneGender(@PathVariable long genderId){
-        return genderRepository.findById(genderId).get();
-    }
+
+
+
     //province
-    
-    @GetMapping(path = "/Province", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Province> getProvince() {
-        return provinceRepository.findAll().stream().collect(Collectors.toList());
-    }
-    @GetMapping(path = "/Province/{proviceId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Province getOneProvince(@PathVariable long proviceId){
-        return provinceRepository.findById(proviceId).get();
-    }
+
 
     @PostMapping(path ="/CarInformation/{name}/{address}/{telephone}/{age}/{gender}/{carbrand}/{province}")
     public CarInformation newcarInformation(@PathVariable String name,
@@ -84,31 +72,30 @@ public class CarInformationController{
                                             @PathVariable Long gender,
                                             @PathVariable Long carbrand,
                                             @PathVariable Long province
-                                           )
-                                            throws ParseException {
-                                                
+    )
+            throws ParseException {
 
-         
-            CarInformation c = new CarInformation();
-            Gender g = genderRepository.findBygenderId(gender);
-            Province p = provinceRepository.findByprovinceId(province);
-            Car cc = carRepository.findByCarId(carbrand);
 
-            c.setName(name);
-            c.setAddress(address);
-            c.setTelephone(telephone);
-            c.setAge(age);
-            c.setGender(g);
-            c.setProvince(p);
-            
-            c.setCarbrand(cc);
 
-            carInformationRepository.save(c);
-            return c;
-         }
+        CarInformation c = new CarInformation();
+        Optional<Gender> g = genderRepository.findById(gender);
+        Province p = provinceRepository.findByprovinceId(province);
+        Car cc = carRepository.findByCarId(carbrand);
+
+        c.setName(name);
+        c.setAddress(address);
+        c.setTelephone(telephone);
+        c.setAge(age);
+        c.setGender(g);
+        c.setProvince(p);
+
+        c.setCar(cc);
+
+        carInformationRepository.save(c);
+        return c;
+    }
     @DeleteMapping(path =" CarInformation/{CarInformationId}")
-            void deleteCarInformationId(@PathVariable Long CarInformationId){
-                carInformationRepository.deleteById(CarInformationId);
+    void deleteCarInformationId(@PathVariable Long CarInformationId){
+        carInformationRepository.deleteById(CarInformationId);
+    }
 }
-}
-

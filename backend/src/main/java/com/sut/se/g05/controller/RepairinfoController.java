@@ -2,12 +2,10 @@ package com.sut.se.g05.controller;
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import com.sut.se.g05.entity.Car;
-import com.sut.se.g05.entity.Damage;
-import com.sut.se.g05.entity.Driver;
-import com.sut.se.g05.entity.Repairinfo;
+import com.sut.se.g05.entity.*;
 import com.sut.se.g05.repository.*;
 import java.util.Collection;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
@@ -47,11 +45,12 @@ public class RepairinfoController {
 
 
     @PostMapping("/Repairinfo/{driverId}/{carId}/{damageId}/{phone}")
-    public Repairinfo newRepairinfo(@RequestBody Repairinfo newRepairinfo,@PathVariable long driverId,@PathVariable long carId,@PathVariable long damageId,@PathVariable String phone) {
+    public Repairinfo newRepairinfo(@RequestBody Repairinfo newRepairinfo,@PathVariable Long driverId,@PathVariable Long carId,
+                                    @PathVariable Long damageId,@PathVariable String phone) {
 
-        Car car = carRepository.findById(carId);
-        Driver driver = driverRepository.findById(driverId);
-        Damage damage = damageRepository.findById(damageId);
+        Optional<Car> car = carRepository.findById(carId);
+        Optional<Driver> driver = driverRepository.findById(driverId);
+        Optional<Damage> damage = damageRepository.findById(damageId);
 
         newRepairinfo.setPhone(phone);
         newRepairinfo.setCar(car);

@@ -17,7 +17,7 @@ public class Package {
     @SequenceGenerator(name="pack_seq",sequenceName="pack_seq")
     @GeneratedValue(generator="pack_seq",strategy=GenerationType.SEQUENCE)
     @Column(name="PACKAGE_ID",unique = true, nullable = true)
-    private long packid;
+    private Long packid;
     private Date regDate;
     private Timestamp regTime;
     private String supply;
@@ -40,5 +40,5 @@ public class Package {
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
     @JoinColumn(name = "EId")
     @JsonIgnore
-    private Employee employee;
+    private Informationemp employee;
 }

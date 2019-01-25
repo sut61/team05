@@ -1,6 +1,4 @@
 package com.sut.se.g05.entity;
-
-
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,6 +9,7 @@ import javax.persistence.SequenceGenerator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import java.util.Optional;
 
 @Data
 @Entity
@@ -42,62 +41,7 @@ public class CarInformation {
     @JoinColumn(name = "provinceId")
     private Province province;
 
- 
 
-    public Long getcarInformationId() {
-        return carInformationId;
+    public void setGender(Optional<Gender> g) {
     }
-
-    public void setCarInformationId(Long carInformationId) {
-        this.carInformationId = carInformationId;
-    }
-
-    
-    public String getName(){
-        return name;
-    } 
-
-    public void setAddress(String address){
-        this.address=address;
-    }
-
-    public String getAddress(){
-        return address;
-    } 
-    public void setName(String name){
-        this.name=name;
-    }
-
-    public String getTelephone(){
-        return telephone;
-    } 
-
-    public void setTelephone(String telephone){
-        this.telephone=telephone;
-    }
-
-    public Integer getAge(){
-        return age;
-    }
-
-    public void setAge(Integer age){
-        this.age=age;
-    }
-
-	public void setGender(Gender g) {
-        this.gender=g;
-	}
-    public void setProvince(Province p) {
-        this.province=p;
-    }
-   
-	public void setCarbrand(Car cc2) {
-        this.car=cc2;
-    }
-
-
-
-
-    
-   
 }

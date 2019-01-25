@@ -14,6 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Data
 @Entity
@@ -48,5 +49,13 @@ public class Carry {
 	public void setPackageId(Package p) {
 	}
 
+    public void setPackageId(Optional<Package> packages) {
+    }
+
+    public void setReceiver(Optional<Receiver> receiver) {
+    }
+
+    public void setProvince(Optional<Province> province) {
+    }
 }
 

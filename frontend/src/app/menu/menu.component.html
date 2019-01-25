@@ -1,0 +1,17 @@
+<router-outlet></router-outlet>
+<div class="w3-display-middle">
+  <mat-card class="card2 "><br>
+    <h2 style="text-align:center;">ส่งสินค้าออนไลน์</h2><br>
+    <div style="text-align:center;">
+      <button mat-raised-button [routerLink]="['/app-package']">รับสินค้า</button><br><br>
+      <button mat-raised-button [routerLink]="['/carry']">ส่งสินค้า</button><br><br>
+      <button mat-raised-button [routerLink]="['/informationemp']">ลงทะเบียนพนักงาน</button><br><br>
+      <button mat-raised-button [routerLink]="['/carinformation']">ลงทะเบียพนักงานขับรถ</button><br><br>
+      <button mat-raised-button [routerLink]="['/repairinfo']">แจ้งซ่อมรถ</button><br><br><br>
+    </div>
+
+    <div style="text-align:right;">
+      <button mat-raised-button color="warn" [routerLink]="['/app-login']">ออกจากระบบ</button>
+    </div>
+  </mat-card>
+</div>

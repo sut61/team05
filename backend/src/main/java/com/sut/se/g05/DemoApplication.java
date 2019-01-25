@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import java.util.stream.Stream;
+import java.util.Date;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -20,13 +21,12 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 	}
 	@Bean
-	ApplicationRunner init(GenderRepository genderRepository, ProvinceRepository provinceRepository,
-						   LinkRepository linkRepository, SenderRepository senderRepository,
-						   ReceiverRepository receiverRepository, ProvincesenRepository provincesenRepository, RepairinfoRepository repairinfoRepository,
-						   DamageRepository damageRepository,BankempRepository bankempRepository,InformationempRepository informationempRepository,
-						   DriverRepository driverRepository,PositionRepository positionRepository,
-						   CarInformationRepository carInformationRepository,
-						   CarRepository carRepository) {
+	ApplicationRunner init(BankempRepository bankempRepository, CarInformationRepository carInformationRepository, CarRepository carRepository,
+						   DamageRepository damageRepository, DriverRepository driverRepository, GenderRepository genderRepository,
+						   InformationempRepository informationempRepository, LinkRepository linkRepository, LinkedRepository linkedRepository,
+						   PackageRepository packageRepository, PositionRepository positionRepository, ProvinceRepository provinceRepository,
+						   ProvincesenRepository provincesenRepository, ReceiverRepository receiverRepository, RepairinfoRepository repairinfoRepository,
+						   SenderRepository senderRepository, CarryRepository carryRepository) {
 		return args -> {
 			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท"
 					,"ชัยภูมิ","ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช"
@@ -45,18 +45,6 @@ public class DemoApplication {
 
 			});
 
-			Stream.of("หม้อน้ำเสื่อมสภาพ","ยางรถยนตร์เสื่อมสภาพ","เครื่องยนตร์เสื่อมสภาพ","อุบัติเหตุทางรถยนตร์").forEach(damageName -> {
-				Damage damage = new Damage();
-				damage.setDamageName(damageName);
-				damageRepository.save(damage);
-			});
-
-			Stream.of("สมชาย","สมหญิง","สมหมาย","สมศรี").forEach(driverName -> {
-				Driver driver = new Driver();
-				driver.setDriverName(driverName);
-				driverRepository.save(driver);
-			});
-
 			Gender g = new Gender();
 			g.setGender("ชาย");
 			Gender g2 = new Gender();
@@ -65,20 +53,20 @@ public class DemoApplication {
 			genderRepository.save(g2);
 
 			Sender s = new Sender();
-			s.setFirstnamesen("แพรวโพยม");
-			s.setLastnamesen("สอนสุภาพ");
-			s.setAddresssen("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
-			s.setPostcodesen("65180");
-			s.setPhonesen("0956399315");
+			s.setFirstname("แพรวโพยม");
+			s.setLastname("สอนสุภาพ");
+			s.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+			s.setPostcode("65180");
+			s.setPhone("0956399315");
 			s.setEmail("ice@gmail.com");
 			s.setPassword("123");
 
 			Receiver r = new Receiver();
-			r.setFirstnamerec("แพรวโพยม");
-			r.setLastnamerec("สอนสุภาพ");
-			r.setAddressrec("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
-			r.setPostcoderec("65180");
-			r.setPhonerec("0956399315");
+			r.setFirstname("แพรวโพยม");
+			r.setLastname("สอนสุภาพ");
+			r.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+			r.setPostcode("65180");
+			r.setPhone("0956399315");
 
 			Gender gender = genderRepository.findBygender("ชาย");
 			Gender gender2 = genderRepository.findBygender("หญิง");
@@ -89,6 +77,54 @@ public class DemoApplication {
 			r.setProvince(province);
 			Provincesen provincesen = provincesenRepository.findByprovincesen("พิษณุโลก");
 			s.setProvincesen(provincesen);
+
+
+			senderRepository.save(s);
+			senderRepository.findAll().forEach(System.out::println);
+			receiverRepository.save(r);
+			receiverRepository.findAll().forEach(System.out::println);
+
+			/////////////////////////////////////////////////////TAN////////////////////////////////////////////////////////////
+
+			Car c1 = new Car();
+			c1.setCarbrand("จักยานสี่ล้อ");
+			c1.setlicenseplate("กก-99");
+			Car c2 = new Car();
+			c2.setCarbrand("กะบะห้าล้อ");
+			c2.setlicenseplate("กก-999");
+			Car c3 = new Car();
+			c3.setCarbrand("รถพ่วง25ล้อ");
+			c3.setlicenseplate("กก-9999");
+
+			carRepository.save(c1);
+			carRepository.save(c2);
+			carRepository.save(c3);
+
+
+			/////////////////////////////////////////////////////PIN////////////////////////////////////////////////////////////
+
+			Stream.of("หม้อน้ำเสื่อมสภาพ","ยางรถยนตร์เสื่อมสภาพ","เครื่องยนตร์เสื่อมสภาพ","อุบัติเหตุทางรถยนตร์").forEach(damageName -> {
+				Damage damage = new Damage();
+				damage.setDamageName(damageName);
+				damageRepository.save(damage);
+			});
+
+
+			Stream.of("สมชาย","สมหญิง","สมหมาย","สมศรี").forEach(driverName -> {
+				Driver driver = new Driver();
+				driver.setDriverName(driverName);
+				driverRepository.save(driver);
+			});
+
+			damageRepository.findAll().forEach(System.out::println);
+			carRepository.findAll().forEach(System.out::println);
+			driverRepository.findAll().forEach(System.out::println);
+
+			/////////////////////////////////////////////////////NOOM////////////////////////////////////////////////////////////
+
+
+
+			/////////////////////////////////////////////////////GUN////////////////////////////////////////////////////////////
 
 			Bankemp bankemp1 = new Bankemp("Thai Bank");
 			bankempRepository.save(bankemp1);
@@ -107,42 +143,24 @@ public class DemoApplication {
 
 
 			bankempRepository.findAll().forEach(System.out::println);
+			genderRepository.findAll().forEach(System.out::println);
 			positionRepository.findAll().forEach(System.out::println);
 
 
-			senderRepository.save(s);
-			senderRepository.findAll().forEach(System.out::println);
-			receiverRepository.save(r);
-			receiverRepository.findAll().forEach(System.out::println);
+			/////////////////////////////////////////////////////SHOOMPU////////////////////////////////////////////////////////////
 
-			damageRepository.findAll().forEach(System.out::println);
-			driverRepository.findAll().forEach(System.out::println);
+			Carry carry = new Carry();
+			carry.setDate(new Date());
+			carry.setStatus("ส่งแล้ว");
+			carry.setCarryNumber("AVX123456789");
+			carry.setReceiver(r);
+			carryRepository.save(carry);
 
 
-/*tanz*/
-
-			Car c1 = new Car();
-			c1.setCarbrand("รถยนต์กะบะ");
-			c1.setlicenseplate("กก-99");
-			Car c2 = new Car();
-			c2.setCarbrand("สิบล้อ");
-			c2.setlicenseplate("กก-999");
-			Car c3 = new Car();
-			c3.setCarbrand("รถพ่วง");
-			c3.setlicenseplate("กก-9999");
-
-			carRepository.save(c1);
-			carRepository.save(c2);
-			carRepository.save(c3);
-
-			CarInformation c = new CarInformation();
-			c.setName("tanz benjamas");
-			c.setAddress("suranaree");
-			c.setTelephone("0988313467");
-			c.setAge(22);
-			c.setCarbrand(c3);
-
-			carInformationRepository.save(c);
+			Linked linked = new Linked();
+			linked.setCarryLinked(carry);
+			linked.setProvinceLinked(province);
+			linkedRepository.save(linked);
 
 		};
 	}

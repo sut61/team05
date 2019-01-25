@@ -22,7 +22,7 @@ public class PackageController {
     @Autowired
     private ReceiverRepository receiverRepository;
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private InformationempRepository informationempRepository;
     @Autowired
     private ProvinceRepository provinceRepository;
 
@@ -64,12 +64,12 @@ public class PackageController {
     }
 
     @GetMapping(path = "/employee", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Employee> getEmployee() {
-        return employeeRepository.findAll().stream().collect(Collectors.toList());
+    public Collection<Informationemp> getEmployee() {
+        return informationempRepository.findAll().stream().collect(Collectors.toList());
     }
     @GetMapping(path = "/employee/{employeeId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Employee getOneEmployee(@PathVariable Long employeeId){
-        return employeeRepository.findById(employeeId).get();
+    public Informationemp getOneEmployee(@PathVariable Long employeeId){
+        return informationempRepository.findById(employeeId).get();
     }
 
     @PostMapping(path = "/package/{senderName}/{supply}/{receiverName}/{province}/{employeeId}")
@@ -79,7 +79,7 @@ public class PackageController {
 
         Sender sender = senderRepository.findByFirstname(senderName);
         Receiver receiver = receiverRepository.findByFirstname(receiverName);
-        Optional<Employee> employee = employeeRepository.findById(employeeId);
+        Optional<Informationemp> employee = informationempRepository.findById(employeeId);
         Optional<Province> provinces = provinceRepository.findById(province);
 
         newPackage.setSupply(supply);
@@ -96,7 +96,7 @@ public class PackageController {
     @GetMapping(path = "package/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Package> packages(@PathVariable Long id) {
         List<Package> tempPackages = packageRepository.findAll();
-        Optional<Employee> employee = employeeRepository.findById(id);
+        Optional<Informationemp> employee = informationempRepository.findById(id);
         List<Package> packages = new ArrayList<>();
         for (int i = 0; i < tempPackages.size(); i++) {
             if (employee.get() == tempPackages.get(i).getEmployee()) {
@@ -107,14 +107,14 @@ public class PackageController {
     }
 
     @GetMapping(path = "Login/{user}/{password}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Employee packages(
+    public Informationemp packages(
             @PathVariable String user,
             @PathVariable String password
     ) {
-        List<Employee> employee = employeeRepository.findAll();
-        Employee e = new Employee();
-        for (Employee anEmployee : employee) {
-            if (user.equals(anEmployee.getUsername()) && password.equals(anEmployee.getPassword())) {
+        List<Informationemp> employee = informationempRepository.findAll();
+        Informationemp e = new Informationemp();
+        for (Informationemp anEmployee : employee) {
+            if (user.equals(anEmployee.getEmail()) && password.equals(anEmployee.getPassword())) {
                 e = anEmployee;
                 return e;
             }
