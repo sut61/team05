@@ -35,6 +35,10 @@ constructor(
       return this.httpClient.get(this.API + '/Gender');
       }
 
+      getBankemp(): Observable<any> {
+        return this.httpClient.get(this.API + '/Bankemp');
+      }
+
       getInformationemp(): Observable<any> {
       return this.httpClient.get(this.API + '/Informationemp');
       }
@@ -43,13 +47,27 @@ constructor(
       return this.httpClient.get(this.API + '/Position');
       }
 
-      getBankemp(): Observable<any> {
-        return this.httpClient.get(this.API + '/Bankemp');
+      getGender(): Observable<any> {
+      return this.httpClient.get(this.API + '/Gender');
       }
+
+      getCarbrand(): Observable<any>{
+        return this.httpClient.get(this.API + '/Car');
+      }
+
+      getProvince(): Observable<any> {
+        return this.httpClient.get(this.API + '/Province');
+        }
+
       getCarInformation(): Observable<any> {
-          return this.http.get(this.API + '/CarInformation');
+          return this.httpClient.get(this.API + '/CarInformation');
       }
-       getCarbrand(): Observable<any>{
-        return this.http.get(this.API + '/Car');
+
+      getPackages(): Observable<any> {
+        return this.httpClient.get(this.API + '/packages');
+      }
+
+      getReceiver(): Observable<any> {
+        return this.httpClient.get(this.API + '/receivers');
       }
 }

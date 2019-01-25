@@ -1,4 +1,4 @@
-package com.sut.se.g05.Controller;
+package com.sut.se.g05.controller;
 
 import com.sut.se.g05.entity.*;
 import com.sut.se.g05.repository.*;
@@ -67,10 +67,6 @@ public class SenderController {
         return genderRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @GetMapping(path = "/Gender/{genderId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Gender getOneGender(@PathVariable long genderId){
-        return genderRepository.findById(genderId).get();
-    }
 
     //province
     @GetMapping(path = "/Province", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -78,10 +74,7 @@ public class SenderController {
         return provinceRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @GetMapping(path = "/province/{provinceId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Province getOneProvince(@PathVariable long provinceId){
-        return provinceRepository.findById(provinceId).get();
-    }
+
 
     //provincesen
     @GetMapping(path = "/Provincesen", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -90,7 +83,7 @@ public class SenderController {
     }
 
     @GetMapping(path = "/provincesen/{provincesenId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Provincesen getOneProvincesen(@PathVariable long provincesenId){
+    public Provincesen getOneProvincesen(@PathVariable Long provincesenId){
         return provincesenRepository.findById(provincesenId).get();
     }
 
@@ -101,7 +94,7 @@ public class SenderController {
     }
 
     @GetMapping(path = "/link/{linkId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Link getOneLink(@PathVariable long linkId){
+    public Link getOneLink(@PathVariable Long linkId){
         return linkRepository.findById(linkId).get();
     }
 
@@ -120,13 +113,13 @@ public class SenderController {
         Provincesen provincesen = provincesenRepository.findByprovincesen(provincesenNameSelect);
         System.out.print(provincesen);
 
-        s.setFirstnamesen(firstnamesenInput);
-        s.setLastnamesen(lastnamesenInput);
+        s.setFirstname(firstnamesenInput);
+        s.setLastname(lastnamesenInput);
         s.setGender(gender);
-        s.setAddresssen(addresssenInput);
+        s.setAddress(addresssenInput);
         s.setProvincesen(provincesen);
-        s.setPostcodesen(postcodesenInput);
-        s.setPhonesen(phonesenInput);
+        s.setPostcode(postcodesenInput);
+        s.setPhone(phonesenInput);
         s.setEmail(emailInput);
         s.setPassword(passwordInput);
         return senderRepository.save(s);
@@ -143,15 +136,12 @@ public class SenderController {
         Province province = provinceRepository.findByprovince(provinceNameSelect);
         System.out.print(province);
 
-        r.setFirstnamerec(firstnamerecInput);
-        r.setLastnamerec(lastnamerecInput);
-        r.setAddressrec(addressrecInput);
+        r.setFirstname(firstnamerecInput);
+        r.setLastname(lastnamerecInput);
+        r.setAddress(addressrecInput);
         r.setProvince(province);
-        r.setPostcoderec(postcoderecInput);
-        r.setPhonerec(phonerecInput);
+        r.setPostcode(postcoderecInput);
+        r.setPhone(phonerecInput);
         return receiverRepository.save(r);
     }
-
 }
-
-

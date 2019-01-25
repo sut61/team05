@@ -1,9 +1,9 @@
 package com.sut.se.g05.entity;
 
-
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.Optional;
 
 @Data
 @Entity
@@ -47,6 +47,9 @@ public class Informationemp {
 
     }
 
+    public void setGender(Optional<Gender> g) {
+    }
 }
+
 
 

@@ -1,7 +1,7 @@
 package com.sut.se.g05.contronller;
 
 import com.sut.se.g05.entity.*;
-import com.sut.se.g05.repositoty.*;
+import com.sut.se.g05.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
@@ -32,7 +32,7 @@ class RegisterController {
         this.positionRepository = positionRepository;
 
     }
-    
+
     @GetMapping("/Bankemp")
     public Collection<Bankemp> Bankemp() {
 
@@ -52,7 +52,7 @@ class RegisterController {
     }
 
 
-  @GetMapping("/Position")
+    @GetMapping("/Position")
     public Collection<Position> Position() {
 
         return positionRepository.findAll().stream().collect(Collectors.toList());
@@ -70,25 +70,25 @@ class RegisterController {
                                             @PathVariable String banknumber,
                                             @PathVariable String email,
                                             @PathVariable String password)
-                                            throws ParseException {
-                                        
+            throws ParseException {
 
-            Informationemp i = new Informationemp();
-            Bankemp b = bankempRepository.findBybankempid(bankempid);
-            Gender g = genderRepository.findBygenderid(genderid);
-            Position p = positionRepository.findBypositionid(positionid);
-            i.setFirstname(firstname);
-            i.setLastname(lastname);
-            i.setGender(g);
-            i.setPhone(phone);
-            i.setAddress(address);
-            i.setPosition(p);
-            i.setBankemp(b);
-            i.setBanknumber(banknumber);
-            i.setEmail(email);
-            i.setPassword(password);
-                                        
-            informationempRepository.save(i);
-            return i;
-        }
+
+        Informationemp i = new Informationemp();
+        Bankemp b = bankempRepository.findBybankempid(bankempid);
+        Optional<Gender> g = genderRepository.findById(genderid);
+        Position p = positionRepository.findBypositionid(positionid);
+        i.setFirstname(firstname);
+        i.setLastname(lastname);
+        i.setGender(g);
+        i.setPhone(phone);
+        i.setAddress(address);
+        i.setPosition(p);
+        i.setBankemp(b);
+        i.setBanknumber(banknumber);
+        i.setEmail(email);
+        i.setPassword(password);
+
+        informationempRepository.save(i);
+        return i;
+    }
 }

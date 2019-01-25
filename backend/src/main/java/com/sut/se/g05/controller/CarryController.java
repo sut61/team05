@@ -64,23 +64,22 @@ public class CarryController {
 
     ) throws ParseException {
         Carry newCarry = new Carry();
-        
-        Package packages = packageRepository.findByPackageId(packageId);
-        Province province = provinceRepository.findByprovinceId(nameprovince);
-        Receiver receiver = receiverRepository.findByreceiverId(receivers);
+
+        Optional<Package> packages = packageRepository.findById(packageId);
+        Optional<Province> province = provinceRepository.findById(nameprovince);
+        Optional<Receiver> receiver = receiverRepository.findById(receivers);
 
         /*DateFormat newDate = new SimpleDateFormat("ddd mmm dd yyyy"); //
         Date b = newDate.parse(date); //b=date*/
 
         newCarry.setPackageId(packages);
-        newCarry.setDate(date); 
+        newCarry.setDate(date);
         newCarry.setCarryNumber(carryNumber);
         newCarry.setStatus(status);
         newCarry.setReceiver(receiver);
         newCarry.setProvince(province);
-    return carryRepository.save(newCarry);
-    
+        return carryRepository.save(newCarry);
+
     }
-    
-    
+
 }

@@ -1,6 +1,4 @@
 package com.sut.se.g05.entity;
-
-
 import lombok.*;
 
 import javax.persistence.*;
@@ -30,27 +28,8 @@ public class Car {
     private String carbrand;
     private String licenseplate;
 
-    public Long getCarId() {
-        return carId;
+    public void setlicenseplate(String s) {
     }
 
-    public void setCarId(Long carId) {
-        this.carId = carId;
-    }
-    
 
-    public String getCarbrand() {
-        return carbrand;
-    }
-
-    public void setCarbrand(String carbrand) {
-        this.carbrand = carbrand;
-    }
-    public String getlicenseplate() {
-        return licenseplate;
-    }
-
-    public void setlicenseplate(String licenseplate) {
-        this.licenseplate = licenseplate;
-    }
 }

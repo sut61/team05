@@ -26,11 +26,11 @@ public class Sender {
     @Column(name="SENDER_ID",unique = true, nullable = true)
 
     private Long senderId;
-    private @NonNull String firstnamesen;
-    private @NonNull String lastnamesen;
-    private @NonNull String addresssen;
-    private @NonNull String postcodesen;
-    private @NonNull String phonesen;
+    private @NonNull String firstname;
+    private @NonNull String lastname;
+    private @NonNull String address;
+    private @NonNull String postcode;
+    private @NonNull String phone;
     private @NonNull String email;
     private @NonNull String password;
 
