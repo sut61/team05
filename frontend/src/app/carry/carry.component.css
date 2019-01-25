@@ -1,0 +1,72 @@
+body {
+  background-position: center;
+  height: 1200px;
+}
+
+h1{
+font-size: 25px;
+  text-align: center;
+  color:white;
+}
+
+table{
+text-align: left;
+border: 1px ;
+
+}
+
+.example-form {
+min-width: 150px;
+max-width: 500px;
+width: 100%;
+}
+button {
+  background-color: #ff3333;
+  color: white;
+  padding: 10px 10px;
+  margin: 8px 0;
+  cursor: pointer;
+  width: 100px;
+}
+.mat-radio-button {
+padding-right: 8px;
+}
+
+div {
+text-align:center;
+}
+
+.mat-form-field {
+width: 41%;
+}
+
+.one {
+width: 20%;
+}
+
+.two {
+width: 20%;
+}
+
+.three {
+width: 20%;
+}
+
+.four {
+width: 20%;
+}
+
+.example-ice {
+background-color: #009999;
+text-align:center;
+width:1190px;
+height:110px;
+}
+
+.button-1 {
+position: absolute;
+right: 20px;
+width:110px;
+height:50px;
+
+}
