@@ -1,0 +1,79 @@
+<body background = "https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-903ea3cb.jpg">
+  <div>
+    <mat-toolbar>
+      <mat-toolbar-row class="example-ice">
+        <a style="color:back;"><font size="6">Carry Invoice</font></a>
+      </mat-toolbar-row>
+    </mat-toolbar><br><br><br><br><br><br>
+
+    <mat-form-field appearance="outline">
+      <mat-select placeholder="เลขที่ใบรับสินค้า" [(ngModel)]="select.packageId" name = "name">
+        <mat-option *ngFor="let packageId of packageId" [value]="packageId.packageId">
+            {{packageId.packageId}}        
+        </mat-option>
+      </mat-select>
+    </mat-form-field><br>
+
+    <mat-form-field appearance="outline">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="select.date" name = "date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field><br>
+
+    <mat-form-field appearance="outline">
+        <mat-label>เลขที่ใบส่งสินค้า</mat-label>
+        <input matInput placeholder="เลขที่ใบส่งสินค้า" [(ngModel)]="select.carryNumber" name="carryNumber">
+    </mat-form-field><br>
+    <!-- //$("#dateInput").datepicker
+      ({dateFormat: 'dd-M-yy'}); -->
+    <mat-form-field appearance="outline">
+        <mat-label>Status</mat-label>
+        <input matInput placeholder="Status" [(ngModel)]="select.status" name="Status">
+    </mat-form-field><br>
+  
+    <mat-form-field appearance="outline">
+        <mat-select placeholder="firstname" [(ngModel)]="select.firstname" name="firstname" >
+            <mat-option *ngFor="let receiver of receivers" [value]="receiver.receiverId">
+              {{receiver.firstnameRec}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br>
+  
+      <mat-form-field appearance="outline">
+          <mat-select placeholder="lastname" [(ngModel)]="select.lastname" name="lastname" >
+              <mat-option *ngFor="let receiver of receivers" [value]="receiver.receiverId">
+                {{receiver.lastnameRec}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br>
+  
+        <mat-form-field appearance="outline">
+            <mat-select placeholder="Address" [(ngModel)]="select.Address" name="Address" >
+                <mat-option *ngFor="let receiver of receivers" [value]="receiver.addressRec">
+                  {{receiver.addressRec}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field><br>
+
+    <mat-form-field appearance="outline">
+        <mat-select placeholder="Telephone" [(ngModel)]="select.Telephone" name="Telephone" >
+            <mat-option *ngFor="let receiver of receivers" [value]="receiver.phoneRec">
+              {{receiver.phoneRec}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br>
+  
+    <mat-form-field appearance="outline">
+      <mat-select placeholder="province" [(ngModel)]="select.nameprovince" name="nameprovince" >
+          <mat-option *ngFor="let nameprovince of nameprovince" [value]="nameprovince.provinceId">
+            {{nameprovince.nameprovince}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field><br>
+  
+    <button mat-flat-button (click)="save()" [routerLink]="['/carry']">บันทึก</button>&nbsp;&nbsp;
+  
+  </div>
+  
+</body>
