@@ -1,4 +1,4 @@
-package com.sut.se.g05.repositoty;
+package com.sut.se.g05.repository;
 
 import com.sut.se.g05.entity.Position;
 import org.springframework.data.jpa.repository.JpaRepository;
