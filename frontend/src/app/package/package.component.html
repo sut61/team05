@@ -1,0 +1,37 @@
+<router-outlet></router-outlet>
+<div class="example-container" align="center">
+  <form>
+    ผู้ส่ง:
+    <mat-form-field>
+      <mat-select placeholder="เลือกผู้ส่ง" [(ngModel)]="senderSelect" [ngModelOptions]="{standalone: true}">
+        <mat-option *ngFor="let sender of senders" [value]="sender.firstname">{{sender.firstname}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <form>
+    สินค้า:
+    <mat-form-field>
+      <input matInput placeholder="สินค้าที่ส่ง" [(ngModel)]="supply" name="fool">
+    </mat-form-field>
+  </form>
+  <form>
+    ผู้รับ:
+    <mat-form-field>
+      <mat-select placeholder="เลือกผู้รับ" [(ngModel)]="receiverSelect" [ngModelOptions]="{standalone: true}">
+        <mat-option *ngFor="let receiver of receivers" [value]="receiver.firstname">{{receiver.firstname}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <form>
+    จังหวัด:
+    <mat-form-field>
+      <mat-select placeholder="เลือกจังหวัด" [(ngModel)]="provinceSelect" [ngModelOptions]="{standalone: true}">
+        <mat-option *ngFor="let province of provinces" [value]="province.provinceId">{{province.province}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <div>
+    <button mat-raised-button (click)="cancel()" color="warn">ยกเลิก</button>
+    <button mat-raised-button (click)="save()" color="primary">บันทึก</button>
+  </div>
+</div>
