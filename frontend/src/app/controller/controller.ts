@@ -24,7 +24,7 @@ constructor(
       }
 
       getprovince(): Observable<any> {
-      return this.httpClient.get(this.API + '/Province');
+      return this.httpClient.get(this.API + '/province');
       }
 
       getprovincesen(): Observable<any> {
@@ -56,7 +56,7 @@ constructor(
       }
 
       getProvince(): Observable<any> {
-        return this.httpClient.get(this.API + '/Province');
+        return this.httpClient.get(this.API + '/province');
         }
 
       getCarInformation(): Observable<any> {
@@ -68,6 +68,6 @@ constructor(
       }
 
       getReceiver(): Observable<any> {
-        return this.httpClient.get(this.API + '/receivers');
+        return this.httpClient.get(this.API + '/receiver');
       }
 }

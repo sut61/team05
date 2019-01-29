@@ -17,8 +17,8 @@
 
       <mat-form-field>
           <mat-select  placeholder="Gender" [(ngModel)]="views.genderid" name="gender" >
-              <mat-option *ngFor="let gender of gender" [value]="gender.genderid"  >
-                  {{gender.sex}}</mat-option>
+              <mat-option *ngFor="let gender of gender" [value]="gender.genderId"  >
+                  {{gender.gender}}</mat-option>
           </mat-select>
       </mat-form-field><br>
 

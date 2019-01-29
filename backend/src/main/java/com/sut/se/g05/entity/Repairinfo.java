@@ -1,12 +1,15 @@
 package com.sut.se.g05.entity;
 
-import lombok.Data;
-import lombok.NonNull;
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Optional;
 
 @Data
 @Entity
+@NoArgsConstructor
+@ToString
+@EqualsAndHashCode
 
 public class Repairinfo {
     @Id
@@ -24,12 +27,4 @@ public class Repairinfo {
     @ManyToOne
     private Damage damage;
 
-    public void setCar(Optional<Car> car) {
-    }
-
-    public void setDriver(Optional<Driver> driver) {
-    }
-
-    public void setDamage(Optional<Damage> damage) {
-    }
 }

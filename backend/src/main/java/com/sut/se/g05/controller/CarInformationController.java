@@ -15,8 +15,6 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 
-import java.text.ParseException;
-
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class CarInformationController{
@@ -72,13 +70,12 @@ public class CarInformationController{
                                             @PathVariable Long gender,
                                             @PathVariable Long carbrand,
                                             @PathVariable Long province
-    )
-            throws ParseException {
+    ) {
 
 
 
         CarInformation c = new CarInformation();
-        Optional<Gender> g = genderRepository.findById(gender);
+        Gender g = genderRepository.findBygenderId(gender);
         Province p = provinceRepository.findByprovinceId(province);
         Car cc = carRepository.findByCarId(carbrand);
 

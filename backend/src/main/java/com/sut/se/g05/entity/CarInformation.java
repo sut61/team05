@@ -41,7 +41,5 @@ public class CarInformation {
     @JoinColumn(name = "provinceId")
     private Province province;
 
-
-    public void setGender(Optional<Gender> g) {
-    }
+    //public void setGender(Optional<Gender> g) {}
 }

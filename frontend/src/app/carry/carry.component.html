@@ -8,8 +8,8 @@
 
     <mat-form-field appearance="outline">
       <mat-select placeholder="เลขที่ใบรับสินค้า" [(ngModel)]="select.packageId" name = "name">
-        <mat-option *ngFor="let packageId of packageId" [value]="packageId.packageId">
-            {{packageId.packageId}}        
+        <mat-option *ngFor="let packageId of packageId" [value]="packageId.packid">
+            {{packageId.packid}}
         </mat-option>
       </mat-select>
     </mat-form-field><br>
@@ -35,7 +35,7 @@
     <mat-form-field appearance="outline">
         <mat-select placeholder="firstname" [(ngModel)]="select.firstname" name="firstname" >
             <mat-option *ngFor="let receiver of receivers" [value]="receiver.receiverId">
-              {{receiver.firstnameRec}}
+              {{receiver.firstname}}
           </mat-option>
         </mat-select>
       </mat-form-field><br>
@@ -43,31 +43,31 @@
       <mat-form-field appearance="outline">
           <mat-select placeholder="lastname" [(ngModel)]="select.lastname" name="lastname" >
               <mat-option *ngFor="let receiver of receivers" [value]="receiver.receiverId">
-                {{receiver.lastnameRec}}
+                {{receiver.lastname}}
             </mat-option>
           </mat-select>
         </mat-form-field><br>
   
         <mat-form-field appearance="outline">
             <mat-select placeholder="Address" [(ngModel)]="select.Address" name="Address" >
-                <mat-option *ngFor="let receiver of receivers" [value]="receiver.addressRec">
-                  {{receiver.addressRec}}
+                <mat-option *ngFor="let receiver of receivers" [value]="receiver.address">
+                  {{receiver.address}}
               </mat-option>
             </mat-select>
           </mat-form-field><br>
 
     <mat-form-field appearance="outline">
         <mat-select placeholder="Telephone" [(ngModel)]="select.Telephone" name="Telephone" >
-            <mat-option *ngFor="let receiver of receivers" [value]="receiver.phoneRec">
-              {{receiver.phoneRec}}
+            <mat-option *ngFor="let receiver of receivers" [value]="receiver.phone">
+              {{receiver.phone}}
           </mat-option>
         </mat-select>
       </mat-form-field><br>
   
     <mat-form-field appearance="outline">
-      <mat-select placeholder="province" [(ngModel)]="select.nameprovince" name="nameprovince" >
-          <mat-option *ngFor="let nameprovince of nameprovince" [value]="nameprovince.provinceId">
-            {{nameprovince.nameprovince}}
+      <mat-select placeholder="province" [(ngModel)]="select.province" name="province" >
+          <mat-option *ngFor="let province of provinces" [value]="province.provinceId">
+            {{province.province}}
         </mat-option>
       </mat-select>
     </mat-form-field><br>

@@ -69,20 +69,13 @@ public class SenderController {
 
 
     //province
-    @GetMapping(path = "/Province", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Province> getProvince() {
-        return provinceRepository.findAll().stream().collect(Collectors.toList());
-    }
-
-
-
     //provincesen
     @GetMapping(path = "/Provincesen", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Provincesen> getProvincesen() {
         return provincesenRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @GetMapping(path = "/provincesen/{provincesenId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/Provincesen/{provincesenId}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Provincesen getOneProvincesen(@PathVariable Long provincesenId){
         return provincesenRepository.findById(provincesenId).get();
     }

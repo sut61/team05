@@ -12,7 +12,7 @@ export class CarryComponent implements OnInit {
   packageId : Array<any>
   status : Array<any>
   receivers : Array<any>
-  nameprovince : Array<any>
+  provinces : Array<any>
   
   select: any = {
     packageId : '',
@@ -23,7 +23,7 @@ export class CarryComponent implements OnInit {
     lastname : '',
     Address : '',
     Telephone : '',
-    nameprovince : ''
+    province : ''
     
    
   };
@@ -36,8 +36,8 @@ export class CarryComponent implements OnInit {
       console.log(this.packageId);
     });
     this.controllerService.getProvince().subscribe(data => {
-      this.nameprovince = data;
-      console.log(this.nameprovince);
+      this.provinces = data;
+      console.log(this.provinces);
     });
     this.controllerService.getReceiver().subscribe(data => {
       this.receivers = data;
@@ -47,7 +47,7 @@ export class CarryComponent implements OnInit {
 
   save() {
       this.httpClient.post('http://localhost:8080/carrys/' + this.select.packageId + '/' + this.select.date + '/' 
-      + this.select.carryNumber + '/' + this.select.status + '/' + this.select.firstname + '/' + this.select.nameprovince ,this.select)
+      + this.select.carryNumber + '/' + this.select.status + '/' + this.select.firstname + '/' + this.select.province ,this.select)
       .subscribe(
           data => {
               console.log('PUT Request is successful', data);
