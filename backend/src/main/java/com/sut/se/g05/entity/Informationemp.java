@@ -29,24 +29,6 @@ public class Informationemp {
     @ManyToOne
     private Position position;
 
-    public Informationemp(){}
-
-    public Informationemp(String firstname,String lastname,String phone,String address,String banknumber,String email,
-                          String password,Bankemp bankemp,Gender gender,Position position){
-        this.firstname=firstname;
-        this.lastname=lastname;
-        this.phone = phone;
-        this.address=address;
-        this.banknumber = banknumber;
-        this.email = email;
-        this.password = password;
-        this.bankemp=bankemp;
-        this.gender=gender;
-        this.position = position;
-
-
-    }
-
     public void setGender(Optional<Gender> g) {
     }
 }

@@ -54,7 +54,7 @@ provinceSelect = '';
       alert('กรุณากรอกข้อมูลให้ครบถ้วน');
     } else {
       this.httpClient.post('http://localhost:8080/package/' + this.senderSelect + '/' + this.supply +
-                            '/' +this.receiverSelect +'/' + this.provinceSelect + '/' + this.employee.employeeId, {})
+                            '/' +this.receiverSelect +'/' + this.provinceSelect + '/' + this.employee.informationempid, {})
       .subscribe(
           data => {
               alert("บันทึกสำเร็จ");

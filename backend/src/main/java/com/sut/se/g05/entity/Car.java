@@ -28,8 +28,5 @@ public class Car {
     private String carbrand;
     private String licenseplate;
 
-    public void setlicenseplate(String s) {
-    }
-
 
 }

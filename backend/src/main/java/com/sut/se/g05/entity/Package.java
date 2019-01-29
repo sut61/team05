@@ -37,8 +37,8 @@ public class Package {
     @JsonIgnore
     private Receiver receiver;
 
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Employee.class)
-    @JoinColumn(name = "EId")
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Informationemp.class)
+    @JoinColumn(name = "infoId")
     @JsonIgnore
     private Informationemp employee;
 }

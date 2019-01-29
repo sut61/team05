@@ -39,11 +39,6 @@ class RegisterController {
         return bankempRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @GetMapping("/Gender")
-    public Collection<Gender> Gender() {
-
-        return genderRepository.findAll().stream().collect(Collectors.toList());
-    }
 
     @GetMapping("/Informationemp")
     public Collection<Informationemp> Informationemp() {

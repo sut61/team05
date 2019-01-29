@@ -26,4 +26,8 @@ public class Gender {
     private Long genderId;
     private @NonNull String gender;
 
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    public String getGender() {return gender;}
 }

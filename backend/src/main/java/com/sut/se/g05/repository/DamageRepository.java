@@ -7,4 +7,5 @@ import com.sut.se.g05.entity.Damage;
 @RepositoryRestResource
 public interface DamageRepository extends JpaRepository<Damage, Long> {
 
+    Damage findByDamageId(Long damageId);
 }

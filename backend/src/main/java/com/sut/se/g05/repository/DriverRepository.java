@@ -7,4 +7,5 @@ import com.sut.se.g05.entity.Driver;
 @RepositoryRestResource
 public interface DriverRepository extends JpaRepository<Driver, Long> {
 
+    Driver findByDriverId(Long driverId);
 }

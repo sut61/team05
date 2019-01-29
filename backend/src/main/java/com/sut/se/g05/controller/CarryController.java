@@ -46,15 +46,6 @@ public class CarryController {
         return packageRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @GetMapping("/provinces")
-    public Collection<Province> province() {
-        return provinceRepository.findAll().stream().collect(Collectors.toList());
-    }
-
-    @GetMapping("/receivers")
-    public Collection<Receiver> receiver() {
-        return receiverRepository.findAll().stream().collect(Collectors.toList());
-    }
 
     @PostMapping("/carrys/{packageId}/{date}/{carryNumber}/{status}/{receivers}/{nameprovince}")
     public Carry newCarry(
@@ -68,9 +59,6 @@ public class CarryController {
         Optional<Package> packages = packageRepository.findById(packageId);
         Optional<Province> province = provinceRepository.findById(nameprovince);
         Optional<Receiver> receiver = receiverRepository.findById(receivers);
-
-        /*DateFormat newDate = new SimpleDateFormat("ddd mmm dd yyyy"); //
-        Date b = newDate.parse(date); //b=date*/
 
         newCarry.setPackageId(packages);
         newCarry.setDate(date);

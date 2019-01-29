@@ -37,7 +37,7 @@ export class CarinformationComponent implements OnInit {
     telephone:'',
     age:'',
     gender:'',
-    carbrand:' ',
+    carbrand:'',
     province:'',
     licenseplate:''
     

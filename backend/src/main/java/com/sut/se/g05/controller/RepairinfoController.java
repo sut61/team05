@@ -45,12 +45,12 @@ public class RepairinfoController {
 
 
     @PostMapping("/Repairinfo/{driverId}/{carId}/{damageId}/{phone}")
-    public Repairinfo newRepairinfo(@RequestBody Repairinfo newRepairinfo,@PathVariable Long driverId,@PathVariable Long carId,
+    public Repairinfo newRepairinfo(Repairinfo newRepairinfo,@PathVariable Long driverId,@PathVariable Long carId,
                                     @PathVariable Long damageId,@PathVariable String phone) {
 
-        Optional<Car> car = carRepository.findById(carId);
-        Optional<Driver> driver = driverRepository.findById(driverId);
-        Optional<Damage> damage = damageRepository.findById(damageId);
+        Car car = carRepository.findByCarId(carId);
+        Driver driver = driverRepository.findByDriverId(driverId);
+        Damage damage = damageRepository.findByDamageId(damageId);
 
         newRepairinfo.setPhone(phone);
         newRepairinfo.setCar(car);

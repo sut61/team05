@@ -88,13 +88,13 @@ public class DemoApplication {
 
 			Car c1 = new Car();
 			c1.setCarbrand("จักยานสี่ล้อ");
-			c1.setlicenseplate("กก-99");
+			c1.setLicenseplate("กก-99");
 			Car c2 = new Car();
 			c2.setCarbrand("กะบะห้าล้อ");
-			c2.setlicenseplate("กก-999");
+			c2.setLicenseplate("กก-999");
 			Car c3 = new Car();
 			c3.setCarbrand("รถพ่วง25ล้อ");
-			c3.setlicenseplate("กก-9999");
+			c3.setLicenseplate("กก-9999");
 
 			carRepository.save(c1);
 			carRepository.save(c2);
@@ -122,7 +122,15 @@ public class DemoApplication {
 
 			/////////////////////////////////////////////////////NOOM////////////////////////////////////////////////////////////
 
+			Informationemp e = new Informationemp();
+			e.setFirstname("weerawat");
+			e.setLastname("sangrai");
+			e.setAddress("10112");
+			e.setEmail("noom123");
+			e.setPassword("1234");
+			e.setPhone("555");
 
+			informationempRepository.save(e);
 
 			/////////////////////////////////////////////////////GUN////////////////////////////////////////////////////////////
 

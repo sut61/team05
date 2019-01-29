@@ -27,7 +27,7 @@ export class PackageService {
   }
 
   getEmployee(): Observable<any> {
-    return this.http.get(this.API + '/employee');
+    return this.http.get(this.API + '/Informationemp');
   }
 
   login(user: string,password : string): Observable<any> {
