@@ -26,7 +26,8 @@ public class DemoApplication {
 						   InformationempRepository informationempRepository, LinkRepository linkRepository, LinkedRepository linkedRepository,
 						   PackageRepository packageRepository, PositionRepository positionRepository, ProvinceRepository provinceRepository,
 						   ProvincesenRepository provincesenRepository, ReceiverRepository receiverRepository, RepairinfoRepository repairinfoRepository,
-						   SenderRepository senderRepository, CarryRepository carryRepository) {
+						   SenderRepository senderRepository, CarryRepository carryRepository, BillRepository billRepository,
+						   PaidStatusRepository paidStatusRepository) {
 		return args -> {
 			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท"
 					,"ชัยภูมิ","ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช"
@@ -129,8 +130,14 @@ public class DemoApplication {
 			e.setEmail("noom123");
 			e.setPassword("1234");
 			e.setPhone("555");
-
 			informationempRepository.save(e);
+
+			Stream.of("จ่ายแล้ว","ยังไม่จ่าย","ไม่จ่าย","ชิ่ง").forEach(status -> {
+				PaidStatus p = new PaidStatus();
+				p.setStatus(status);
+				paidStatusRepository.save(p);
+			});
+
 
 			/////////////////////////////////////////////////////GUN////////////////////////////////////////////////////////////
 
@@ -170,6 +177,9 @@ public class DemoApplication {
 			linked.setProvinceLinked(province);
 			linkedRepository.save(linked);
 
+
+
+			System.out.print("===================StartApplication=======================");
 		};
 	}
 }

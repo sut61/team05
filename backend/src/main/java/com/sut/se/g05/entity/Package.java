@@ -3,6 +3,9 @@ package com.sut.se.g05.entity;
 import lombok.*;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -20,6 +23,9 @@ public class Package {
     private Long packid;
     private Date regDate;
     private Timestamp regTime;
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Pattern(regexp = "^[a-zA-Z0-9_\\-.]+$")
     private String supply;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
