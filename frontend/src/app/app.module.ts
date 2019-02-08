@@ -31,6 +31,7 @@ import { MenuComponent } from './menu/menu.component';
 import { RepairinfoComponent } from './repairinfo/repairinfo.component';
 import { PackageComponent } from './package/package.component';
 import { PackageService } from './shared/package/package.service';
+import { BillComponent } from './bill/bill.component';
 
 
 const appRoutes: Routes = [
@@ -47,6 +48,7 @@ const appRoutes: Routes = [
     { path: 'app-menu',component: MenuComponent},
     { path: 'app-package',component: PackageComponent},
     { path: 'repairinfo', component: RepairinfoComponent },
+    { path: 'bill', component: BillComponent }
 
 ];
 
@@ -64,7 +66,8 @@ const appRoutes: Routes = [
     LoginemployeeComponent,
     MenuComponent,
     PackageComponent,
-    RepairinfoComponent
+    RepairinfoComponent,
+    BillComponent
 
   ],
   imports: [
