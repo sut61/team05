@@ -1,0 +1,35 @@
+<router-outlet></router-outlet>
+<div class="example-container" align="center">
+  <form>
+    หมายเลขใบส่ง:
+    <mat-form-field>
+      <mat-select placeholder="เลือก" [(ngModel)]="carryNo" [ngModelOptions]="{standalone: true}">
+        <mat-option *ngFor="let carry of carries" [value]="carry.carryId">{{carry.carryNumber}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <form>
+    ผู้รับสินค้า:
+    <mat-form-field>
+      <input matInput placeholder="ผู้รับสินค้า" [(ngModel)]="recName" name="fool">
+    </mat-form-field>
+  </form>
+  <form>
+    เบอร์โทรศัพท์:
+    <mat-form-field>
+      <input matInput placeholder="เบอร์โทรศัพท์" [(ngModel)]="phone" name="boo">
+    </mat-form-field>
+  </form>
+  <form>
+    ชำระเงิน:
+    <mat-form-field>
+      <mat-select placeholder="ยังไม่จ่าย" [(ngModel)]="status" [ngModelOptions]="{standalone: true}">
+        <mat-option *ngFor="let status of statuses" [value]="status.id">{{status.status}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </form>
+  <div>
+    <button mat-raised-button (click)="cancel()" color="warn">ยกเลิก</button>
+    <button mat-raised-button (click)="save()" color="primary">บันทึก</button>
+  </div>
+</div>

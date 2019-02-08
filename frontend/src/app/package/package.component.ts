@@ -50,18 +50,48 @@ provinceSelect = '';
   }
 
   save() {
-    if (this.senderSelect === '' && this.supply === '' && this.receiverSelect === '' && this.provinceSelect === '') {
+    if (this.senderSelect === '' || this.supply === '' || this.receiverSelect === '' || this.provinceSelect === '') {
       alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+
     } else {
       this.httpClient.post('http://localhost:8080/package/' + this.senderSelect + '/' + this.supply +
                             '/' +this.receiverSelect +'/' + this.provinceSelect + '/' + this.employee.informationempid, {})
       .subscribe(
           data => {
               alert("บันทึกสำเร็จ");
-              this.router.navigate(['/app-menu']);
-          }
+              console.log('PUT Request is successful', data);
 
+              this.reset_func();
+              //this.router.navigate(['/app-menu']);
+          },
+          error => {
+                    alert("fail");
+                    console.log('Error to PUT Request', error);
+                }
       );
     }
   }
+
+  reset_func() {
+    this.PackageService.getSender().subscribe(data => {
+          this.senders = data;
+          console.log(this.senders);
+        });
+
+        this.PackageService.getReceiver().subscribe(data => {
+          this.receivers = data;
+          console.log(this.receivers);
+        });
+
+        this.PackageService.getProvince().subscribe(data => {
+          this.provinces = data;
+          console.log(this.provinces);
+        });
+
+        this.senderSelect = '';
+        this.supply = '';
+        this.receiverSelect = '';
+        this.provinceSelect = '';
+  }
+
 }

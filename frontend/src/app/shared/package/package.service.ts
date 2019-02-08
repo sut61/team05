@@ -30,6 +30,14 @@ export class PackageService {
     return this.http.get(this.API + '/Informationemp');
   }
 
+  getCarry() : Observable<any> {
+    return this.http.get(this.API + '/carrys');
+  }
+
+  getStatus() : Observable<any> {
+      return this.http.get(this.API + '/status');
+  }
+
   login(user: string,password : string): Observable<any> {
     return this.http.get(this.API + '/Login/'+user+'/'+password);
   }
