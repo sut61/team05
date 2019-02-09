@@ -98,7 +98,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatDialogModule,
     MatSlideToggleModule,
-    MatIconModule,
+    MatIconModule
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
