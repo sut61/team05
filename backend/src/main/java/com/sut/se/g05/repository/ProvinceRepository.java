@@ -9,4 +9,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @CrossOrigin (origins = "http: //localhost:4200")
 public interface ProvinceRepository extends JpaRepository<Province, Long> {
     Province findByprovince (String province);
+
+    Province findByprovinceId(Long province);
 }
