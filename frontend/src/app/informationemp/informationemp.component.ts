@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 // tslint:disable-next-line:import-spacing
 import { Controller } from'../controller/controller';
-
+import { RouterModule, Routes } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-informationemp',
@@ -43,7 +44,7 @@ export class InformationempComponent implements OnInit {
   password: '',
  };
 
-constructor(private controller: Controller, private httpClient: HttpClient) { }
+constructor(private controller: Controller, private httpClient: HttpClient ,private router: Router) { }
 
  ngOnInit() {
 
@@ -113,9 +114,9 @@ constructor(private controller: Controller, private httpClient: HttpClient) { }
                        + this.views.email + '/' + this.views.password, this.views)
   .subscribe(
     data => {
-        console.log('PUT Request is successful', data);
         alert("บันทึกสำเร็จ");
-                 this.router.navigate(['/app-loginemployee'])
+                console.log('PUT Request is successful', data);
+                   this.router.navigate(['/app-loginemployee']);
     },
     error => {
         console.log('Error to PUT Request', error);
