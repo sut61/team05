@@ -156,7 +156,27 @@ public class DemoApplication {
 			Position position4 = new Position("HR");
 			positionRepository.save(position4);
 
+			Deduetion deduetion1 = new Deduetion("0");
+			deduetionRepository.save(deduetion1);
+			Deduetion deduetion2 = new Deduetion("500");
+			deduetionRepository.save(deduetion2);
+			Deduetion deduetion3 = new Deduetion("1000");
+			deduetionRepository.save(deduetion3);
+			Deduetion deduetion4 = new Deduetion("1500");
+			deduetionRepository.save(deduetion4);
+			Deduetion deduetion5 = new Deduetion("2000");
+			deduetionRepository.save(deduetion5);
+			Deduetion deduetion6 = new Deduetion("2500");
+			deduetionRepository.save(deduetion6);
+			Deduetion deduetion7 = new Deduetion("3000");
+			deduetionRepository.save(deduetion7);
+			Deduetion deduetion8 = new Deduetion("3500");
+			deduetionRepository.save(deduetion8);
+			Deduetion deduetion9 = new Deduetion("4000");
+			deduetionRepository.save(deduetion9);
 
+
+			bankempRepository.findAll().forEach(System.out::println);
 			bankempRepository.findAll().forEach(System.out::println);
 			genderRepository.findAll().forEach(System.out::println);
 			positionRepository.findAll().forEach(System.out::println);
