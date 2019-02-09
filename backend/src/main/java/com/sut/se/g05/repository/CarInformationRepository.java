@@ -9,4 +9,6 @@ public
 interface CarInformationRepository extends JpaRepository<CarInformation, Long> {
     CarInformation findBycarInformationId(String carInformation);
 
+    CarInformation findByCarInformationId(Long carInformationId);
+
 }

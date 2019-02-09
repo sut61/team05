@@ -1,0 +1,51 @@
+.body {
+    background-position: center;
+    height: 1200px;
+}
+
+.div {
+  text-align:center;
+}
+
+.form-ice {
+  width: 35%;
+}
+
+.form-ice1 {
+  width: 65%;
+}
+
+.form-ice2 {
+  width: 20%;
+}
+
+table {
+  width: 100%;
+}
+
+.card-container.card {
+    max-width: 400px;
+    padding: 15px 30px;
+}
+.card {
+    background-color:#FBFBF7;
+    /* just in case there no content*/
+    padding: 20px 25px 30px;
+    margin: 0 auto 0px;
+    margin-top: 50px;
+
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 5px;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+button {
+    background-color:#ff5050;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+}
+
