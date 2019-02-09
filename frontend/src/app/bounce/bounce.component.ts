@@ -64,7 +64,7 @@ export class BounceComponent implements OnInit {
         .subscribe(
              data => {
                  console.log('PUT Request is successful', data);
-                 alert('บันทึกข้อมูลสำเร็จ');
+                 alert('success');
              },
              error => {
                   console.log('Error', error);

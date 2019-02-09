@@ -4,24 +4,24 @@ import { Controller } from'../controller/controller';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+selector: 'app-register',
+templateUrl: './register.component.html',
+styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-   provincesen: Array<any>;
-   provincesenNameSelect='';
+provincesen: Array<any>;
+provincesenNameSelect='';
 
-   gender: Array<any>;
-   genderNameSelect='';
+gender: Array<any>;
+genderNameSelect='';
 
-  firstnamesenInput: Array<any>;
-  lastnamesenInput: Array<any>;
-  addresssenInput: Array<any>;
-  postcodesenInput: Array<any>;
-  phonesenInput: Array<any>;
-  emailInput: Array<any>;
-  passwordInput: Array<any>;
+firstnamesenInput: Array<any>;
+lastnamesenInput: Array<any>;
+addresssenInput: Array<any>;
+postcodesenInput: Array<any>;
+phonesenInput: Array<any>;
+emailInput: Array<any>;
+passwordInput: Array<any>;
 
 views: any = {
 
@@ -37,7 +37,7 @@ passwordInput:''
 
 };
 
-constructor(private controller:Controller,private httpClient: HttpClient) { }
+constructor(private controller:Controller,private httpClient: HttpClient,private router: Router) { }
 
   ngOnInit() {
   this.controller.getprovincesen().subscribe(data => {
@@ -85,6 +85,8 @@ constructor(private controller:Controller,private httpClient: HttpClient) { }
         .subscribe(
              data => {
                  console.log('PUT Request is successful', data);
+                 alert('success');
+                 this.router.navigate(['/login']);
              },
              error => {
                   console.log('Error', error);
