@@ -27,7 +27,7 @@ public class DemoApplication {
 						   PackageRepository packageRepository, PositionRepository positionRepository, ProvinceRepository provinceRepository,
 						   ProvincesenRepository provincesenRepository, ReceiverRepository receiverRepository, RepairinfoRepository repairinfoRepository,
 						   SenderRepository senderRepository, CarryRepository carryRepository, BillRepository billRepository,
-						   PaidStatusRepository paidStatusRepository , DeduetionRepository deduetionRepository) {
+						   PaidStatusRepository paidStatusRepository , DeduetionRepository deduetionRepository, LevelRepository levelRepository, CommentRepository commentRepository) {
 		return args -> {
 			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท"
 					,"ชัยภูมิ","ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช"
@@ -117,6 +117,13 @@ public class DemoApplication {
 				driverRepository.save(driver);
 			});
 
+			Stream.of("น้อยที่สุด","น้อย","ปานกลาง","มาก","มากที่สุด").forEach(levelName -> {
+				Level levels = new Level();
+				levels.setLevelName(levelName);
+				levelRepository.save(levels);
+			});
+
+			levelRepository.findAll().forEach(System.out::println);
 			damageRepository.findAll().forEach(System.out::println);
 			carRepository.findAll().forEach(System.out::println);
 			driverRepository.findAll().forEach(System.out::println);
