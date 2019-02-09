@@ -15,7 +15,8 @@
         <input [(ngModel)]="password" matInput type="password" placeholder="Password">
       </mat-form-field> <br><br>
 
-      <button mat-raised-button color="primary" (click)="login()">เข้าสู่ระบบ</button>&nbsp;&nbsp;
+      <button mat-raised-button color="primary" (click)="login()">เข้าสู่ระบบ</button>&nbsp;&nbsp;<br><br>
+      <button mat-raised-button color="primary" [routerLink]="['/informationemp']">ลงทะเบียนพนักงาน</button><br><br>
 
     </div>
 

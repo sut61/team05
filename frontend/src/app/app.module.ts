@@ -15,6 +15,8 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 
 import { Controller } from './controller/controller';
@@ -35,6 +37,9 @@ import { CarComponent } from './car/car.component';
 import { CarService } from './shared/car.service';
 import { BillComponent } from './bill/bill.component';
 import { BounceComponent } from './bounce/bounce.component';
+import { SalaryComponent } from './salary/salary.component';
+import { SlipComponent } from './slip/slip.component';
+
 
 
 const appRoutes: Routes = [
@@ -52,7 +57,10 @@ const appRoutes: Routes = [
     { path: 'app-package',component: PackageComponent},
     { path: 'repairinfo', component: RepairinfoComponent },
     { path: 'car', component: CarComponent },
-    { path: 'bill', component: BillComponent }
+    { path: 'bill', component: BillComponent },
+    { path: 'salary',component: SalaryComponent },
+    { path: 'slip',component: SlipComponent },
+
 
 ];
 
@@ -72,7 +80,9 @@ const appRoutes: Routes = [
     PackageComponent,
     RepairinfoComponent,
     CarComponent,
-    BillComponent
+    BillComponent,
+    SalaryComponent,
+    SlipComponent
 
   ],
   imports: [
@@ -98,7 +108,9 @@ const appRoutes: Routes = [
     MatTableModule,
     MatDialogModule,
     MatSlideToggleModule,
-    MatIconModule
+    MatIconModule,
+    MatExpansionModule,
+    MatButtonToggleModule
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],

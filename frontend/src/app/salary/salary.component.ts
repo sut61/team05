@@ -95,6 +95,7 @@ constructor(private controller: Controller, private httpClient: HttpClient,priva
     },
     error => {
         console.log('Error to PUT Request', error);
+          alert('กรุณากรอกข้อมูลให้ครบถ้วน');
     }
   );
 }

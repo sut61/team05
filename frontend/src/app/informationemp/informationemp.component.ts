@@ -63,6 +63,50 @@ constructor(private controller: Controller, private httpClient: HttpClient) { }
 
  }
  save() {
+
+ if (this.views.firstname == null || this.views.firstname == '') {
+         alert('กรุณาเระบุชื่อ');
+       }
+       else if (this.views.lastname == null || this.views.lastname == '') {
+         alert('กรุณาเระบุนามสกุล');
+       }
+       else if (this.views.genderid == null || this.views.genderid == '') {
+         alert('กรุณาเลือกเพศ');
+       }
+       else if (this.views.phone == null || this.views.phone == '') {
+         alert('กรุณาระบุเบอร์โทรศัพท์');
+       }
+        else if (this.views.address == null || this.views.address == '') {
+          alert('กรุณาเลือกระบุที่อยู่');
+        }
+        else if (this.views.positionid == null || this.views.positionid == '') {
+          alert('กรุณาเลือกตำแหน่ง');
+        }
+        else if (this.views.bankempid == null || this.views.bankempid == '') {
+           alert('กรุณาเลือกธนาคาร');
+        }
+        else if (this.views.banknumber == null || this.views.banknumber == '') {
+           alert('กรุณาระบุเลขที่บัญชี่');
+        }
+        else if (this.views.email == null || this.views.email == '') {
+           alert('กรุณาระบุ Email');
+        }
+        else if (this.views.password == null || this.views.password == '') {
+           alert('กรุณาระบุ ญฟหหไนพก');
+        }
+
+        else {
+         console.log(this.views.firstname);
+         console.log(this.views.lastname);
+         console.log(this.views.genderid);
+         console.log(this.views.phone);
+         console.log(this.views.address);
+         console.log(this.views.positionid);
+         console.log(this.views.bankempid);
+         console.log(this.views.banknumber);
+         console.log(this.views.email);
+         console.log(this.views.password);
+
   this.httpClient.post('http://localhost:8080/informationemp/' + this.views.firstname + '/' + this.views.lastname
                        + '/' + this.views.genderid + '/' + this.views.phone + '/' + this.views.address + '/'
                        + this.views.positionid + '/' + this.views.bankempid + '/' + this.views.banknumber + '/'
@@ -70,13 +114,17 @@ constructor(private controller: Controller, private httpClient: HttpClient) { }
   .subscribe(
     data => {
         console.log('PUT Request is successful', data);
+        alert("บันทึกสำเร็จ");
+                 this.router.navigate(['/app-loginemployee'])
     },
     error => {
         console.log('Error to PUT Request', error);
+         alert('กรุณากรอกข้อมูลให้ครบถ้วน');
     }
   );
 }
 
+}
 }
 
 
