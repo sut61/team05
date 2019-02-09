@@ -40,12 +40,6 @@ public class Sender {
     @JsonIgnore
     private Link link;
 
-    //Many To One with Gender
-    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Gender.class)
-    @JoinColumn(name = "GId")
-    @JsonIgnore
-    private Gender gender;
-
     //Many To One with Provincesen
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Provincesen.class)
     @JoinColumn(name = "SPSId")

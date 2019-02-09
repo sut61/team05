@@ -27,7 +27,6 @@ public class Receiver {
     @Column(name="RECEIVER_ID",unique = true, nullable = true)
 
     private Long receiverId;
-    private @NonNull String receiver;
     private @NonNull String firstname;
     private @NonNull String lastname;
     private @NonNull String address;
@@ -46,8 +45,5 @@ public class Receiver {
     @JoinColumn(name = "RLId")
     @JsonIgnore
     private Link link;
-
-
-
 
 }
