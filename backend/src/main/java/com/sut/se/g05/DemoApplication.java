@@ -239,6 +239,21 @@ public class DemoApplication {
 			carRepository.save(c2);
 			carRepository.save(c3);
 
+			CarInformation carInfo = new CarInformation();
+				carInfo.setAddress("49/7 หมู่ 9 หมู่บ้านชลเทพ ต.บางพลีใหญ่ อ.บางพลี จ.สมุทรปราการ 10540");
+				carInfo.setAge(20);
+				carInfo.setTelephone("0988313467");
+				carInfo.setName("tanz");
+				carInformationRepository.save(carInfo);
+			
+				Carcontrol control = new Carcontrol();
+				control.setInformation(carInfo);
+				control.setTime(new Date());				
+				CarStatus cStatus = carStatusRepository.findByStatusType("ส่ง");
+				control.setStatusType(cStatus);
+				control.setAnnotation("สวัสดีวันนี้ไปส่งแล้วรถน้ำมัยหมดแย่มากๆเลยอ่ะ");
+				carcontrolRepository.save(control);
+
 
 			/////////////////////////////////////////////////////PIN////////////////////////////////////////////////////////////
 
