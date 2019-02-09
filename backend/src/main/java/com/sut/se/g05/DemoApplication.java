@@ -176,7 +176,7 @@ public class DemoApplication {
 			deduetionRepository.save(deduetion9);
 
 
-			bankempRepository.findAll().forEach(System.out::println);
+			deduetionRepository.findAll().forEach(System.out::println);
 			bankempRepository.findAll().forEach(System.out::println);
 			genderRepository.findAll().forEach(System.out::println);
 			positionRepository.findAll().forEach(System.out::println);
