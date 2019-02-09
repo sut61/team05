@@ -27,7 +27,7 @@ public class DemoApplication {
 						   PackageRepository packageRepository, PositionRepository positionRepository, ProvinceRepository provinceRepository,
 						   ProvincesenRepository provincesenRepository, ReceiverRepository receiverRepository, RepairinfoRepository repairinfoRepository,
 						   SenderRepository senderRepository, CarryRepository carryRepository, BillRepository billRepository,
-						   PaidStatusRepository paidStatusRepository) {
+						   PaidStatusRepository paidStatusRepository , DeduetionRepository deduetionRepository) {
 		return args -> {
 			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท"
 					,"ชัยภูมิ","ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช"
