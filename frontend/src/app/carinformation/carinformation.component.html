@@ -1,73 +1,70 @@
 <body background = "https://static1.squarespace.com/static/5275210fe4b0ca19be78e544/t/55ac6b8fe4b004612081350e/1437363087505/Watercolor+desktop+2560+x+1440.jpg"width="50%" height="50%">
-<div style="text-align:center"><br><br>
-  <h1>
-    <a style="color:black;">ลงทะเบียนพนักงานขับรถ</a>
-  
-</h1>
-<br>
+  <div style="text-align:center"><br>
+    <h1>
+      <a style="color:black;">ลงทะเบียนพนักงานขับรถ</a>
+    </h1>
   <table align ="center" width="400" height="400">
- 
-<br><br>
-
-    <mat-form-field appearance="outline">
-      <mat-label>name</mat-label>
-      <input matInput placeholder="name" [(ngModel)]="views.name" name = "name">
-      <!--<mat-icon matSuffix>sentiment_very_satisfied</mat-icon>-->
-    </mat-form-field>
-&nbsp;
-
-    <mat-form-field appearance="outline">
-      <input matInput placeholder="address" [(ngModel)]="views.address" name = "address">
+   <mat-form-field appearance="outline">
+        <mat-label>name</mat-label>
+        <input matInput placeholder="name" [(ngModel)]="views.name" name = "name">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
-<br><br>
-    <mat-form-field apearance="outline">
-      <mat-label>Telephone</mat-label>
-       <input matInput placeholder="Telephone" [(ngModel)]="views.telephone" name = "telephone">
-   </mat-form-field>
- &nbsp;
-    <mat-form-field apearance="outline">
-      <mat-label>Age</mat-label>
-      <input matInput placeholder="Age" [(ngModel)]="views.age" name = "age">
-    </mat-form-field>
- 
- <br><br>
-    <mat-form-field appearance="outline">
-      <mat-select placeholder="gender" [(ngModel)]="views.gender" name = "gender" >
-      <mat-option *ngFor="let gender of gender" [value]="gender.genderId">
-        {{gender.gender}}
-      </mat-option>
-   </mat-select>
-    </mat-form-field>
- &nbsp;
-    <mat-form-field appearance="outline">
-      <mat-select placeholder="carbrand" [(ngModel)]="views.carbrand" name = "carbrand">
-      <mat-option *ngFor="let carbrand of car" [value]="carbrand.carId"  >
-          {{carbrand.carbrand}}  {{carbrand.licenseplate}}
-         </mat-option>
-      </mat-select>
+  
+  <mat-form-field appearance="outline">
+          <mat-label>address</mat-label>
+        <input matInput placeholder="address" [(ngModel)]="views.address" name = "address">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
-  <br><br>
-    <mat-form-field appearance="outline">
-      <mat-select placeholder="province" [(ngModel)]="views.provice" name = "province" >
-      <mat-option *ngFor="let province of province" [value]="province.provinceId">
-          {{province.province}}
-      </mat-option>
-    </mat-select>
-       </mat-form-field>
-&nbsp;
-<!--
-    <mat-form-field appearance="outline">
-      <input matInput placeholder="licenseplate" [(ngModel)]="views.licenseplate" name = "licenseplate">
-     
+  
+      <mat-form-field appearance="outline">
+          <mat-label>Telephone</mat-label>
+       <input matInput placeholder="Telephone" [(ngModel)]="views.telephone" name = "telephone">
+       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+     </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Age</mat-label>
+      <input matInput placeholder="Age" [(ngModel)]="views.age" name = "age">
+     <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
     </mat-form-field>
-<br><br>
--->
-
-</table>
-
+  
+    <mat-form-field appearance="outline">
+        <mat-select placeholder="gender" [(ngModel)]="views.gender" name = "gender" >
+        <mat-option *ngFor="let gender of gender" [value]="gender.genderId">
+          {{gender.gender}}
+        </mat-option>
+     </mat-select>
+      </mat-form-field>
+   
+    <mat-form-field appearance="outline">
+        <mat-select placeholder="carbrand" [(ngModel)]="views.carbrand" name = "carbrand">
+        <mat-option *ngFor="let carbrand of car" [value]="carbrand.carId"  >
+            {{carbrand.carbrand}}  {{carbrand.licenseplate}}
+           </mat-option>
+        </mat-select>
+          </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-select placeholder="province" [(ngModel)]="views.provice" name = "province" >
+        <mat-option *ngFor="let province of province" [value]="province.provinceId">
+            {{province.province}}
+        </mat-option>
+      </mat-select>
+         </mat-form-field>
+  
+  <!--
+      <mat-form-field appearance="outline">
+        <input matInput placeholder="licenseplate" [(ngModel)]="views.licenseplate" name = "licenseplate">
+       
+      </mat-form-field>
+  <br><br>
+  -->
+  </table>
+  
   <button class='button'  mat-button (click)="save()"> ยืนยันการลงทะเบียน</button>
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <button class='button'  mat-button > ยกเลิก</button>
-</div>
-</body>
-
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button class='button'  mat-button > ยกเลิก</button>
+  </div>
+  </body>
+  
+  

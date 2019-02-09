@@ -216,6 +216,12 @@ public class DemoApplication {
 				carBrandRepository.save(cb);
 			});
 
+			Stream.of("รับ","ส่ง").forEach(Carstatus ->{
+				CarStatus cStatus = new CarStatus();
+				cStatus.setStatusType(Carstatus);
+				carStatusRepository.save(cStatus);
+			});
+
 			CarBrand cb1 = carBrandRepository.getOne((long)1);
 			CarBrand cb2 = carBrandRepository.getOne((long)2);
 			CarBrand cb3 = carBrandRepository.getOne((long)3);
