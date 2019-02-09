@@ -1,0 +1,24 @@
+<mat-accordion  *ngFor="let user of salary">
+
+  <mat-expansion-panel (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false"
+
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-description>
+        Currently I am {{panelOpenState ? 'open' : 'closed'}}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <h4 style="text-align:center"><b>Slip</b></h4>
+    <p >ชื่อ : {{user.name}}</p>
+    <p>ตำแหน่ง : {{user.position.positionlevel}}</p>
+    <p>ธนาคาร : {{user.bankemp.bankname}}</p>
+    <p>เลขที่บัญชี : {{user.banknumber}}</p>
+    <p>จำนวนเงินที่หัก : {{user.deduetion.deduetionnumber}}</p>
+    <p>เจำนวนเงินคงเหลือ : {{user.balance}}</p>
+    <h5 style="text-align:center;">
+      <input type="button" value="Print" onclick="window.print()">
+    </h5>
+  </mat-expansion-panel>
+  <br>
+</mat-accordion>
