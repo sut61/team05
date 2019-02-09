@@ -4,19 +4,19 @@ import { Controller } from'../controller/controller';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-reg-d',
-  templateUrl: './reg-d.component.html',
-  styleUrls: ['./reg-d.component.css']
+selector: 'app-reg-d',
+templateUrl: './reg-d.component.html',
+styleUrls: ['./reg-d.component.css']
 })
 export class RegDComponent implements OnInit {
-  province: Array<any>;
-  provinceNameSelect='';
+province: Array<any>;
+provinceNameSelect='';
 
-  firstnamerecInput: Array<any>;
-  lastnamerecInput: Array<any>;
-  addressrecInput: Array<any>;
-  postcoderecInput: Array<any>;
-  phonerecInput: Array<any>;
+firstnamerecInput: Array<any>;
+lastnamerecInput: Array<any>;
+addressrecInput: Array<any>;
+postcoderecInput: Array<any>;
+phonerecInput: Array<any>;
 
 views: any = {
 
@@ -29,7 +29,7 @@ phonerecInput:'',
 
 };
 
-  constructor(private controller: Controller, private httpClient: HttpClient, private router: Router) { }
+constructor(private controller: Controller, private httpClient: HttpClient, private router: Router) { }
 
   ngOnInit() {
 
