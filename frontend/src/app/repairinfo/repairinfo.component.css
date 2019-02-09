@@ -21,3 +21,8 @@
     height: 150px;
     width: 150px;
   }
+  
+  body {
+    background-position: center;
+    height: 751px;
+  }

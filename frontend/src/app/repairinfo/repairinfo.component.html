@@ -1,11 +1,11 @@
+<body background = "https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX6607438.jpg">
 <div class="w3-display-middle">
   <mat-card class="card2">
     <div style="text-align:right;">
-      <button mat-raised-button color="warn" [routerLink]="['/mainmenu']">ย้อนกลับ</button>
+      <button mat-raised-button color="warn" [routerLink]="['/app-menu']">ย้อนกลับ</button>
     </div><br>
     <h2 style="text-align:center;">แจ้งซ่อมรถเสีย</h2><br>
 
-    <form #regisForm="ngForm" (ngSubmit)="save()">
     <div style="text-align:center;">
 
     <mat-form-field class="example-full-width">
@@ -36,12 +36,12 @@
         <mat-label>เบอร์โทรศัพท์</mat-label>
         <input matInput placeholder="เบอร์โทร" [(ngModel)]="repairinfo.phone" name="phone" required>
       </mat-form-field>
-      <h6 style="text-align:center;">*** กรอกข้อมูลให้ครบถ้วน จึงจะสามารถบันทึกข้อมูลได้</h6>
     </div>
 
     <div style="text-align:center;">
-      <br><button mat-raised-button color="primary"  id="reg" [disabled]="regisForm.invalid || checkSelected == false">บันทึก</button>
+      <br><button mat-raised-button color="primary" (click)="save()">บันทึก</button>
     </div>
-    </form>
+    
   </mat-card>
 </div>
+</body>

@@ -40,6 +40,7 @@ import { BounceComponent } from './bounce/bounce.component';
 import { BounceService } from './shared/bounce/bounce.service';
 import { SalaryComponent } from './salary/salary.component';
 import { SlipComponent } from './slip/slip.component';
+import { CommentComponent } from './comment/comment.component';
 
 
 
@@ -62,6 +63,7 @@ const appRoutes: Routes = [
     { path: 'salary',component: SalaryComponent },
     { path: 'slip',component: SlipComponent },
     { path: 'bounce' ,component:BounceComponent },
+    { path: 'comment', component: CommentComponent },
 
 
 ];
@@ -86,6 +88,7 @@ const appRoutes: Routes = [
     SalaryComponent,
     SlipComponent,
     BounceComponent,
+    CommentComponent,
 
   ],
   imports: [
