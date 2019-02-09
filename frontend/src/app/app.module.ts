@@ -41,6 +41,8 @@ import { BounceService } from './shared/bounce/bounce.service';
 import { SalaryComponent } from './salary/salary.component';
 import { SlipComponent } from './slip/slip.component';
 import { CommentComponent } from './comment/comment.component';
+import { CarcontrolComponent } from './carcontrol/carcontrol.component';
+import { CarcontrolService } from './shared/Carcontrol/carcontrol.service';
 
 
 
@@ -64,6 +66,7 @@ const appRoutes: Routes = [
     { path: 'slip',component: SlipComponent },
     { path: 'bounce' ,component:BounceComponent },
     { path: 'comment', component: CommentComponent },
+    { path: 'carcontrol',component: CarcontrolComponent}
 
 
 ];
@@ -89,6 +92,7 @@ const appRoutes: Routes = [
     SlipComponent,
     BounceComponent,
     CommentComponent,
+    CarcontrolComponent
 
   ],
   imports: [
@@ -120,7 +124,7 @@ const appRoutes: Routes = [
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
-  providers: [Controller, PackageService, CarService, BounceService],
+  providers: [Controller, PackageService, CarService, BounceService,CarcontrolService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
