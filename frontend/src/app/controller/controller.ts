@@ -70,4 +70,12 @@ constructor(
       getReceiver(): Observable<any> {
         return this.httpClient.get(this.API + '/receiver');
       }
+
+      getDeduetion(): Observable<any> {
+         return this.httpClient.get(this.API + '/Deduetion');
+      }
+
+      getSalary(): Observable<any> {
+         return this.httpClient.get(this.API + '/Salary');
+      }
 }
