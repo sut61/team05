@@ -29,7 +29,8 @@ public class DemoApplication {
 						   SenderRepository senderRepository, CarryRepository carryRepository, BillRepository billRepository,
 						   PaidStatusRepository paidStatusRepository , DeduetionRepository deduetionRepository, LevelRepository levelRepository,
 						   CommentRepository commentRepository, LinksenRepository linksenRepository, TypeproductRepository typeproductRepository,
-						   BounceRepository bounceRepository) {
+						   BounceRepository bounceRepository,
+						   CarcontrolRepository carcontrolRepository,CarStatusRepository carStatusRepository) {
 		return args -> {
 
 			Stream.of("อุปกรณ์อิเล็กทรอนิกส์","อุปกรณ์เครื่องเขียน","เสื้อผ้า","เครื่องสำอาง","กระเป๋า","รองเท้า","เครื่องประดับ").forEach(typeproducts -> {

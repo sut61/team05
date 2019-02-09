@@ -1,4 +1,4 @@
-package com.sut.se.g05.Controller;
+package com.sut.se.g05.controller;
 
 import com.sut.se.g05.entity.*;
 import com.sut.se.g05.repository.*;
