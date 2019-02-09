@@ -41,14 +41,6 @@ public class Bounce {
     @ManyToOne
     private Province province;
 
-    /*
-    @NotNull @Column(unique = true)
-    private String ice;
-    @NotNull
-    @Size(min=13, max=13)
-    @Pattern(regexp="[^0]\\d+")
-    private String human;
-    */
 
     //Many To One with Linksen
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Linksen.class)

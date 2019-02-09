@@ -46,7 +46,10 @@ public class Sender {
     @JsonIgnore
     private Provincesen provincesen;
 
-    @ManyToOne
+    //Many To One with Gender
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Gender.class)
+    @JoinColumn(name = "GId")
+    @JsonIgnore
     private Gender gender;
 
 }

@@ -37,6 +37,7 @@ import { CarComponent } from './car/car.component';
 import { CarService } from './shared/car.service';
 import { BillComponent } from './bill/bill.component';
 import { BounceComponent } from './bounce/bounce.component';
+import { BounceService } from './shared/bounce/bounce.service';
 import { SalaryComponent } from './salary/salary.component';
 import { SlipComponent } from './slip/slip.component';
 
@@ -60,6 +61,7 @@ const appRoutes: Routes = [
     { path: 'bill', component: BillComponent },
     { path: 'salary',component: SalaryComponent },
     { path: 'slip',component: SlipComponent },
+    { path: 'bounce' ,component:BounceComponent },
 
 
 ];
@@ -82,7 +84,8 @@ const appRoutes: Routes = [
     CarComponent,
     BillComponent,
     SalaryComponent,
-    SlipComponent
+    SlipComponent,
+    BounceComponent,
 
   ],
   imports: [
@@ -114,7 +117,7 @@ const appRoutes: Routes = [
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
-  providers: [Controller, PackageService, CarService],
+  providers: [Controller, PackageService, CarService, BounceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
