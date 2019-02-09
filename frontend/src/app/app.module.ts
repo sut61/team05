@@ -73,9 +73,7 @@ const appRoutes: Routes = [
     MenuComponent,
     PackageComponent,
     RepairinfoComponent,
-    BillComponent,
-    SalaryComponent,
-    SlipComponent,
+    BillComponent
 
   ],
   imports: [
