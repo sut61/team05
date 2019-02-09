@@ -27,8 +27,18 @@ public class DemoApplication {
 						   PackageRepository packageRepository, PositionRepository positionRepository, ProvinceRepository provinceRepository,
 						   ProvincesenRepository provincesenRepository, ReceiverRepository receiverRepository, RepairinfoRepository repairinfoRepository,
 						   SenderRepository senderRepository, CarryRepository carryRepository, BillRepository billRepository,
-						   PaidStatusRepository paidStatusRepository , DeduetionRepository deduetionRepository, LevelRepository levelRepository, CommentRepository commentRepository) {
+						   PaidStatusRepository paidStatusRepository , DeduetionRepository deduetionRepository, LevelRepository levelRepository,
+						   CommentRepository commentRepository, LinksenRepository linksenRepository, TypeproductRepository typeproductRepository,
+						   BounceRepository bounceRepository) {
 		return args -> {
+
+			Stream.of("อุปกรณ์อิเล็กทรอนิกส์","อุปกรณ์เครื่องเขียน","เสื้อผ้า","เครื่องสำอาง","กระเป๋า","รองเท้า","เครื่องประดับ").forEach(typeproducts -> {
+				Typeproduct t = new Typeproduct();
+				t.setTypeproduct(typeproducts);
+				typeproductRepository.save(t);
+
+			});
+
 			Stream.of("กรุงเทพมหานคร","กระบี่","กาญจนบุรี","กาฬสินธุ์","กำแพงเพชร","ขอนแก่น","จันทบุรี","ฉะเชิงเทรา","ชลบุรี","ชัยนาท"
 					,"ชัยภูมิ","ชุมพร","เชียงราย","เชียงใหม่","ตรัง","ตราด","ตาก","นครนายก","นครปฐม","นครพนม","นครราชสีมา","นครศรีธรรมราช"
 					,"นครสวรรค์","นนทบุรี","นราธิวาส","น่าน","บึงกาฬ","บุรีรัมย์","ปทุมธานี","ประจวบคีรีขันธ์","ปราจีนบุรี","ปัตตานี","พระนครศรีอยุธยา"
@@ -53,21 +63,143 @@ public class DemoApplication {
 			genderRepository.save(g);
 			genderRepository.save(g2);
 
-			Sender s = new Sender();
-			s.setFirstname("แพรวโพยม");
-			s.setLastname("สอนสุภาพ");
-			s.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
-			s.setPostcode("65180");
-			s.setPhone("0956399315");
-			s.setEmail("ice@gmail.com");
-			s.setPassword("123");
+			Bounce a = new Bounce();
+			a.setReason("สินค้าแตกหัก");
+			Typeproduct t = typeproductRepository.findBytypeproduct("รองเท้า");
+			a.setTypeproduct(t);
 
-			Receiver r = new Receiver();
-			r.setFirstname("แพรวโพยม");
-			r.setLastname("สอนสุภาพ");
-			r.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
-			r.setPostcode("65180");
-			r.setPhone("0956399315");
+			Stream.of("อนุพงษ์","แพรวโพยม","สิริลักษณ์", "เบญจมาศ","ฐิติมากานต์").forEach(senders -> {
+				Sender s = new Sender();
+				s.setFirstname(senders);
+				senderRepository.save(s);
+
+				if(senders == "อนุพงษ์") {
+					s.setLastname("ชัยสวรรค์");
+					s.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+					Provincesen provincesen = provincesenRepository.findByprovincesen("นครราชสีมา");
+					s.setProvincesen(provincesen);
+					s.setPostcode("65180");
+					s.setPhone("0956399315");
+					s.setEmail("ice@gmail.com");
+					s.setPassword("123");
+					senderRepository.save(s);
+					senderRepository.findAll().forEach(System.out::println);
+				}
+
+				else if (senders == "แพรวโพยม") {
+					s.setLastname("ทองศรี");
+					s.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+					Provincesen provincesen = provincesenRepository.findByprovincesen("พิษณุโลก");
+					s.setProvincesen(provincesen);
+					s.setPostcode("65180");
+					s.setPhone("0956399315");
+					s.setEmail("ice@gmail.com");
+					s.setPassword("123");
+					senderRepository.save(s);
+					senderRepository.findAll().forEach(System.out::println);
+				}
+
+				else if (senders == "สิริลักษณ์") {
+					s.setLastname("เกิดมี");
+					s.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+					Provincesen provincesen = provincesenRepository.findByprovincesen("กรุงเทพมหานคร");
+					s.setProvincesen(provincesen);
+					s.setPostcode("65180");
+					s.setPhone("0956399315");
+					s.setEmail("ice@gmail.com");
+					s.setPassword("123");
+					senderRepository.save(s);
+					senderRepository.findAll().forEach(System.out::println);
+				}
+
+				else if(senders == "เบญจมาศ") {
+					s.setLastname("มัจฉา");
+					s.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+					Provincesen provincesen = provincesenRepository.findByprovincesen("บุรีรัมย์");
+					s.setProvincesen(provincesen);
+					s.setPostcode("65180");
+					s.setPhone("0956399315");
+					s.setEmail("ice@gmail.com");
+					s.setPassword("123");
+					senderRepository.save(s);
+					senderRepository.findAll().forEach(System.out::println);
+				}
+
+				else if(senders == "ฐิติมากานต์") {
+					s.setLastname("สอนสุภาพ");
+					s.setAddress("37/2 หมู่3 ตำบลสุรนารี อำเภอเมืองนครราชสีมา");
+					Provincesen provincesen = provincesenRepository.findByprovincesen("นครราชสีมา");
+					s.setProvincesen(provincesen);
+					s.setPostcode("65180");
+					s.setPhone("0956399315");
+					s.setEmail("ice@gmail.com");
+					s.setPassword("123");
+					senderRepository.save(s);
+					senderRepository.findAll().forEach(System.out::println);
+				}
+
+			});
+
+			Stream.of("แพรวโพยม","ฐิติมากานต์","สิริลักษณ์", "เบญจมาศ","อนุพงษ์").forEach(receivers -> {
+				Receiver r = new Receiver();
+				r.setFirstname(receivers);
+				receiverRepository.save(r);
+
+				if (receivers == "แพรวโพยม") {
+					r.setLastname("ทองศรี");
+					r.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+					Province province = provinceRepository.findByprovince("พิษณุโลก");
+					r.setProvince(province);
+					r.setPostcode("65180");
+					r.setPhone("0956399315");
+					receiverRepository.save(r);
+					receiverRepository.findAll().forEach(System.out::println);
+				}
+
+				else if(receivers == "ฐิติมากานต์") {
+					r.setLastname("สอนสุภาพ");
+					r.setAddress("37/2 หมู่3 ตำบลสุรนารี อำเภอเมืองนคราชสีมา");
+					Province province = provinceRepository.findByprovince("นครราชสีมา");
+					r.setProvince(province);
+					r.setPostcode("65180");
+					r.setPhone("0956399315");
+					receiverRepository.save(r);
+					receiverRepository.findAll().forEach(System.out::println);
+				}
+
+				else if (receivers == "สิริลักษณ์") {
+					r.setLastname("เกิดมี");
+					r.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+					Province province = provinceRepository.findByprovince("กรุงเทพมหานคร");
+					r.setProvince(province);
+					r.setPostcode("65180");
+					r.setPhone("0956399315");
+					receiverRepository.save(r);
+					receiverRepository.findAll().forEach(System.out::println);
+				}
+
+				else if(receivers == "เบญจมาศ") {
+					r.setLastname("มัจฉา");
+					r.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+					Province province = provinceRepository.findByprovince("บุรีรัมย์");
+					r.setProvince(province);
+					r.setPostcode("65180");
+					r.setPhone("0956399315");
+					receiverRepository.save(r);
+					receiverRepository.findAll().forEach(System.out::println);
+				}
+
+				else if(receivers == "อนุพงษ์") {
+					r.setLastname("ชัยสวรรค์");
+					r.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+					Province province = provinceRepository.findByprovince("นครราชสีมา");
+					r.setProvince(province);
+					r.setPostcode("65180");
+					r.setPhone("0956399315");
+					receiverRepository.save(r);
+					receiverRepository.findAll().forEach(System.out::println);
+				}
+			});
 
 			Gender gender = genderRepository.findBygender("ชาย");
 			Gender gender2 = genderRepository.findBygender("หญิง");
@@ -79,7 +211,8 @@ public class DemoApplication {
 			Provincesen provincesen = provincesenRepository.findByprovincesen("พิษณุโลก");
 			s.setProvincesen(provincesen);
 
-
+			bounceRepository.save(a);
+			bounceRepository.findAll().forEach(System.out::println);
 			senderRepository.save(s);
 			senderRepository.findAll().forEach(System.out::println);
 			receiverRepository.save(r);
