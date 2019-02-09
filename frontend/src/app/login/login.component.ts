@@ -50,8 +50,7 @@ a:any;
     }
   }
     if(this.count === 0){
-      alert("Invalid");
-      this.count = 0;
+      this.openDialog();
   }
   }
   func_login(){
