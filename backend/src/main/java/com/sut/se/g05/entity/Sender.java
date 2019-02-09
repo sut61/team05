@@ -46,4 +46,7 @@ public class Sender {
     @JsonIgnore
     private Provincesen provincesen;
 
+    @ManyToOne
+    private Gender gender;
+
 }

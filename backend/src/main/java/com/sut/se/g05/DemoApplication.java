@@ -29,7 +29,7 @@ public class DemoApplication {
 						   SenderRepository senderRepository, CarryRepository carryRepository, BillRepository billRepository,
 						   PaidStatusRepository paidStatusRepository , DeduetionRepository deduetionRepository, LevelRepository levelRepository,
 						   CommentRepository commentRepository, LinksenRepository linksenRepository, TypeproductRepository typeproductRepository,
-						   BounceRepository bounceRepository,
+						   BounceRepository bounceRepository, CarBrandRepository carBrandRepository,
 						   CarcontrolRepository carcontrolRepository,CarStatusRepository carStatusRepository) {
 		return args -> {
 
@@ -200,35 +200,33 @@ public class DemoApplication {
 					receiverRepository.save(r);
 					receiverRepository.findAll().forEach(System.out::println);
 				}
+
 			});
 
-			Gender gender = genderRepository.findBygender("ชาย");
-			Gender gender2 = genderRepository.findBygender("หญิง");
-			s.setGender(gender);
-			s.setGender(gender2);
-
-			Province province = provinceRepository.findByprovince("พิษณุโลก");
-			r.setProvince(province);
-			Provincesen provincesen = provincesenRepository.findByprovincesen("พิษณุโลก");
-			s.setProvincesen(provincesen);
 
 			bounceRepository.save(a);
 			bounceRepository.findAll().forEach(System.out::println);
-			senderRepository.save(s);
-			senderRepository.findAll().forEach(System.out::println);
-			receiverRepository.save(r);
-			receiverRepository.findAll().forEach(System.out::println);
+
 
 			/////////////////////////////////////////////////////TAN////////////////////////////////////////////////////////////
 
+			Stream.of("Toyota","Isuzu","Nissan").forEach(carbrand -> {
+				CarBrand cb = new CarBrand();
+				cb.setBrand(carbrand);
+				carBrandRepository.save(cb);
+			});
+
+			CarBrand cb1 = carBrandRepository.getOne((long)1);
+			CarBrand cb2 = carBrandRepository.getOne((long)2);
+			CarBrand cb3 = carBrandRepository.getOne((long)3);
 			Car c1 = new Car();
-			c1.setCarbrand("จักยานสี่ล้อ");
+			c1.setBrand(cb1);
 			c1.setLicenseplate("กก-99");
 			Car c2 = new Car();
-			c2.setCarbrand("กะบะห้าล้อ");
+			c2.setBrand(cb2);
 			c2.setLicenseplate("กก-999");
 			Car c3 = new Car();
-			c3.setCarbrand("รถพ่วง25ล้อ");
+			c3.setBrand(cb3);
 			c3.setLicenseplate("กก-9999");
 
 			carRepository.save(c1);
@@ -324,7 +322,8 @@ public class DemoApplication {
 
 
 			/////////////////////////////////////////////////////SHOOMPU////////////////////////////////////////////////////////////
-
+			Receiver r = receiverRepository.getOne((long)1);
+			Province p = provinceRepository.getOne((long)1);
 			Carry carry = new Carry();
 			carry.setDate(new Date());
 			carry.setStatus("ส่งแล้ว");
@@ -335,7 +334,7 @@ public class DemoApplication {
 
 			Linked linked = new Linked();
 			linked.setCarryLinked(carry);
-			linked.setProvinceLinked(province);
+			linked.setProvinceLinked(p);
 			linkedRepository.save(linked);
 
 

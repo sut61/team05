@@ -19,7 +19,7 @@
     <mat-form-field class="example-full-width">
       <mat-select placeholder="ทะเบียนรถ" name="car" [(ngModel)]="repairinfo.car" required>
         <mat-option *ngFor="let car of cars" [value]="car">
-          {{car.carbrand}}
+          {{car.licenseplate}}
         </mat-option>
       </mat-select>
     </mat-form-field>

@@ -19,7 +19,7 @@ import javax.persistence.Entity;
 public class Linksen {
 
     @Id
-    @SequenceGenerator(name="linksenseq",sequenceName="linksen_seq")
+    @SequenceGenerator(name="linksen_seq",sequenceName="linksen_seq")
     @GeneratedValue(generator="linksen_seq",strategy=GenerationType.SEQUENCE)
     @Column(name="LINKSEN_ID",unique = true, nullable = true)
 

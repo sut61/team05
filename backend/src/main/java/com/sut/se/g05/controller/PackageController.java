@@ -35,33 +35,6 @@ public class PackageController {
         return packageRepository.findById(packid).get();
     }
 
-    @GetMapping(path = "/province", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Province> getProvince() {
-        return provinceRepository.findAll().stream().collect(Collectors.toList());
-    }
-    @GetMapping(path = "/province/{provinceId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Province getOneProvince(@PathVariable long provinceId){
-        return provinceRepository.findById(provinceId).get();
-    }
-
-
-    @GetMapping(path = "/sender", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Sender> getSender() {
-        return senderRepository.findAll().stream().collect(Collectors.toList());
-    }
-    @GetMapping(path = "/sender/{SenderId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Sender getOneSender(@PathVariable Long senderId){
-        return senderRepository.findById(senderId).get();
-    }
-
-    @GetMapping(path = "/receiver", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Receiver> getReceiver() {
-        return receiverRepository.findAll().stream().collect(Collectors.toList());
-    }
-    @GetMapping(path = "/receiver/{ReceiverId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Receiver getOneReceiver(@PathVariable Long receiverId){
-        return receiverRepository.findById(receiverId).get();
-    }
 
     @GetMapping(path = "/employee", produces = MediaType.APPLICATION_JSON_VALUE)
     public Collection<Informationemp> getEmployee() {
@@ -77,8 +50,8 @@ public class PackageController {
                               @PathVariable String supply, @PathVariable String receiverName,
                               @PathVariable Long province, @PathVariable Long employeeId) {
 
-        Sender sender = senderRepository.findByFirstname(senderName);
-        Receiver receiver = receiverRepository.findByFirstname(receiverName);
+        Sender sender = senderRepository.findByfirstname(senderName);
+        Receiver receiver = receiverRepository.findByfirstname(receiverName);
         Optional<Informationemp> employee = informationempRepository.findById(employeeId);
         Optional<Province> provinces = provinceRepository.findById(province);
 

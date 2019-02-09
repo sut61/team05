@@ -24,7 +24,7 @@ public class Package {
     private Date regDate;
     private Timestamp regTime;
     @NotNull
-    @Size(min = 1, max = 20)
+    @Size(min = 3, max = 20)
     @Pattern(regexp = "^[a-zA-Z0-9_\\-.]+$")
     private String supply;
 
