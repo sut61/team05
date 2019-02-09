@@ -1,0 +1,56 @@
+<body background = "https://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-903ea3cb.jpg">
+<div style="text-align:center">
+  <br><br>
+  <h1>
+    <a style="color:black;">BOUNCE SYSTEM</a>
+  </h1>
+
+  <mat-form-field appearance="outline" class="form-ice1">
+    <mat-select placeholder="Sender" [(ngModel)]="views.senderSelect">
+      <mat-option *ngFor="let sender of senders" [value]="sender.firstname">
+        {{sender.firstname}} {{sender.lastname}} {{sender.address}} {{sender.postcode}} {{sender.phone}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>&nbsp;&nbsp;
+
+  <mat-form-field appearance="outline" class="form-ice2">
+    <mat-select placeholder="Province Sender" [(ngModel)]="views.provincesenSelect" name="provincesen" >
+      <mat-option *ngFor="let provincesen of provincesens" [value]="provincesen.provincesen">
+        {{provincesen.provincesen}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+  <mat-form-field appearance="outline" class="form-ice1">
+    <mat-select placeholder="Receiver" [(ngModel)]="views.receiverSelect">
+      <mat-option *ngFor="let receiver of receivers" [value]="receiver.firstname">
+        {{receiver.firstname}} {{receiver.lastname}} {{receiver.address}} {{receiver.postcode}} {{receiver.phone}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>&nbsp;&nbsp;
+
+  <mat-form-field appearance="outline" class="form-ice2">
+    <mat-select placeholder="Province Receiver" [(ngModel)]="views.provinceSelect" name="province" >
+      <mat-option *ngFor="let province of provinces" [value]="province.province">
+        {{province.province}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+  <mat-form-field appearance="outline" class="form-ice">
+    <mat-label>Reason</mat-label>
+    <textarea matInput placeholder="Reason" [(ngModel)]="views.reasonInput" name="reason"></textarea>
+  </mat-form-field><br>
+
+  <mat-form-field appearance="outline" class="form-ice">
+    <mat-select placeholder="Type Product" [(ngModel)]="views.typeproductNameSelect">
+      <mat-option *ngFor="let typeproduct of typeproducts" [value]="typeproduct.typeproduct">
+        {{typeproduct.typeproduct}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field><br>
+
+  <button mat-raised-button color="warn" (click)="save_func()">บันทึกข้อมูล</button>
+</div>
+</body>
+
