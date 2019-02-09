@@ -44,16 +44,16 @@ a:any;
   this.count=0;
   for(this.a in this.sender){
     if(this.email == this.sender[this.a].email && this.password == this.sender[this.a].password){
-    //this.count = this.count+1;
      console.log("success");
     alert("Success");
     this.router.navigate(['reg-d']);
     }
-    else{
-      alert("fail");
+  }
+  else(){
+    console.log("Invalid");
+    this.openDialog();
     }
   }
 
-  }
 }
 
