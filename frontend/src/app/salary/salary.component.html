@@ -1,0 +1,57 @@
+<router-outlet></router-outlet>
+
+<div class="w3-display-middle">
+  <mat-card class="card1"><br><br><br>
+    <h1 style="text-align:center"><b>Salary</b></h1>
+
+  <form #regisForm="ngForm" (ngSubmit)="save()">
+    <div style="text-align:center">
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Name " [(ngModel)]="views.name" name="name" >
+      </mat-form-field><br>
+
+
+      <mat-form-field>
+        <mat-select  placeholder="Position" [(ngModel)]="views.positionid" name="position" >
+          <mat-option *ngFor="let Position of position" [value]="Position.positionid"  >
+            {{Position.positionlevel}}</mat-option>
+        </mat-select>
+      </mat-form-field><br>
+
+      <mat-form-field>
+        <mat-select  placeholder="Bank" [(ngModel)]="views.bankempid" name="bank" >
+          <mat-option *ngFor="let bank of bank" [value]="bank.bankempid"  >
+            {{bank.bankname}}</mat-option>
+        </mat-select>
+      </mat-form-field><br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Banknumber " [(ngModel)]="views.banknumber" name="banknumber" >
+      </mat-form-field><br>
+
+      <mat-form-field>
+        <mat-select  placeholder="Deduetion"  [(ngModel)]="views.deduetionid" name="deduetion">
+          <mat-option *ngFor="let Deduetion of deduetion" [value]="Deduetion.deduetionid"  >
+            {{Deduetion.deduetionnumber}}</mat-option>
+        </mat-select>
+      </mat-form-field><br>
+  
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Balance "  [(ngModel)]="views.balance" name="balance">
+      </mat-form-field><br><br>
+
+
+        <div style="text-align:center;">
+          <button mat-raised-button class="button2" color="warn" (click)="login()"   >Save</button>
+          </div>
+
+    </div>
+  </form>
+
+
+
+  </mat-card>
+
+</div>

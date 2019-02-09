@@ -1,0 +1,17 @@
+
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100px;
+    text-align: center;
+    font-size: 18px;
+  }
+  .card1{
+    width: 1500px;
+    height : 750px;
+    background-image: url("http://www.dolliehost.com/dolliecrave/backgrounds/pastel2/3.gif");
+  }
+  .abc{
+    font-size: 20px;
+  }
