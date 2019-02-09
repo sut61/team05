@@ -15,8 +15,6 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatMenuModule } from '@angular/material/menu';
-import {MatExpansionModule} from '@angular/material/expansion';
-import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
 
 import { Controller } from './controller/controller';
@@ -33,11 +31,8 @@ import { MenuComponent } from './menu/menu.component';
 import { RepairinfoComponent } from './repairinfo/repairinfo.component';
 import { PackageComponent } from './package/package.component';
 import { PackageService } from './shared/package/package.service';
-import { BillComponent } from './bill/bill.component';
-import { SalaryComponent } from './salary/salary.component';
-import { SlipComponent } from './slip/slip.component';
-import { CommentComponent } from './comment/comment.component';
-import { CarcontrolComponent } from './carcontrol/carcontrol.component';
+import { CarComponent } from './car/car.component';
+import { CarService } from './shared/car.service';
 
 
 const appRoutes: Routes = [
@@ -54,11 +49,7 @@ const appRoutes: Routes = [
     { path: 'app-menu',component: MenuComponent},
     { path: 'app-package',component: PackageComponent},
     { path: 'repairinfo', component: RepairinfoComponent },
-    { path: 'bill', component: BillComponent },
-    { path: 'salary',component: SalaryComponent },
-    { path: 'slip',component: SlipComponent },
-    { path: 'comment', component: CommentComponent },
-
+    { path: 'car', component: CarComponent },
 
 ];
 
@@ -77,12 +68,7 @@ const appRoutes: Routes = [
     MenuComponent,
     PackageComponent,
     RepairinfoComponent,
-    BillComponent,
-    SalaryComponent,
-    SlipComponent,
-    CommentComponent,
-    CarcontrolComponent,
-
+    CarComponent
 
   ],
   imports: [
@@ -109,12 +95,10 @@ const appRoutes: Routes = [
     MatDialogModule,
     MatSlideToggleModule,
     MatIconModule,
-    MatExpansionModule,
-    MatButtonToggleModule
 
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA],
-  providers: [Controller, PackageService],
+  providers: [Controller, PackageService, CarService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

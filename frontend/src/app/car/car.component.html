@@ -1,0 +1,47 @@
+<body background = "https://4.bp.blogspot.com/-RyU39vl_ppg/WPya7_wOQeI/AAAAAAAABjc/ENwQNPhFkIAf7cJMYaiRsyvJEr2LW06jACLcB/s1600/18.jpg">
+  <div>
+    <mat-toolbar>
+      <mat-toolbar-row class="example">
+        <a style="color:#1a1a1a;"><font size="6">Car Management</font></a>
+      </mat-toolbar-row>
+    </mat-toolbar><br><br><br><br><br><br>
+
+    <mat-form-field appearance="outline">
+        <mat-select placeholder="ยี่ห้อรถ" [(ngModel)]="select.nameCarBrand" name="nameCarBrand" >
+            <mat-option>None</mat-option>
+          <mat-option *ngFor="let nameCarBrand of nameCarBrand" [value]="nameCarBrand.brand"> 
+            {{nameCarBrand.brand}} 
+          </mat-option>
+        </mat-select>
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
+          <mat-label>เลขทะเบียนรถ</mat-label>
+          <input matInput placeholder="เลขทะเบียนรถ" [(ngModel)]="select.licenseplate" name="licenseplate">
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
+          <mat-label>จังหวัด</mat-label>
+          <mat-select placeholder="province" [(ngModel)]="select.nameprovince" name="nameprovince" >
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let nameprovince of nameprovince" [value]="nameprovince.province">
+              {{nameprovince.province}}
+            </mat-option>
+          </mat-select>
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
+          <mat-select placeholder="InsurerCompany" [(ngModel)]="select.namecompany" name="namecompany" >
+              <mat-option>None</mat-option>
+              <mat-option *ngFor="let namecompany of namecompany" [value]="namecompany.company">
+                {{namecompany.company}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field><br>
+    
+      <button mat-flat-button (click)="save()" [routerLink]="['/car']">บันทึก</button>&nbsp;&nbsp;
+      <button mat-flat-button (click)="save()" [routerLink]="['/car']">ยกเลิก</button>&nbsp;&nbsp;
+
+  </div> 
+</body>
+
