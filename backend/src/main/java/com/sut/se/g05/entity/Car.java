@@ -25,8 +25,19 @@ public class Car {
     @Column(name="carId",unique = true, nullable = true)
     
     private @NonNull Long carId;
-    private String carbrand;
-    private String licenseplate;
+    private @NonNull String licenseplate;
+
+    @ManyToOne
+	@JoinColumn(name="CarBrand_Name")
+	private CarBrand brand;
+	
+	@ManyToOne
+	@JoinColumn(name="CarInsurance_Name")
+	private CarInsurance company;
+	
+	@ManyToOne
+	@JoinColumn(name="Province_Name")
+    private Province province;
 
 
 }
