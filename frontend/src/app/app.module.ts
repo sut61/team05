@@ -36,6 +36,7 @@ import { PackageService } from './shared/package/package.service';
 import { BillComponent } from './bill/bill.component';
 import { SalaryComponent } from './salary/salary.component';
 import { SlipComponent } from './slip/slip.component';
+import { CommentComponent } from './comment/comment.component';
 
 
 const appRoutes: Routes = [
@@ -55,6 +56,8 @@ const appRoutes: Routes = [
     { path: 'bill', component: BillComponent },
     { path: 'salary',component: SalaryComponent },
     { path: 'slip',component: SlipComponent },
+    { path: 'comment', component: CommentComponent },
+
 
 ];
 
@@ -76,6 +79,7 @@ const appRoutes: Routes = [
     BillComponent,
     SalaryComponent,
     SlipComponent,
+    CommentComponent,
 
 
   ],
