@@ -91,15 +91,6 @@ public class BounceController {
     }
 
     //link
-    @GetMapping(path = "/link", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Link> getLink() {
-        return linkRepository.findAll().stream().collect(Collectors.toList());
-    }
-
-    @GetMapping(path = "/link/{linkId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Link getOneLink(@PathVariable long linkId){
-        return linkRepository.findById(linkId).get();
-    }
 
     //linksen
     @GetMapping(path = "/linksen", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -143,11 +134,15 @@ public class BounceController {
     ) {
         Bounce a = new Bounce();
         Typeproduct t = typeproductRepository.findBytypeproduct(typeproductNameSelect);
+        Sender s = senderRepository.findByfirstname(senderSelect);
+        Receiver r = receiverRepository.findByfirstname(receiverSelect);
+        Province p = provinceRepository.findByprovince(provinceSelect);
+        Provincesen ps = provincesenRepository.findByprovincesen(provincesenSelect);
 
-        a.setSender(senderSelect);
-        a.setProvincesen(provincesenSelect);
-        a.setReceiver(receiverSelect);
-        a.setProvince(provinceSelect);
+        a.setSender(s);
+        a.setProvincesen(ps);
+        a.setReceiver(r);
+        a.setProvince(p);
         a.setReason(reasonInput);
         a.setTypeproduct(t);
         return bounceRepository.save(a);

@@ -33,6 +33,8 @@ import { PackageComponent } from './package/package.component';
 import { PackageService } from './shared/package/package.service';
 import { CarComponent } from './car/car.component';
 import { CarService } from './shared/car.service';
+import { BillComponent } from './bill/bill.component';
+import { BounceComponent } from './bounce/bounce.component';
 
 
 const appRoutes: Routes = [
@@ -50,6 +52,7 @@ const appRoutes: Routes = [
     { path: 'app-package',component: PackageComponent},
     { path: 'repairinfo', component: RepairinfoComponent },
     { path: 'car', component: CarComponent },
+    { path: 'bill', component: BillComponent }
 
 ];
 
@@ -68,7 +71,8 @@ const appRoutes: Routes = [
     MenuComponent,
     PackageComponent,
     RepairinfoComponent,
-    CarComponent
+    CarComponent,
+    BillComponent
 
   ],
   imports: [

@@ -4,6 +4,8 @@ import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 import java.sql.Timestamp;
 
@@ -16,14 +18,16 @@ public class Bill {
     @SequenceGenerator(name = "bill_seq", sequenceName = "bill_seq")
     @GeneratedValue(strategy= GenerationType.SEQUENCE, generator="bill_seq")
     private Long bid;
-    @NotNull
+    @NotNull @Size(min = 3, max = 20)
+    @Pattern(regexp = "^[a-zA-Zก-๙]+$")
     private String recName;
-
+    @NotNull @Size(min = 10, max = 10) @Pattern(regexp = "^[\\d{10}]+$")
     private String phone;
     private Date paidDate;
     private Timestamp paidTime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = PaidStatus.class)
+    @JoinColumn(name = "psid")
     private PaidStatus status;
 
     @OneToOne(fetch = FetchType.EAGER, targetEntity = Carry.class)

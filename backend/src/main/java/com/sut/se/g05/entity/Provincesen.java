@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 @Data
 @Entity
 @Getter @Setter
+@NoArgsConstructor
 @ToString
 @EqualsAndHashCode
 @Table (name="Provincesen")
@@ -25,15 +26,11 @@ public class Provincesen {
     private Long provincesenId;
     private @NonNull String provincesen;
 
-    public Provincesen(String provincesen) {
-        this.provincesen = provincesen;
-    }
-
-    public String getProvincesen() {
+    public String getProvince() {
         return provincesen;
     }
 
-    public void setProvincesen(String provincesen) {
-        this.provincesen = provincesen;
+    public void setProvince(String province) {
+        this.provincesen = province;
     }
 }
