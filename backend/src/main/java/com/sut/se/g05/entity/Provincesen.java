@@ -12,7 +12,6 @@ import javax.persistence.Entity;
 @Data
 @Entity
 @Getter @Setter
-@NoArgsConstructor
 @ToString
 @EqualsAndHashCode
 @Table (name="Provincesen")
