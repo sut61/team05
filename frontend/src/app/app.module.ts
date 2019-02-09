@@ -37,6 +37,7 @@ import { BillComponent } from './bill/bill.component';
 import { SalaryComponent } from './salary/salary.component';
 import { SlipComponent } from './slip/slip.component';
 import { CommentComponent } from './comment/comment.component';
+import { CarcontrolComponent } from './carcontrol/carcontrol.component';
 
 
 const appRoutes: Routes = [
@@ -80,6 +81,7 @@ const appRoutes: Routes = [
     SalaryComponent,
     SlipComponent,
     CommentComponent,
+    CarcontrolComponent,
 
 
   ],

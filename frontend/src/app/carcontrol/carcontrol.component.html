@@ -1,0 +1,71 @@
+<body background = "https://static1.squarespace.com/static/5275210fe4b0ca19be78e544/t/55ac6b8fe4b004612081350e/1437363087505/Watercolor+desktop+2560+x+1440.jpg">
+  <div>
+      <h1>
+          <br>
+          <a style="color:black;">ออกใบคุมรถ</a>
+        </h1>
+      <br>
+     <mat-form-field class="form-tanz" appearance="outline">
+        <mat-select placeholder ="name" [(ngModel)]="select.name" name ="foo" >
+        <mat-option *ngFor="let name of info" [value]="name.carInformationId">
+            {{name.name}}
+        </mat-option>
+        </mat-select>
+    </mat-form-field><br>
+
+    <mat-form-field class="form-tanz" appearance="outline">
+        <mat-select placeholder="telephone" [(ngModel)]="select.telephone" name = "boo">
+        <mat-option *ngFor="let telephone of info" [value]="telephone.telephone">
+          {{telephone.telephone}}
+        </mat-option>
+      </mat-select>
+         </mat-form-field>
+      <br>
+
+      <mat-form-field class="form-tanz" appearance="outline">
+          <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="select.time" name = "time" >
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field><br><br>
+
+    <mat-form-field class="form-tanz" appearance="outline">
+        <mat-label>Status</mat-label>
+        <mat-select placeholder="status" [(ngModel)]="select.stype" name="stype">
+          <mat-option *ngFor="let stype of stype" [value]="stype.statusType">
+            {{stype.statusType}}
+           
+          </mat-option>
+        </mat-select>
+    </mat-form-field><br>
+
+        <mat-form-field class="form-tanz" appearance="outline">
+          <mat-label>comment*</mat-label>
+          <input matInput placeholder="comment*" [(ngModel)]="select.annotation" name = "annotation">
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+      <br>
+
+      
+
+    <mat-form-field class="form-tanz" appearance="outline">
+        <mat-label>จังหวัด</mat-label>
+        <mat-select placeholder="province" [(ngModel)]="select.nameprovince" name="prooooooooooo" >
+          <mat-option *ngFor="let nameprovince of nameprovinces" [value]="nameprovince.provinceId">
+            {{nameprovince.province}}
+          </mat-option>
+        </mat-select>
+    </mat-form-field><br>
+
+      <button mat-flat-button (click)="save()" [routerLink]="['/carcontrol']">บันทึก</button>&nbsp;&nbsp;
+      <button mat-flat-button (click)="save()" [routerLink]="['/carcontrol']">ยกเลิก</button>&nbsp;&nbsp;
+
+
+      <!-- 
+      <button class='button'  mat-button (click)="save()" > ยืนยัน</button>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <button class='button'  mat-button > ยกเลิก</button> -->
+      
+  </div> 
+</body>
+
