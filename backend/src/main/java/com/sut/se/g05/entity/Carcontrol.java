@@ -16,6 +16,10 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 @Data
 @Entity
 @Getter @Setter
@@ -30,12 +34,19 @@ public class Carcontrol {
     @Column(name="Carcontrol_ID",unique = true, nullable = false)
 
     private @NonNull Long carcontrolId;
+    
+    @NotNull
     private @NonNull Date time;
-	private @NonNull String annotation;
+    @NotNull
+    @Size(min=2,max=100)
+    @Pattern(regexp = "^[a-zA-Zก-๙]+$")
+	private  String annotation;
 
 	@ManyToOne
 	@JoinColumn(name="NameProvince")
 	private Province province;
+
+	
 	
 	@ManyToOne
 	@JoinColumn(name="StatusType")
