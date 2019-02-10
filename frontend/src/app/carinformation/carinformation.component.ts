@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-
+import { Router } from "@angular/router";
 import{Controller}from'../controller/controller';
 
 
@@ -44,7 +44,7 @@ export class CarinformationComponent implements OnInit {
 };
 
 
-  constructor(private controller:Controller,private httpClient: HttpClient) { }
+  constructor(private controller:Controller,private httpClient: HttpClient, private router: Router) { }
 
 
   ngOnInit() {

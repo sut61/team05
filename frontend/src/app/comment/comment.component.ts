@@ -64,16 +64,15 @@ constructor(
       
     .subscribe(
       data => {
-          alert("บันทึกสำเร็จ")
-          console.log('Successful', data);
-      },
-      error => {
-        alert("fail");
-    );
-    }
+                    alert("บันทึกสำเร็จ");
+                    console.log('PUT Request is successful', data);
+
+                },
+                error => {
+                          alert("fail");
+                          console.log('Error to PUT Request', error);
+                      }
+            );
     
   }
-
-  
-
 }

@@ -39,7 +39,7 @@ public class CarInformation {
 
     @NotNull
     @Size(min = 10, max = 10)
-    @Pattern(regexp = "^[0]\\d+")
+    @Pattern(regexp = "^[0]\\d+$")
     private  @NonNull String telephone;
     
     @NotNull
