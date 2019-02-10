@@ -20,9 +20,14 @@ public class Salary {
     @GeneratedValue(generator = "salary_seq", strategy = GenerationType.SEQUENCE)
     @NotNull
     private Long salaryid;
+
+    @NotNull
+    @Size(min=5, max=10)
     String name;
 
     @NotNull
+    @Size(min=12, max=12)
+    @Pattern(regexp="^[0]\\d+")
     String banknumber;
 
     @NotNull
@@ -63,7 +68,7 @@ public class Salary {
     }
 
     public Salary(String name, String banknumber, Integer balance, Position position, Bankemp bankemp,
-            Deduetion deduetion) {
+                  Deduetion deduetion) {
         this.name = name;
         this.banknumber = banknumber;
         this.balance = balance;
