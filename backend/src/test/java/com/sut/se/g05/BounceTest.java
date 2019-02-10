@@ -44,10 +44,6 @@ public class BounceTest {
     public void testBounceAllCorrect() {
         Bounce a = new Bounce();
         a.setReason("สินค้าแตกหัก");
-        a.setSender("แพรวโพยม");
-        a.setProvincesen("พิษณุโลก");
-        a.setReceiver("ฐิติมากานต์");
-        a.setProvince("น่าน");
 
         try {
             entityManager.persist(a);
@@ -85,10 +81,6 @@ public class BounceTest {
     public void testReasonNull() {
         Bounce a = new Bounce();
         a.setReason(null);
-        a.setSender("แพรวโพยม");
-        a.setProvincesen("พิษณุโลก");
-        a.setReceiver("ฐิติมากานต์");
-        a.setProvince("น่าน");
 
         try {
             entityManager.persist(a);

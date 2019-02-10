@@ -1,4 +1,4 @@
-package com.example.demo.entity;
+package com.sut.se.g05.entity;
 
 import lombok.*;
 

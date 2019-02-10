@@ -46,13 +46,14 @@ a:any;
     if(this.email == this.sender[this.a].email && this.password == this.sender[this.a].password){
       this.count++;
       this.func_login();
-      this.router.navigate(['reg-d']);
+    }
+    }
+    if(this.count === 0){
+      alert("Fail");
+      this.count = 0;
     }
   }
-    if(this.count === 0){
-      this.openDialog();
-  }
-  }
+
   func_login(){
     alert("Success");
     this.router.navigate(['reg-d']);

@@ -60,12 +60,12 @@ public class CarryController {
         Optional<Province> province = provinceRepository.findById(nameprovince);
         Optional<Receiver> receiver = receiverRepository.findById(receivers);
 
-        newCarry.setPackageId(packages);
+        newCarry.setPackageId(packages.get());
         newCarry.setDate(date);
         newCarry.setCarryNumber(carryNumber);
         newCarry.setStatus(status);
-        newCarry.setReceiver(receiver);
-        newCarry.setProvince(province);
+        newCarry.setReceiver(receiver.get());
+        newCarry.setProvince(province.get());
         return carryRepository.save(newCarry);
 
     }

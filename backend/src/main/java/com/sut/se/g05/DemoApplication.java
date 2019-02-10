@@ -72,16 +72,15 @@ public class DemoApplication {
 			Stream.of("อนุพงษ์","แพรวโพยม","สิริลักษณ์", "เบญจมาศ","ฐิติมากานต์").forEach(senders -> {
 				Sender s = new Sender();
 				s.setFirstname(senders);
-				senderRepository.save(s);
 
 				if(senders == "อนุพงษ์") {
 					s.setLastname("ชัยสวรรค์");
-					s.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+					s.setAddress("sut");
 					Provincesen provincesen = provincesenRepository.findByprovincesen("นครราชสีมา");
 					s.setProvincesen(provincesen);
 					s.setPostcode("65180");
 					s.setPhone("0956399315");
-					s.setEmail("ice@gmail.com");
+					s.setEmail("ice1");
 					s.setPassword("123");
 					senderRepository.save(s);
 					senderRepository.findAll().forEach(System.out::println);
@@ -89,12 +88,12 @@ public class DemoApplication {
 
 				else if (senders == "แพรวโพยม") {
 					s.setLastname("ทองศรี");
-					s.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+					s.setAddress("moon");
 					Provincesen provincesen = provincesenRepository.findByprovincesen("พิษณุโลก");
 					s.setProvincesen(provincesen);
 					s.setPostcode("65180");
 					s.setPhone("0956399315");
-					s.setEmail("ice@gmail.com");
+					s.setEmail("ice2");
 					s.setPassword("123");
 					senderRepository.save(s);
 					senderRepository.findAll().forEach(System.out::println);
@@ -102,12 +101,12 @@ public class DemoApplication {
 
 				else if (senders == "สิริลักษณ์") {
 					s.setLastname("เกิดมี");
-					s.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+					s.setAddress("jail");
 					Provincesen provincesen = provincesenRepository.findByprovincesen("กรุงเทพมหานคร");
 					s.setProvincesen(provincesen);
 					s.setPostcode("65180");
 					s.setPhone("0956399315");
-					s.setEmail("ice@gmail.com");
+					s.setEmail("ice3");
 					s.setPassword("123");
 					senderRepository.save(s);
 					senderRepository.findAll().forEach(System.out::println);
@@ -115,12 +114,12 @@ public class DemoApplication {
 
 				else if(senders == "เบญจมาศ") {
 					s.setLastname("มัจฉา");
-					s.setAddress("37/2 หมู่3 ตำบลดงประคำ อำเภอพรหมพิราม");
+					s.setAddress("ocean");
 					Provincesen provincesen = provincesenRepository.findByprovincesen("บุรีรัมย์");
 					s.setProvincesen(provincesen);
 					s.setPostcode("65180");
 					s.setPhone("0956399315");
-					s.setEmail("ice@gmail.com");
+					s.setEmail("ice4");
 					s.setPassword("123");
 					senderRepository.save(s);
 					senderRepository.findAll().forEach(System.out::println);
@@ -128,12 +127,12 @@ public class DemoApplication {
 
 				else if(senders == "ฐิติมากานต์") {
 					s.setLastname("สอนสุภาพ");
-					s.setAddress("37/2 หมู่3 ตำบลสุรนารี อำเภอเมืองนครราชสีมา");
+					s.setAddress("hell");
 					Provincesen provincesen = provincesenRepository.findByprovincesen("นครราชสีมา");
 					s.setProvincesen(provincesen);
 					s.setPostcode("65180");
 					s.setPhone("0956399315");
-					s.setEmail("ice@gmail.com");
+					s.setEmail("ice5");
 					s.setPassword("123");
 					senderRepository.save(s);
 					senderRepository.findAll().forEach(System.out::println);
@@ -227,13 +226,13 @@ public class DemoApplication {
 			CarBrand cb3 = carBrandRepository.getOne((long)3);
 			Car c1 = new Car();
 			c1.setBrand(cb1);
-			c1.setLicenseplate("กก-99");
+			c1.setLicenseplate("กกก99");
 			Car c2 = new Car();
 			c2.setBrand(cb2);
-			c2.setLicenseplate("กก-999");
+			c2.setLicenseplate("กก9999");
 			Car c3 = new Car();
 			c3.setBrand(cb3);
-			c3.setLicenseplate("กก-9999");
+			c3.setLicenseplate("กก9990");
 
 			carRepository.save(c1);
 			carRepository.save(c2);
@@ -243,7 +242,7 @@ public class DemoApplication {
 				carInfo.setAddress("49/7 หมู่ 9 หมู่บ้านชลเทพ ต.บางพลีใหญ่ อ.บางพลี จ.สมุทรปราการ 10540");
 				carInfo.setAge(20);
 				carInfo.setTelephone("0988313467");
-				carInfo.setName("tanz");
+				carInfo.setName("tanzii");
 				carInformationRepository.save(carInfo);
 			
 				Carcontrol control = new Carcontrol();
@@ -289,7 +288,8 @@ public class DemoApplication {
 			e.setAddress("10112");
 			e.setEmail("noom123");
 			e.setPassword("1234");
-			e.setPhone("555");
+			e.setPhone("0987654321");
+			e.setBanknumber("012345678902");
 			informationempRepository.save(e);
 
 			Stream.of("จ่ายแล้ว","ยังไม่จ่าย","ไม่จ่าย","ชิ่ง").forEach(status -> {

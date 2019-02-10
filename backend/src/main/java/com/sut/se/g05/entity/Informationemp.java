@@ -28,7 +28,7 @@ public class Informationemp {
 
     @NotNull
     @Size(min=10, max=10)
-    @Pattern(regexp="^[0]\\d+")
+    @Pattern(regexp="^[0]\\d+$")
     String phone;
 
     @NotNull

@@ -1,4 +1,4 @@
-package com.example.demo.Entity;
+package com.sut.se.g05.entity;
 
 import lombok.*;
 import javax.persistence.ManyToOne;
@@ -31,7 +31,7 @@ public class Car {
 	private @NonNull Long carId;
 	@NotNull
 	@Size(min=5, max=10)
-	@Pattern(regexp="^[ก-๙]+$")
+	@Pattern(regexp="^[a-zA-Z0-9ก-๙]+$")
 	private String licenseplate;
 
 	@ManyToOne

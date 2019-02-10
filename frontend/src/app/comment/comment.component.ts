@@ -66,7 +66,9 @@ constructor(
       data => {
           alert("บันทึกสำเร็จ")
           console.log('Successful', data);
-      }
+      },
+      error => {
+        alert("fail");
     );
     }
     

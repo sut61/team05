@@ -66,7 +66,6 @@ const appRoutes: Routes = [
     { path: 'comment', component: CommentComponent },
     { path: 'carcontrol',component: CarcontrolComponent}
 
-
 ];
 
 @NgModule({
