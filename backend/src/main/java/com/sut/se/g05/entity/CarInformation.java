@@ -11,6 +11,10 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import java.util.Optional;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 @Data
 @Entity
 @Getter @Setter
@@ -25,11 +29,21 @@ public class CarInformation {
     @Column(name="carinformationId",unique = true, nullable = false)
    
     private @NonNull Long carInformationId;
+    @NotNull
+    @Size(min = 5, max = 30)
+    @Pattern(regexp = "^[a-z A-Z ก-ฮ]+$")
+    private  @NonNull String name;
+
+    @NotNull
+    private  @NonNull String address;
+
+    @NotNull
+    @Size(min = 10, max = 10)
+    @Pattern(regexp = "^[0]\\d+")
+    private  @NonNull String telephone;
     
-    private String name;
-    private String address;
-    private String telephone;
-    private Integer age;
+    @NotNull
+    private  @NonNull Integer age;
     
     @OneToOne
     @JoinColumn(name = "carId")
