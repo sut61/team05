@@ -31,15 +31,14 @@ public class Bounce {
     private Long bounceId;
     @NotNull
     private String reason;
-
-    @ManyToOne
-    private Sender sender;
-    @ManyToOne
-    private Provincesen provincesen;
-    @ManyToOne
-    private Receiver receiver;
-    @ManyToOne
-    private Province province;
+    @NotNull
+    private String sender;
+    @NotNull
+    private String provincesen;
+    @NotNull
+    private String receiver;
+    @NotNull
+    private String province;
 
 
     //Many To One with Linksen
