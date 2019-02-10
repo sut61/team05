@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 @RepositoryRestController
 @CrossOrigin (origins = "http: //localhost:4200")
 public interface ReceiverRepository extends JpaRepository<Receiver, Long> {
-    Receiver findByreceiverId (Long receiverId);
+    Receiver findByfirstname (String firstname);
 }

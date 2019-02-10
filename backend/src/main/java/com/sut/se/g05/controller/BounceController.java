@@ -134,8 +134,8 @@ public class BounceController {
     ) {
         Bounce a = new Bounce();
         Typeproduct t = typeproductRepository.findBytypeproduct(typeproductNameSelect);
-        Sender s = senderRepository.findBysenderId(senderSelect);
-        Receiver r = receiverRepository.findByreceiverId(receiverSelect);
+        Sender s = senderRepository.findByfirstname(senderSelect);
+        Receiver r = receiverRepository.findByfirstname(receiverSelect);
         Province p = provinceRepository.findByprovince(provinceSelect);
         Provincesen ps = provincesenRepository.findByprovincesen(provincesenSelect);
 
