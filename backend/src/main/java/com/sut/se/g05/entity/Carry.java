@@ -1,4 +1,4 @@
-package com.sut.se.g05.entity;
+package com.example.demo.entity;
 
 import lombok.*;
 
@@ -7,14 +7,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.validation.groups.Default;
 
 import java.util.Date;
-import java.util.Optional;
 
 @Data
 @Entity
@@ -29,33 +32,31 @@ public class Carry {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="carry_seq")  
     @Column(name="Carry_ID",unique = true, nullable = false)
 
-    private @NonNull Long carryId;
-    private @NonNull Date date;
-    private @NonNull String status;
-    private @NonNull String carryNumber;
+    @NotNull
+    private Long carryId;
+    @NotNull
+    private Date date;
+    @NotNull
+    @Size(min=5, max=20)
+    @Pattern(regexp="^([ก-ู]|[เ-์])+")
+    private String status;
+    @NotNull
+    @Size(min=5, max=20)
+    @Pattern(regexp="^[A-Z0-9]+$")
+    private String carryNumber;
+
+    @ManyToOne
+    @JoinColumn(name = "package_ID", insertable = true)
+    private  Package packageId;
+
+    @ManyToOne
+    @JoinColumn(name = "province_ID", insertable = true)
+    private  Province province;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Receiver.class)
     @JoinColumn(name = "Receiver_ID", insertable = true)
-    private  Receiver receiverCarry;
+    private  Receiver receiver;
+    
 
-
-	public void setReceiver(Receiver r) {
-        this.receiverCarry = r;
-	}
-
-	public void setProvince(Province l) {
-	}
-
-	public void setPackageId(Package p) {
-	}
-
-    public void setPackageId(Optional<Package> packages) {
-    }
-
-    public void setReceiver(Optional<Receiver> receiver) {
-    }
-
-    public void setProvince(Optional<Province> province) {
-    }
 }
 

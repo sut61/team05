@@ -1,18 +1,13 @@
-package com.sut.se.g05.entity;
+package com.example.demo.Entity;
 
 import lombok.*;
 
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import java.util.Collection;
-
-import javax.persistence.CascadeType;
+import javax.validation.constraints.NotNull;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -29,8 +24,15 @@ public class CarBrand {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="carBrand_seq")
     @Column(name="CarBrand_ID",unique = true, nullable = false)
 
+    @NotNull
     private @NonNull Long carBrandId;
+    @NotNull
+    @Column(unique = true)
     private @NonNull String brand;
+
+    // @OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL) 
+    // private Collection<Car> carB;
+
 
 }
 
