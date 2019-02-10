@@ -1,18 +1,13 @@
-package com.sut.se.g05.entity;
+package com.example.demo.Entity;
 
 import lombok.*;
 
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import java.util.Collection;
-
-import javax.persistence.CascadeType;
+import javax.validation.constraints.NotNull;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -29,8 +24,14 @@ public class CarInsurance {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="carInsurance_seq")
     @Column(name="CarInsurance_ID",unique = true, nullable = false)
 
+    @NotNull
     private @NonNull Long carInsuranceId;
+    @NotNull
+    @Column(unique = true)
     private @NonNull String company;
+
+    //@OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL) 
+    // private Collection<Car> carCom;
 
 }
 
