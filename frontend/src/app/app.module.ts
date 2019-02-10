@@ -18,7 +18,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 
-
 import { Controller } from './controller/controller';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -43,7 +42,6 @@ import { SlipComponent } from './slip/slip.component';
 import { CommentComponent } from './comment/comment.component';
 import { CarcontrolComponent } from './carcontrol/carcontrol.component';
 import { CarcontrolService } from './shared/Carcontrol/carcontrol.service';
-
 
 
 const appRoutes: Routes = [

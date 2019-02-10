@@ -29,7 +29,7 @@ public class DemoApplication {
 						   SenderRepository senderRepository, CarryRepository carryRepository, BillRepository billRepository,
 						   PaidStatusRepository paidStatusRepository , DeduetionRepository deduetionRepository, LevelRepository levelRepository,
 						   CommentRepository commentRepository, LinksenRepository linksenRepository, TypeproductRepository typeproductRepository,
-						   BounceRepository bounceRepository, CarBrandRepository carBrandRepository,
+						   BounceRepository bounceRepository, CarBrandRepository carBrandRepository, CarInsuranceRepository carInsuranceRepository,
 						   CarcontrolRepository carcontrolRepository,CarStatusRepository carStatusRepository) {
 		return args -> {
 
@@ -358,6 +358,11 @@ public class DemoApplication {
 			linked.setProvinceLinked(p);
 			linkedRepository.save(linked);
 
+			Stream.of("PIN","ICE","ชาญวิทย์ประกันภัย").forEach(insurance -> {
+				CarInsurance c = new CarInsurance();
+				c.setCompany(insurance);
+				carInsuranceRepository.save(c);
+			});
 
 
 			System.out.print("===================StartApplication=======================");

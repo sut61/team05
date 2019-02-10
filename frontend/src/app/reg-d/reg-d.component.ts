@@ -65,6 +65,7 @@ constructor(private controller: Controller, private httpClient: HttpClient, priv
              data => {
                  console.log('PUT Request is successful', data);
                  alert('บันทึกสำเร็จ');
+                 this.router.navigate(['/login']);
 
              },
              error => {

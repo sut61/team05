@@ -70,6 +70,7 @@ export class CarComponent implements OnInit {
         },
         error => {
             console.log('Error to PUT Request', error);
+            alert("FAIL");
         }
       );
     }

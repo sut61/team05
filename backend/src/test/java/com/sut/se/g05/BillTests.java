@@ -266,7 +266,7 @@ public class BillTests {
         }
     }
 
-    /*@Test
+    @Test
     public void testPhoneMustBeUnique() {
         Bill b1 = new Bill();
         b1.setRecName("ronaldo");
@@ -284,9 +284,9 @@ public class BillTests {
         }catch (PersistenceException e){
             e.getMessage();
             e.printStackTrace();
-            System.out.println("=====fail=====");
+            System.out.println("=====Error Phone Unique=====");
         }
-    }*/
+    }
 
     /*@Test
     public void testPaidStatusUnique() {

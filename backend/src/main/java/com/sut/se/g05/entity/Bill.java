@@ -22,6 +22,7 @@ public class Bill {
     @Pattern(regexp = "^[a-zA-Zก-๙]+$")
     private String recName;
     @NotNull @Size(min = 10, max = 10) @Pattern(regexp = "^[\\d{10}]+$")
+    @Column(unique = true)
     private String phone;
     private Date paidDate;
     private Timestamp paidTime;

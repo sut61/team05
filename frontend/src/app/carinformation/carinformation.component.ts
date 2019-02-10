@@ -98,9 +98,11 @@ this.controller.getCarInformation().subscribe(data => {
         .subscribe(
           data => {
             console.log('PUT Request is successful', data);
+            alert("It's work");
           },
           error => {
             console.log('Error', error);
+            alert("You shall not pass");
           }
 
         );

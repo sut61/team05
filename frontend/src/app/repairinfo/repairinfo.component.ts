@@ -68,8 +68,8 @@ export class RepairinfoComponent implements OnInit {
           console.log('PUT Request is successful', data);
       },
       error => {
-
           console.log('Error to PUT Request', error);
+          alert("You shall not pass");
       }
     );
   }
