@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.validation.constraints.*;
 
 @Data
 @Entity
@@ -23,7 +24,9 @@ public class Typeproduct {
     @GeneratedValue(generator="typeproduct_seq",strategy=GenerationType.SEQUENCE)
     @Column(name="TYPEPRODUCT_ID",unique = true, nullable = true)
 
+    @NotNull
     private Long typeproductId;
+    @NotNull
     private @NonNull String typeproduct;
 
 }
