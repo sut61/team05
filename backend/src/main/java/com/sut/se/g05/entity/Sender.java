@@ -29,9 +29,9 @@ public class Sender {
     @NotNull
     private Long senderId;
     @NotNull
-    private @NonNull String firstname;
+    private String firstname;
     @NotNull
-    private @NonNull String lastname;
+    private String lastname;
     @NotNull
     @Column(unique = true)
     private @NonNull String address;
