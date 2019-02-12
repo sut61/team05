@@ -31,7 +31,7 @@ public class Car {
 	private @NonNull Long carId;
 	@NotNull
 	@Size(min=5, max=10)
-	@Pattern(regexp="^[a-zA-Z0-9ก-๙]+$")
+	@Pattern(regexp="^[ก-ฮ0-9]+$")
 	private String licenseplate;
 
 	@ManyToOne
