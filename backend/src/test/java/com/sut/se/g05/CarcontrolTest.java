@@ -122,32 +122,5 @@ public class CarcontrolTest {
 
 	}
 
-
-	@Test
-	public void testProvince() {
-		Province p1 = new Province();
-		p1.setProvince("กทม");
-		entityManager.persist(p1);
-		entityManager.flush();
-
-		Province p2 = new Province();
-		p2.setProvince("กทม");
-		try {
-		
-		entityManager.persist(p2);
-        entityManager.flush();
-
-			fail("Should not pass to this line");
-        }catch(javax.validation.ConstraintViolationException e){
-			System.out.println("=============eiei==============");
-			e.printStackTrace();
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-		}
-		catch(javax.persistence.PersistenceException e){
-			System.out.println("=============etanzzzz==============");
-			e.printStackTrace();
-		}
-	}
 }
+

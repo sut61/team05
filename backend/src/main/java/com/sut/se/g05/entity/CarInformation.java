@@ -28,22 +28,22 @@ public class CarInformation {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="carinformation_seq")  
     @Column(name="carinformationId",unique = true, nullable = false)
    
-    private @NonNull Long carInformationId;
+    private  Long carInformationId;
     @NotNull
     @Size(min = 5, max = 30)
     @Pattern(regexp = "^[a-z A-Zก-ฮ]+$")
-    private  @NonNull String name;
+    private   String name;
 
     @NotNull
-    private  @NonNull String address;
+    private   String address;
 
     @NotNull
     @Size(min = 10, max = 10)
     @Pattern(regexp = "^[0]\\d+$")
-    private  @NonNull String telephone;
+    private   String telephone;
     
     @NotNull
-    private  @NonNull Integer age;
+    private   Integer age;
     
     @OneToOne
     @JoinColumn(name = "carId")

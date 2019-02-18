@@ -33,10 +33,10 @@ public class Carcontrol {
     @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="carControl_seq")
     @Column(name="Carcontrol_ID",unique = true, nullable = false)
 
-    private @NonNull Long carcontrolId;
+    private  Long carcontrolId;
     
     @NotNull
-    private @NonNull Date time;
+    private  Date time;
     @NotNull
     @Size(min=2,max=100)
     @Pattern(regexp = "^[a-zA-Zก-๙]+$")
