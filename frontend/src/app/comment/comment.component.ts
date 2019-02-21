@@ -69,8 +69,8 @@ constructor(
 
                 },
                 error => {
-                          alert("fail");
-                          console.log('Error to PUT Request', error);
+                          alert("Fail");
+                          console.log('Fail', error);
                       }
             );
     

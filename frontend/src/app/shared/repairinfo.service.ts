@@ -35,9 +35,13 @@ export class RepairinfoService {
       getDriver(): Observable<any> {
         return this.http.get(this.API + '/Driver');
       }
+
+      getName(): Observable<any> {
+        return this.http.get(this.API + '/CarInformation')
+      }
 }
 
-export class Car {
+/*export class Car {
   carId: any;
   carname: string;
 }
@@ -45,18 +49,19 @@ export class Car {
 export class Damage {
   damageId: any;
   damagename: string;
-}
+}*/
 
 export class Repairinfo {
+  name: any;
   repairinfoid: any;
-  car: Car;
-  damage: Damage;
-  driver: Driver;
+  car: any;
+  damage: any;
+  driver: any;
   phone: any;
 }
 
-export class Driver {
+/*export class Driver {
   driverId: any;
   drivername: string;
-}
+}*/
 

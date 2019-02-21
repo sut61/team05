@@ -21,7 +21,7 @@ export class RepairinfoComponent implements OnInit {
   cars: Array<any>;
   damages: Array<any>;
   drivers: Array<any>;
-  repairinfo1s: Array<any>;
+  repairinfos: Array<any>;
 
  /* toolControl = new FormControl('', [Validators.required]);
   selectFormControl = new FormControl('', Validators.required);
@@ -34,7 +34,7 @@ export class RepairinfoComponent implements OnInit {
   private service: RepairinfoService , private httpClient: HttpClient) { }
 
   ngOnInit() {
-    this.service.getDriver().subscribe(data => {
+    this.service.getName().subscribe(data => {
       this.drivers = data;
       console.log(this.drivers);
     });
@@ -50,17 +50,29 @@ export class RepairinfoComponent implements OnInit {
     });
 
     this.service.getRepairinfo().subscribe(data => {
-      this.repairinfo1s = data;
-      console.log(this.repairinfo1s);
+      this.repairinfos = data;
+      console.log(this.repairinfos);
     });
   }
 
   save(){
-    console.log(this.repairinfo.driver.driverId);
+    if(this.repairinfo.driver == '' || this.repairinfo.driver == null){
+      alert('กรุณาระบุชื่อ')
+    }else if(this.repairinfo.car == '' || this.repairinfo.car == null){
+      alert('กรุณาระบุทะเบียนรถ')
+    }else if(this.repairinfo.damage == '' || this.repairinfo.damage == null){
+      alert('กรุณาระบุความเสียหาย')
+    }else if(this.repairinfo.phone == '' || this.repairinfo.phone == null){
+      alert('กรุณาระบุเบอร์โทรศัพท์')
+    } else {
+    console.log(this.repairinfo.driver.carInformationId);
     console.log(this.repairinfo.car.carId);
     console.log(this.repairinfo.damage.damageId);
     console.log(this.repairinfo.phone);
-    this.httpClient.post('//localhost:8080/Repairinfo/' + this.repairinfo.driver.driverId + '/' + this.repairinfo.car.carId + '/' + this.repairinfo.damage.damageId + '/'
+    this.httpClient.post('//localhost:8080/Repairinfo/' 
+    + this.repairinfo.driver.carInformationId + '/' 
+    + this.repairinfo.car.carId + '/' 
+    + this.repairinfo.damage.damageId + '/'
     + this.repairinfo.phone,this.repairinfo)
     .subscribe(
       data => {
@@ -68,10 +80,11 @@ export class RepairinfoComponent implements OnInit {
           console.log('PUT Request is successful', data);
       },
       error => {
-          console.log('Error to PUT Request', error);
-          alert("You shall not pass");
+          console.log('Fail', error);
+          alert("Fail");
       }
     );
   }
+}
 
 }
