@@ -53,7 +53,7 @@ constructor(private controller: Controller, private httpClient: HttpClient ,priv
            console.log(this.position);
          });
 
- this.controller.getGender().subscribe(data => {
+ this.controller.getgender().subscribe(data => {
            this.gender = data;
            console.log(this.gender);
          });
@@ -93,7 +93,7 @@ constructor(private controller: Controller, private httpClient: HttpClient ,priv
            alert('กรุณาระบุ Email');
         }
         else if (this.views.password == null || this.views.password == '') {
-           alert('กรุณาระบุ ญฟหหไนพก');
+           alert('กรุณาระบุ Password');
         }
 
         else {

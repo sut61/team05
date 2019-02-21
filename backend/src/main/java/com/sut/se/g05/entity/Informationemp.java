@@ -10,7 +10,10 @@ import javax.validation.constraints.Size;
 
 @Data
 @Entity
+@Getter @Setter
+@NoArgsConstructor
 @ToString
+@EqualsAndHashCode
 @Table(name="Informationemp")
 public class Informationemp {
 
@@ -103,8 +106,8 @@ public class Informationemp {
     @ManyToOne
     private Position position;
 
-    public void setGender(Optional<Gender> g) {
-    }
+//    public void setGender(Optional<Gender> g) {
+//    }
 
 //    public Informationemp(String firstname, String lastname, String phone, String address, String banknumber, String email,
 //                          String password, Bankemp bankemp, Gender gender, Position position){

@@ -54,6 +54,7 @@ class RegisterController {
     }
 
 
+
     @PostMapping(path ="/informationemp/{firstname}/{lastname}/{genderid}/{phone}/{address}/{positionid}/{bankempid}/{banknumber}/{email}/{password}")
     public Informationemp newinformationemp(@PathVariable String firstname,
                                             @PathVariable String lastname,
@@ -70,7 +71,7 @@ class RegisterController {
 
         Informationemp i = new Informationemp();
         Bankemp b = bankempRepository.findBybankempid(bankempid);
-        Optional<Gender> g = genderRepository.findById(genderid);
+        Gender g = genderRepository.findBygenderId(genderid);
         Position p = positionRepository.findBypositionid(positionid);
         i.setFirstname(firstname);
         i.setLastname(lastname);

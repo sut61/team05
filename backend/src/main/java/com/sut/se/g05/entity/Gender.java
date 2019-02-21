@@ -24,10 +24,5 @@ public class Gender {
     @Column(name="GENDER_ID",unique = true, nullable = true)
 
     private Long genderId;
-    private @NonNull String gender;
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-    public String getGender() {return gender;}
+    private String gender;
 }
