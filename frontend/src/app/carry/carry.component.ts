@@ -44,21 +44,43 @@ export class CarryComponent implements OnInit {
       console.log(this.receivers);
     });
   }
-
   save() {
+    if (this.select.packageId == null || this.select.packageId == '') {
+      alert('กรุณาเลือกเลขที่ใบรับสินค้า');
+    }
+    else if (this.select.date == null || this.select.date == '') {
+      alert('กรุณาระบุวันที่');
+    }
+    else if (this.select.carryNumber == null || this.select.carryNumber == '') {
+      alert('กรุณาระบุเลขที่ใบส่งสินค้า');
+    }
+    else if (this.select.status == null || this.select.status == '') {
+      alert('กรุณาระบุสถานะ');
+    } 
+    else if (this.select.firstname == null || this.select.firstname == '') {
+      alert('กรุณาเลือกชื่อผู้ส่ง');
+    } 
+    else if (this.select.province == null || this.select.province == '') {
+      alert('กรุณาเลือกจังหวัด');
+    }else {
+      console.log(this.select.packageId);
+      console.log(this.select.date);
+      console.log(this.select.carryNumber);
+      console.log(this.select.status);
+      console.log(this.select.firstname);
+      console.log(this.select.province);
       this.httpClient.post('http://localhost:8080/carrys/' + this.select.packageId + '/' + this.select.date + '/' 
       + this.select.carryNumber + '/' + this.select.status + '/' + this.select.firstname + '/' + this.select.province ,this.select)
       .subscribe(
           data => {
               console.log('PUT Request is successful', data);
-              alert("Success");
+              alert("บันทึกสำเร็จ !!");
           },
           error => {
               console.log('Error to PUT Request', error);
-              alert("Jesus Christ!! Fail");
+              alert("FAIL");
           }
       );
     }
 }
-
-
+}
