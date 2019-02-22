@@ -21,6 +21,12 @@ export class CommentComponent implements OnInit {
   levels: Array<any>;
   comments: Array<any>;
 
+  provinces: Array<any>;
+  genders: Array<any>;
+
+  province: '';
+  gender: '';
+
 constructor(
   private service: CommentService , private httpClient: HttpClient) { }
 
@@ -34,6 +40,16 @@ constructor(
       this.comments = data;
       console.log(this.comments);
     });
+
+    this.service.getProvince().subscribe(data => {
+      this.provinces = data;
+      console.log(this.provinces);
+    });
+
+    this.service.getGender().subscribe(data => {
+      this.genders = data;
+      console.log(this.genders);
+    });
   }
 
   save(){
@@ -41,6 +57,10 @@ constructor(
       alert('กรุณากรอกชื่อ')
     }else if(this.comment.phone == '' || this.comment.phone == null){
       alert('กรุณากรอกเบอร์โทรศัพท์')
+    }else if(this.gender == '' || this.gender == null){
+      alert('กรุณาเลือกเพศ')
+    }else if(this.province == '' || this.province == null){
+      alert('กรุณาเลือกจังหวัด')
     }else if(this.comment.level1 == '' || this.comment.level1 == null){
       alert('กรุณาเลือกระดับความพึงพอใจ')
     }else if(this.comment.level2 == '' || this.comment.level2 == null){
@@ -60,7 +80,9 @@ constructor(
       + this.comment.level3 + '/'
       + this.comment.name + '/'
       + this.comment.phone + '/' 
-      + this.comment.post,this.comment)
+      + this.comment.post + '/'
+      + this.province + '/'
+      + this.gender,this.comment)
       
     .subscribe(
       data => {

@@ -28,6 +28,14 @@ headers: new HttpHeaders({
         return this.http.get(this.API + '/Comment');
       }
 
+      getProvince(): Observable<any> {
+        return this.http.get(this.API + '/province');
+      }
+
+      getGender(): Observable<any> {
+        return this.http.get(this.API + '/Gender');
+      }
+
 }
 
 /*export class Level {

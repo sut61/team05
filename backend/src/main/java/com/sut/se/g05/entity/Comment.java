@@ -32,6 +32,12 @@ public class Comment {
 
     private String post;
 
+    @ManyToOne(fetch=FetchType.EAGER, targetEntity = Gender.class)
+    private Gender gender;
+
+    @ManyToOne(fetch=FetchType.EAGER, targetEntity = Province.class)
+    private Province province;
+
     @ManyToOne(fetch=FetchType.EAGER, targetEntity = Level.class)
     private Level level1;
     @ManyToOne(fetch=FetchType.EAGER, targetEntity = Level.class)

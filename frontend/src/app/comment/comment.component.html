@@ -18,6 +18,23 @@
           <input matInput placeholder="กรุณาเบอร์โทรศัพท์" [(ngModel)]="comment.phone" name="phone" required>
         </mat-form-field><br>
 
+        <h6>เพศ :&nbsp;
+          <mat-form-field class="example-full-width">
+            <mat-select placeholder="เพศ" name="soo" [(ngModel)]="gender" required>
+              <mat-option *ngFor="let gender of genders" [value]="gender.genderId">
+                {{gender.gender}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field></h6>
+
+          <h6>จังหวัด :&nbsp;
+            <mat-form-field class="example-full-width">
+              <mat-select placeholder="จังหวัด" name="boo" [(ngModel)]="province" required>
+                <mat-option *ngFor="let province of provinces" [value]="province.provinceId">
+                  {{province.province}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field></h6>
 
         <h6>การบริการ รับ/ส่ง สินค้า :&nbsp;
         <mat-form-field class="example-full-width">
