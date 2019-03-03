@@ -8,6 +8,7 @@ import com.sut.se.g05.repository.*;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.Date;
 
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 @RestController
@@ -50,6 +51,7 @@ public class CommentController {
         newComment.setPost(post);
         newComment.setGender(gender.get());
         newComment.setProvince(province.get());
+        newComment.setCommentDate(new Date());
 
         return  commentRepository.save(newComment);
     }
