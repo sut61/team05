@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.Optional;
 
 @Getter @Setter
@@ -25,6 +26,14 @@ public class Repairinfo {
     @Pattern(regexp = "^[0]\\d+$")
     @Column (unique = true)
     private String phone;
+
+    @NotNull @Size(min = 3, max = 20)
+    @Pattern(regexp = "^[ก-๙a-zA-Z]+$")
+    private String employeeName;
+
+    private String note;
+
+    private Date repairDate;
 
     @ManyToOne(fetch=FetchType.EAGER, targetEntity = Car.class)
     private Car car;

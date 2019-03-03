@@ -57,23 +57,29 @@ export class RepairinfoComponent implements OnInit {
 
   save(){
     if(this.repairinfo.driver == '' || this.repairinfo.driver == null){
-      alert('กรุณาระบุชื่อ')
+      alert('กรุณาระบุชื่อพนักงานขับรถ')
     }else if(this.repairinfo.car == '' || this.repairinfo.car == null){
       alert('กรุณาระบุทะเบียนรถ')
     }else if(this.repairinfo.damage == '' || this.repairinfo.damage == null){
       alert('กรุณาระบุความเสียหาย')
     }else if(this.repairinfo.phone == '' || this.repairinfo.phone == null){
       alert('กรุณาระบุเบอร์โทรศัพท์')
+    }else if(this.repairinfo.employeeName == '' || this.repairinfo.employeeName == null){
+      alert('กรุณาระบุชื่อผู้รับแจ้ง')
     } else {
     console.log(this.repairinfo.driver.carInformationId);
     console.log(this.repairinfo.car.carId);
     console.log(this.repairinfo.damage.damageId);
     console.log(this.repairinfo.phone);
+    console.log(this.repairinfo.note);
+    console.log(this.repairinfo.employeeName);
     this.httpClient.post('//localhost:8080/Repairinfo/' 
     + this.repairinfo.driver.carInformationId + '/' 
     + this.repairinfo.car.carId + '/' 
     + this.repairinfo.damage.damageId + '/'
-    + this.repairinfo.phone,this.repairinfo)
+    + this.repairinfo.phone + '/'
+    + this.repairinfo.note + '/'
+    + this.repairinfo.employeeName ,this.repairinfo)
     .subscribe(
       data => {
           alert("บันทึกสำเร็จ")

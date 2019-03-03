@@ -58,6 +58,8 @@ export class Repairinfo {
   damage: any;
   driver: any;
   phone: any;
+  note: any;
+  employeeName: any;
 }
 
 /*export class Driver {

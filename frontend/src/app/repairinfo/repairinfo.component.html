@@ -9,7 +9,7 @@
       <div style="text-align:center;">
   
       <mat-form-field class="example-full-width">
-        <mat-select placeholder="ชื่อพนักงาน" name="driver" [(ngModel)]="repairinfo.driver" required>
+        <mat-select placeholder="ชื่อพนักงานขับรถ" name="driver" [(ngModel)]="repairinfo.driver" required>
           <mat-option *ngFor="let driver of drivers" [value]="driver">
             {{driver.name}}
           </mat-option>
@@ -35,6 +35,15 @@
         <mat-form-field class="example-full-width">
           <mat-label>เบอร์โทรศัพท์</mat-label>
           <input matInput placeholder="เบอร์โทร" [(ngModel)]="repairinfo.phone" name="phone" required>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <textarea matInput placeholder="หมายเหตุ"[(ngModel)]="repairinfo.note" name="note" ></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>ผู้รับแจ้ง</mat-label>
+          <input matInput placeholder="ผู้รับแจ้ง" [(ngModel)]="repairinfo.employeeName" name="employeeName" required>
         </mat-form-field>
       </div>
   
