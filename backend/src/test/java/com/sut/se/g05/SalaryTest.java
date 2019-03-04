@@ -13,6 +13,7 @@ import static org.junit.Assert.fail;
 
 
 import java.util.Set;
+import javax.persistence.PersistenceException;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import javax.validation.Validation;
@@ -29,7 +30,16 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 public class SalaryTest {
 
     @Autowired
-    private SalaryRepository SalaryRepository;
+    private SalaryRepository salaryRepository;
+
+    @Autowired
+    private PositionRepository positionRepository;
+
+    @Autowired
+    private BankempRepository bankempRepository;
+
+    @Autowired
+    private DeduetionRepository deduetionbRepository;
 
     @Autowired
     private TestEntityManager entityManager;
@@ -45,10 +55,12 @@ public class SalaryTest {
     @Test
     public void testNull() {
         Salary s = new Salary();
-
         s.setName("kannika");
         s.setBanknumber("012345678901");
         s.setBalance(20000);
+        s.setPosition(positionRepository.findBypositionid(null));
+        s.setBankemp(bankempRepository.findBybankempid(null));
+        s.setDeduetion(deduetionbRepository.findBydeduetionid(null));
 
         try {
             entityManager.persist(s);
@@ -69,6 +81,9 @@ public class SalaryTest {
         s.setName(null);
         s.setBanknumber("012345678901");
         s.setBalance(20000);
+        s.setPosition(positionRepository.findBypositionid(null));
+        s.setBankemp(bankempRepository.findBybankempid(null));
+        s.setDeduetion(deduetionbRepository.findBydeduetionid(null));
 
         try {
             entityManager.persist(s);
@@ -94,6 +109,9 @@ public class SalaryTest {
         s.setName("kkkkkkkkkkkkkkkkkkk");
         s.setBanknumber("012345678901");
         s.setBalance(20000);
+        s.setPosition(positionRepository.findBypositionid(null));
+        s.setBankemp(bankempRepository.findBybankempid(null));
+        s.setDeduetion(deduetionbRepository.findBydeduetionid(null));
 
         try {
             entityManager.persist(s);
@@ -119,6 +137,9 @@ public class SalaryTest {
         s.setName("k");
         s.setBanknumber("012345678901");
         s.setBalance(20000);
+        s.setPosition(positionRepository.findBypositionid(null));
+        s.setBankemp(bankempRepository.findBybankempid(null));
+        s.setDeduetion(deduetionbRepository.findBydeduetionid(null));
 
         try {
             entityManager.persist(s);
@@ -140,10 +161,12 @@ public class SalaryTest {
     @Test
     public void testPattern() {
         Salary s = new Salary();
-
         s.setName("k");
         s.setBanknumber("0123456789010000");
         s.setBalance(20000);
+        s.setPosition(positionRepository.findBypositionid(null));
+        s.setBankemp(bankempRepository.findBybankempid(null));
+        s.setDeduetion(deduetionbRepository.findBydeduetionid(null));
 
         try {
             entityManager.persist(s);
@@ -158,6 +181,30 @@ public class SalaryTest {
             System.out.println(e.getMessage()+"====================Error Test Pattern====================");
             System.out.println();
             System.out.println();
+        }
+    }
+
+    @Test
+    public void testBanknumberUnique() {
+        Salary s = new Salary();
+        s.setName("kannika");
+        s.setBanknumber("012345678901");
+        s.setBalance(20000);
+        entityManager.persist(s);
+        entityManager.flush();
+
+        Salary s2 = new Salary();
+        s2.setName("kannik");
+        s2.setBanknumber("012345678901");
+        s2.setBalance(2000);
+        try {
+            entityManager.persist(s2);
+            entityManager.flush();
+            fail("You shall not pass");
+        }catch (PersistenceException e){
+            e.getMessage();
+            e.printStackTrace();
+            System.out.println("=====Error Banknumber Unique=====");
         }
     }
 

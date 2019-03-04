@@ -6,7 +6,6 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Date;
 import java.util.Optional;
 
 @Getter @Setter
@@ -30,8 +29,6 @@ public class Comment {
     @NotNull @Size(min = 3, max = 20)
     @Pattern(regexp = "^[ก-๙a-zA-Z]+$")
     private String name;
-
-    private Date commentDate;
 
     private String post;
 

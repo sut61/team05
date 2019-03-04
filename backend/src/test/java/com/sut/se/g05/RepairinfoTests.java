@@ -43,7 +43,6 @@ public class RepairinfoTests {
 	@Test
 	public void TestSuccess() {
 		Repairinfo r = new Repairinfo();
-		r.setEmployeeName("สมชาย");
 		r.setPhone("0123456789");
 
 		try{
@@ -63,7 +62,6 @@ public class RepairinfoTests {
 	@Test
 	public void TestPhoneNull() {
 		Repairinfo r = new Repairinfo();
-		r.setEmployeeName("สมหญิง");
 		r.setPhone(null);
 
 		try{
@@ -83,7 +81,6 @@ public class RepairinfoTests {
 	@Test
 	public void TestPhoneTooLong() {
 		Repairinfo r = new Repairinfo();
-		r.setEmployeeName("AbCd");
 		r.setPhone("01234567890123456789");
 
 		try{
@@ -103,7 +100,6 @@ public class RepairinfoTests {
 	@Test
 	public void TestPhoneTooShort() {
 		Repairinfo r = new Repairinfo();
-		r.setEmployeeName("สมนึก");
 		r.setPhone("01");
 
 		try{
@@ -123,7 +119,6 @@ public class RepairinfoTests {
 	@Test
 	public void TestPhoneWrongPattern() {
 		Repairinfo r = new Repairinfo();
-		r.setEmployeeName("สมใจ");
 		r.setPhone("abAB1234กข");
 
 		try{
@@ -141,96 +136,14 @@ public class RepairinfoTests {
 	}
 
 	@Test
-	public void TestNameEmpNull() {
-		Repairinfo r = new Repairinfo();
-		r.setEmployeeName(null);
-		r.setPhone("0123456789");
-
-		try{
-			entityManager.persist(r);
-			entityManager.flush();
-
-			fail("Should not pass to the line");
-		} catch (javax.validation.ConstraintViolationException e){
-			System.out.println("================ From TestPhoneTooShort =================");
-			System.out.println(e);
-			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-			assertEquals(violations.isEmpty(), false);
-			assertEquals(violations.size(), 1);
-		}
-	}
-
-	@Test
-	public void TestNameEmpTooShort() {
-		Repairinfo r = new Repairinfo();
-		r.setEmployeeName("ก");
-		r.setPhone("0111111111");
-
-		try{
-			entityManager.persist(r);
-			entityManager.flush();
-
-			fail("Should not pass to the line");
-		} catch (javax.validation.ConstraintViolationException e){
-			System.out.println("================ From TestPhoneTooShort =================");
-			System.out.println(e);
-			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-			assertEquals(violations.isEmpty(), false);
-			assertEquals(violations.size(), 1);
-		}
-	}
-
-	@Test
-	public void TestNameEmpTooLong() {
-		Repairinfo r = new Repairinfo();
-		r.setEmployeeName("สมสมสมสมสมสมสมสมสมสมสม");
-		r.setPhone("0222222222");
-
-		try{
-			entityManager.persist(r);
-			entityManager.flush();
-
-			fail("Should not pass to the line");
-		} catch (javax.validation.ConstraintViolationException e){
-			System.out.println("================ From TestPhoneTooShort =================");
-			System.out.println(e);
-			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-			assertEquals(violations.isEmpty(), false);
-			assertEquals(violations.size(), 1);
-		}
-	}
-
-	@Test
-	public void TestNameEmpWrongPatterng() {
-		Repairinfo r = new Repairinfo();
-		r.setEmployeeName("123456789");
-		r.setPhone("0333333333");
-
-		try{
-			entityManager.persist(r);
-			entityManager.flush();
-
-			fail("Should not pass to the line");
-		} catch (javax.validation.ConstraintViolationException e){
-			System.out.println("================ From TestPhoneTooShort =================");
-			System.out.println(e);
-			Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-			assertEquals(violations.isEmpty(), false);
-			assertEquals(violations.size(), 1);
-		}
-	}
-
-	@Test
 	public void TestRepairinfoUnique() {
 		Repairinfo r1 = new Repairinfo();
-		r1.setEmployeeName("สมหมาย");
 		r1.setPhone("0123456789");
 
 		entityManager.persist(r1);
 		entityManager.flush();
 
 		Repairinfo r2 = new Repairinfo();
-		r2.setEmployeeName("สมศรี");
 		r2.setPhone("0123456789");
 
 		try{

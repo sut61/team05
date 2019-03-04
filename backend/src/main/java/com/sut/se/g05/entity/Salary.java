@@ -28,6 +28,7 @@ public class Salary {
     @NotNull
     @Size(min=12, max=12)
     @Pattern(regexp="^[0]\\d+")
+    @Column(unique = true)
     String banknumber;
 
     @NotNull

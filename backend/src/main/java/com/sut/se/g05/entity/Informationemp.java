@@ -3,7 +3,6 @@ package com.sut.se.g05.entity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.Optional;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
@@ -38,6 +37,7 @@ public class Informationemp {
     String address;
 
     @NotNull
+    @Column(unique = true)
     String banknumber;
 
     @NotNull

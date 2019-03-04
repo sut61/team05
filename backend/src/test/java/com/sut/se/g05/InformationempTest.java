@@ -1,23 +1,23 @@
 package com.sut.se.g05;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureDataJpa;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 import com.sut.se.g05.entity.*;
 import com.sut.se.g05.repository.*;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.junit4.SpringRunner;
+import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
-
-import java.util.Set;
+import javax.persistence.*;
 import javax.validation.ConstraintViolation;
-import javax.validation.Validator;
 import javax.validation.Validation;
+import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import org.junit.Before;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
@@ -77,7 +77,7 @@ public class InformationempTest {
         i.setPhone("0815526893");
         i.setAddress("102");
         i.setBanknumber("123456");
-        i.setEmail("ice@gmail.com");
+        i.setEmail("kan@gmail.com");
         i.setPassword("123");
 
         try {
@@ -106,7 +106,7 @@ public class InformationempTest {
         i.setPhone("00815526893");
         i.setAddress("102");
         i.setBanknumber("123456");
-        i.setEmail("ice@gmail.com");
+        i.setEmail("kan@gmail.com");
         i.setPassword("123");
 
         try {
@@ -135,7 +135,7 @@ public class InformationempTest {
         i.setPhone("815526893");
         i.setAddress("102");
         i.setBanknumber("123456");
-        i.setEmail("ice@gmail.com");
+        i.setEmail("kan@gmail.com");
         i.setPassword("123");
 
         try {
@@ -158,13 +158,12 @@ public class InformationempTest {
     @Test
     public void testPattern() {
         Informationemp i = new Informationemp();
-
         i.setFirstname("kannika");
         i.setLastname("sittichai");
         i.setPhone("00815526893");
         i.setAddress("102");
         i.setBanknumber("123456");
-        i.setEmail("ice@gmail.com");
+        i.setEmail("kan@gmail.com");
         i.setPassword("123");
 
         try {
@@ -184,5 +183,36 @@ public class InformationempTest {
         }
     }
 
+    @Test
+    public void testBanknumberUnique() {
+        Informationemp i = new Informationemp();
+        i.setFirstname("kannika");
+        i.setLastname("sittichai");
+        i.setPhone("0815526893");
+        i.setAddress("102");
+        i.setBanknumber("123456");
+        i.setEmail("kan@gmail.com");
+        i.setPassword("123");
+        entityManager.persist(i);
+        entityManager.flush();
+
+        Informationemp i2 = new Informationemp();
+        i2.setFirstname("kannik");
+        i2.setLastname("sitticha");
+        i2.setPhone("0815526893");
+        i2.setAddress("1052");
+        i2.setBanknumber("123456");
+        i2.setEmail("ka@gmail.com");
+        i2.setPassword("12");
+        try {
+            entityManager.persist(i2);
+            entityManager.flush();
+            fail("You shall not pass");
+        }catch (PersistenceException e){
+            e.getMessage();
+            e.printStackTrace();
+            System.out.println("=====Error Banknumber Unique=====");
+        }
+    }
 
 }
