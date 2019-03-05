@@ -23,8 +23,6 @@ public class BounceController {
     @Autowired
     private LinkRepository linkRepository;
     @Autowired
-    private ProvincesenRepository provincesenRepository;
-    @Autowired
     private LinksenRepository linksenRepository;
     @Autowired
     private BounceRepository bounceRepository;
@@ -34,14 +32,13 @@ public class BounceController {
     @Autowired
     public BounceController(SenderRepository senderRepository, ReceiverRepository receiverRepository,
                             ProvinceRepository provinceRepository, LinkRepository linkRepository,
-                            ProvincesenRepository provincesenRepository, BounceRepository bounceRepository,
+                            BounceRepository bounceRepository,
                             LinksenRepository linksenRepository, TypeproductRepository typeproductRepository){
         this.senderRepository = senderRepository;
         this.receiverRepository = receiverRepository;
         this.bounceRepository = bounceRepository;
         this.provinceRepository = provinceRepository;
         this.linkRepository = linkRepository;
-        this.provincesenRepository = provincesenRepository;
         this.linksenRepository = linksenRepository;
         this.typeproductRepository = typeproductRepository;
     }
@@ -78,19 +75,6 @@ public class BounceController {
     public Province getOneProvince(@PathVariable long provinceId){
         return provinceRepository.findById(provinceId).get();
     }
-
-    //provincesen
-    @GetMapping(path = "/provincesen", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Provincesen> getProvincesen() {
-        return provincesenRepository.findAll().stream().collect(Collectors.toList());
-    }
-
-    @GetMapping(path = "/provincesen/{provincesenId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Provincesen getOneProvincesen(@PathVariable long provincesenId){
-        return provincesenRepository.findById(provincesenId).get();
-    }
-
-    //link
 
     //linksen
     @GetMapping(path = "/linksen", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -137,10 +121,10 @@ public class BounceController {
         Sender s = senderRepository.findByfirstname(senderSelect);
         Receiver r = receiverRepository.findByfirstname(receiverSelect);
         Province p = provinceRepository.findByprovince(provinceSelect);
-        Provincesen ps = provincesenRepository.findByprovincesen(provincesenSelect);
+        Province ps = provinceRepository.findByprovince(provincesenSelect);
 
         a.setSender(s);
-        a.setProvincesen(ps);
+        a.setProvince(ps);
         a.setReceiver(r);
         a.setProvince(p);
         a.setReason(reasonInput);

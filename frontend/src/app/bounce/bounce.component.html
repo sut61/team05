@@ -14,9 +14,9 @@
   </mat-form-field>&nbsp;&nbsp;
 
   <mat-form-field appearance="outline" class="form-ice2">
-    <mat-select placeholder="Province Sender" [(ngModel)]="views.provincesenSelect" name="provincesen" >
-      <mat-option *ngFor="let provincesen of provincesens" [value]="provincesen.provincesen">
-        {{provincesen.provincesen}}
+    <mat-select placeholder="Province Sender" [(ngModel)]="views.provincesenSelect" name="province" >
+      <mat-option *ngFor="let province of provinces1" [value]="province.province">
+        {{province.province}}
       </mat-option>
     </mat-select>
   </mat-form-field><br>

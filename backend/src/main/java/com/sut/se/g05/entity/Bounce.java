@@ -34,8 +34,6 @@ public class Bounce {
     @ManyToOne
     private Sender sender;
     @ManyToOne
-    private Provincesen provincesen;
-    @ManyToOne
     private Receiver receiver;
     @ManyToOne
     private Province province;

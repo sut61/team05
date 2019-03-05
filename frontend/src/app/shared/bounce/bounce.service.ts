@@ -30,10 +30,6 @@ constructor(private httpClient:HttpClient) {}
       return this.httpClient.get(this.API + '/province');
       }
 
-      getProvincesen(): Observable<any> {
-      return this.httpClient.get(this.API + '/provincesen');
-      }
-
       getlink(): Observable<any> {
         return this.httpClient.get(this.API + '/Link');
       }

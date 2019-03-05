@@ -25,7 +25,7 @@ public class DemoApplication {
 						   DamageRepository damageRepository, DriverRepository driverRepository, GenderRepository genderRepository,
 						   InformationempRepository informationempRepository, LinkRepository linkRepository, LinkedRepository linkedRepository,
 						   PackageRepository packageRepository, PositionRepository positionRepository, ProvinceRepository provinceRepository,
-						   ProvincesenRepository provincesenRepository, ReceiverRepository receiverRepository, RepairinfoRepository repairinfoRepository,
+						   ReceiverRepository receiverRepository, RepairinfoRepository repairinfoRepository,
 						   SenderRepository senderRepository, CarryRepository carryRepository, BillRepository billRepository,
 						   PaidStatusRepository paidStatusRepository , DeduetionRepository deduetionRepository, LevelRepository levelRepository,
 						   CommentRepository commentRepository, LinksenRepository linksenRepository, TypeproductRepository typeproductRepository,
@@ -51,18 +51,7 @@ public class DemoApplication {
 				p.setProvince(provinces);
 				provinceRepository.save(p);
 
-				Provincesen ps = new Provincesen();
-				ps.setProvincesen(provinces);
-				provincesenRepository.save(ps);
-
 			});
-
-			Link l = new Link();
-			l.setLinkId((long)1);
-			Link l2 = new Link();
-			l2.setLinkId((long)2);
-			linkRepository.save(l);
-			linkRepository.save(l2);
 
 			Gender g = new Gender();
 			g.setGender("ชาย");
@@ -83,8 +72,8 @@ public class DemoApplication {
 				if(senders == "อนุพงษ์") {
 					s.setLastname("ชัยสวรรค์");
 					s.setAddress("sut");
-					Provincesen provincesen = provincesenRepository.findByprovincesen("นครราชสีมา");
-					s.setProvincesen(provincesen);
+					Province province = provinceRepository.findByprovince("นครราชสีมา");
+					s.setProvince(province);
 					s.setPostcode("65180");
 					s.setPhone("0956399315");
 					s.setEmail("ice1");
@@ -96,8 +85,8 @@ public class DemoApplication {
 				else if (senders == "แพรวโพยม") {
 					s.setLastname("ทองศรี");
 					s.setAddress("moon");
-					Provincesen provincesen = provincesenRepository.findByprovincesen("พิษณุโลก");
-					s.setProvincesen(provincesen);
+					Province province = provinceRepository.findByprovince("พิษณุโลก");
+					s.setProvince(province);
 					s.setPostcode("65180");
 					s.setPhone("0956399315");
 					s.setEmail("ice2");
@@ -108,9 +97,9 @@ public class DemoApplication {
 
 				else if (senders == "สิริลักษณ์") {
 					s.setLastname("เกิดมี");
-					s.setAddress("jail");
-					Provincesen provincesen = provincesenRepository.findByprovincesen("กรุงเทพมหานคร");
-					s.setProvincesen(provincesen);
+					s.setAddress("ii");
+					Province province = provinceRepository.findByprovince("กรุงเทพมหานคร");
+					s.setProvince(province);
 					s.setPostcode("65180");
 					s.setPhone("0956399315");
 					s.setEmail("ice3");
@@ -122,8 +111,8 @@ public class DemoApplication {
 				else if(senders == "เบญจมาศ") {
 					s.setLastname("มัจฉา");
 					s.setAddress("ocean");
-					Provincesen provincesen = provincesenRepository.findByprovincesen("บุรีรัมย์");
-					s.setProvincesen(provincesen);
+					Province province = provinceRepository.findByprovince("บุรีรัมย์");
+					s.setProvince(province);
 					s.setPostcode("65180");
 					s.setPhone("0956399315");
 					s.setEmail("ice4");
@@ -135,8 +124,8 @@ public class DemoApplication {
 				else if(senders == "ฐิติมากานต์") {
 					s.setLastname("สอนสุภาพ");
 					s.setAddress("hell");
-					Provincesen provincesen = provincesenRepository.findByprovincesen("นครราชสีมา");
-					s.setProvincesen(provincesen);
+					Province province = provinceRepository.findByprovince("นครราชสีมา");
+					s.setProvince(province);
 					s.setPostcode("65180");
 					s.setPhone("0956399315");
 					s.setEmail("ice5");

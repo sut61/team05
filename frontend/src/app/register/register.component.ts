@@ -9,7 +9,7 @@ templateUrl: './register.component.html',
 styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-provincesen: Array<any>;
+province: Array<any>;
 provincesenNameSelect='';
 
 gender: Array<any>;
@@ -40,9 +40,9 @@ passwordInput:''
 constructor(private controller:Controller,private httpClient: HttpClient,private router: Router) { }
 
   ngOnInit() {
-  this.controller.getprovincesen().subscribe(data => {
-            this.provincesen = data;
-            console.log(this.provincesen);
+  this.controller.getprovince().subscribe(data => {
+            this.province = data;
+            console.log(this.province);
           });
 
   this.controller.getgender().subscribe(data => {

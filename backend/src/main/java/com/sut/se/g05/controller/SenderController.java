@@ -24,19 +24,16 @@ public class SenderController {
     private ProvinceRepository provinceRepository;
     @Autowired
     private LinkRepository linkRepository;
-    @Autowired
-    private ProvincesenRepository provincesenRepository;
 
     @Autowired
     public SenderController(SenderRepository senderRepository, ReceiverRepository receiverRepository,
                             GenderRepository genderRepository, ProvinceRepository provinceRepository,
-                            LinkRepository linkRepository, ProvincesenRepository provincesenRepository){
+                            LinkRepository linkRepository){
         this.senderRepository = senderRepository;
         this.receiverRepository = receiverRepository;
         this.genderRepository = genderRepository;
         this.provinceRepository = provinceRepository;
         this.linkRepository = linkRepository;
-        this.provincesenRepository = provincesenRepository;
     }
 
     //sender
@@ -69,15 +66,14 @@ public class SenderController {
 
 
     //province
-    //provincesen
-    @GetMapping(path = "/Provincesen", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Collection<Provincesen> getProvincesen() {
-        return provincesenRepository.findAll().stream().collect(Collectors.toList());
+    @GetMapping(path = "/Province", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Collection<Province> getProvince() {
+        return provinceRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @GetMapping(path = "/Provincesen/{provincesenId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Provincesen getOneProvincesen(@PathVariable Long provincesenId){
-        return provincesenRepository.findById(provincesenId).get();
+    @GetMapping(path = "/Province/{provinceId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Province getOneProvince(@PathVariable Long provinceId){
+        return provinceRepository.findById(provinceId).get();
     }
 
     //link
@@ -103,20 +99,18 @@ public class SenderController {
         Sender s = new Sender();
         Gender gender = genderRepository.findBygender(genderNameSelect);
         System.out.print(gender);
-        Provincesen provincesen = provincesenRepository.findByprovincesen(provincesenNameSelect);
-        System.out.print(provincesen);
-        Link l = linkRepository.findBylinkId((long)1);
+        Province province = provinceRepository.findByprovince(provincesenNameSelect);
+        System.out.print(province);
 
         s.setFirstname(firstnamesenInput);
         s.setLastname(lastnamesenInput);
         s.setGender(gender);
         s.setAddress(addresssenInput);
-        s.setProvincesen(provincesen);
+        s.setProvince(province);
         s.setPostcode(postcodesenInput);
         s.setPhone(phonesenInput);
         s.setEmail(emailInput);
         s.setPassword(passwordInput);
-        s.setLink(l);
         return senderRepository.save(s);
     }
 

@@ -14,9 +14,9 @@ styleUrls: ['./bounce.component.css']
 export class BounceComponent implements OnInit {
 
     senders: Array<any>;
-    provincesens: Array<any>;
-    receivers: Array<any>;
     provinces: Array<any>;
+    receivers: Array<any>;
+    provinces1: Array<any>;
     typeproducts: Array<any>;
 
   views: any = {
@@ -52,9 +52,9 @@ export class BounceComponent implements OnInit {
       console.log(this.provinces);
     });
 
-    this.BounceService.getProvincesen().subscribe(data => {
-      this.provincesens = data;
-      console.log(this.provincesens);
+    this.BounceService.getProvince().subscribe(data => {
+      this.provinces1 = data;
+      console.log(this.provinces1);
     });
 
   }
