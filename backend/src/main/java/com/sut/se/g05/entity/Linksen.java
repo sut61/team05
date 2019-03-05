@@ -24,5 +24,6 @@ public class Linksen {
     @Column(name="LINKSEN_ID",unique = true, nullable = true)
 
     private Long linksenId;
-
+    private String linksen;
+    
 }
