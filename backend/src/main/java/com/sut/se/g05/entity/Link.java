@@ -24,5 +24,6 @@ public class Link {
     @Column(name="LINK_ID",unique = true, nullable = true)
 
     private Long linkId;
+    private String link;
 
 }
