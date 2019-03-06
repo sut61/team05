@@ -7,6 +7,7 @@ import com.sut.se.g05.repository.*;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.Date;
 
 @CrossOrigin(origins = "http://localhost:4200", allowedHeaders = "*")
 @RestController
@@ -44,9 +45,10 @@ public class RepairinfoController {
 
 
 
-    @PostMapping("/Repairinfo/{driverId}/{carId}/{damageId}/{phone}")
+    @PostMapping("/Repairinfo/{driverId}/{carId}/{damageId}/{phone}/{note}/{employeeName}")
     public Repairinfo newRepairinfo(Repairinfo newRepairinfo,@PathVariable Long driverId,@PathVariable Long carId,
-                                    @PathVariable Long damageId,@PathVariable String phone) {
+                                    @PathVariable Long damageId,@PathVariable String phone,@PathVariable String employeeName,
+                                    @PathVariable String note) {
 
         Car car = carRepository.findByCarId(carId);
         Driver driver = driverRepository.findByDriverId(driverId);
@@ -56,6 +58,9 @@ public class RepairinfoController {
         newRepairinfo.setCar(car);
         newRepairinfo.setDamage(damage);
         newRepairinfo.setDriver(driver);
+        newRepairinfo.setRepairDate(new Date());
+        newRepairinfo.setEmployeeName(employeeName);
+        newRepairinfo.setNote(note);
 
         return  repairinfoRepository.save(newRepairinfo);
     }
