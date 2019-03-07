@@ -32,6 +32,12 @@ public class CarTest {
     @Autowired
     private CarRepository carRepository;
 
+    @Autowired
+    private CarBrandRepository carBrandRepository;
+
+    @Autowired
+    private CarInsuranceRepository carInsuranceRepository;
+
 	private Validator validator;
 	
 	@Before
@@ -42,9 +48,13 @@ public class CarTest {
 
 
 	@Test
-	public void contextLoads() {
+	public void testSuccess() {
 		Car c = new Car();
         c.setLicenseplate("ฟหกด๙๘");
+        c.setCarcode("123456");
+        c.setTypecar("รถยนต์");
+        c.setBrand(carBrandRepository.findByBrand("Toyota"));
+        c.setCompany(carInsuranceRepository.findByCompany("SHOMPOO"));
 
         try {
             entityManager.persist(c);
@@ -64,6 +74,11 @@ public class CarTest {
     public void testLicenseplateNull() {
         Car c = new Car();
         c.setLicenseplate(null);
+        c.setCarcode("123456");
+        c.setTypecar("รถยนต์");
+        c.setBrand(carBrandRepository.findByBrand("Toyota"));
+        c.setCompany(carInsuranceRepository.findByCompany("SHOMPOO"));
+
         try {
 
             entityManager.persist(c);
@@ -83,6 +98,11 @@ public class CarTest {
     public void testMinsize() {
         Car c = new Car();
         c.setLicenseplate("หก");
+        c.setCarcode("123456");
+        c.setTypecar("รถยนต์");
+        c.setBrand(carBrandRepository.findByBrand("Toyota"));
+        c.setCompany(carInsuranceRepository.findByCompany("SHOMPOO"));
+
         try {
 
             entityManager.persist(c);
@@ -102,6 +122,11 @@ public class CarTest {
     public void testMaxsize() {
         Car c = new Car();
         c.setLicenseplate("ฟหกดผปอทมสวงรนยบตจคพภถ");
+        c.setCarcode("123456");
+        c.setTypecar("รถยนต์");
+        c.setBrand(carBrandRepository.findByBrand("Toyota"));
+        c.setCompany(carInsuranceRepository.findByCompany("SHOMPOO"));
+
         try {
 
             entityManager.persist(c);
@@ -121,6 +146,11 @@ public class CarTest {
     public void testPatternDetail() {
         Car c = new Car();
         c.setLicenseplate("fgbng๙๘");
+        c.setCarcode("123456");
+        c.setTypecar("รถยนต์");
+        c.setBrand(carBrandRepository.findByBrand("Toyota"));
+        c.setCompany(carInsuranceRepository.findByCompany("SHOMPOO"));
+
         try {
 
             entityManager.persist(c);

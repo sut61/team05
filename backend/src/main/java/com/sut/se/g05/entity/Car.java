@@ -33,6 +33,10 @@ public class Car {
 	@Size(min=5, max=10)
 	@Pattern(regexp="^[ก-ฮ0-9]+$")
 	private String licenseplate;
+	@NotNull
+	private String carcode;
+	@NotNull
+	private String typecar;
 
 	@ManyToOne
 	@JoinColumn(name="CarBrand_Name")

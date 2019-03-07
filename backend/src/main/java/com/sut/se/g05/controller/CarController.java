@@ -46,9 +46,11 @@ public class CarController {
     // }
 
 
-    @PostMapping("/cars/{nameCarBrand}/{licenseplate}/{nameprovince}/{namecompany}")
+    @PostMapping("/cars/{nameCarBrand}/{licenseplate}/{carcode}/{typecar}/{nameprovince}/{namecompany}")
     public Car newCar(
-            @PathVariable String nameCarBrand, @PathVariable String licenseplate, 
+
+            @PathVariable String nameCarBrand, @PathVariable String licenseplate,
+            @PathVariable String carcode, @PathVariable String typecar,
             @PathVariable String nameprovince, @PathVariable String namecompany
 
     ) throws ParseException {
@@ -57,9 +59,11 @@ public class CarController {
         CarBrand b = carBrandRepository.findByBrand(nameCarBrand);
         Province province = provinceRepository.findByprovince(nameprovince);
         CarInsurance insurance = carInsuranceRepository.findByCompany(namecompany);
-        
+
         newCar.setBrand(b);
         newCar.setLicenseplate(licenseplate);
+        newCar.setCarcode(carcode);
+        newCar.setTypecar(typecar);
         newCar.setProvince(province);
         newCar.setCompany(insurance);
         return carRepository.save(newCar);

@@ -38,11 +38,13 @@ public class CarryController {
     }
 
 
-    @PostMapping("/carrys/{packageId}/{date}/{carryNumber}/{status}/{receivers}/{nameprovince}")
+    @PostMapping("/carrys/{codenamecarry}/{namecarry}/{packageId}/{date}/{carryNumber}/{status}/{receivers}/{nameprovince}")
     public Carry newCarry(
-            // @RequestBody Carry newCarry,
-            @PathVariable Long packageId, @PathVariable Date date, @PathVariable String carryNumber,
-            @PathVariable String status, @PathVariable Long receivers, @PathVariable Long nameprovince
+
+            @PathVariable String codenamecarry, @PathVariable String namecarry,
+            @PathVariable Long packageId, @PathVariable Date date,
+            @PathVariable String carryNumber, @PathVariable String status,
+            @PathVariable Long receivers, @PathVariable Long nameprovince
 
     ) throws ParseException {
         Carry newCarry = new Carry();
@@ -51,6 +53,8 @@ public class CarryController {
         Optional<Province> province = provinceRepository.findById(nameprovince);
         Optional<Receiver> receiver = receiverRepository.findById(receivers);
 
+        newCarry.setCodenamecarry(codenamecarry);
+        newCarry.setNamecarry(namecarry);
         newCarry.setPackageId(packages.get());
         newCarry.setDate(date);
         newCarry.setCarryNumber(carryNumber);

@@ -14,12 +14,16 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.sql.Timestamp;
 import java.util.stream.Stream;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
 @CrossOrigin(origins = "http://localhost:4200")
 @SpringBootApplication
 public class DemoApplication {
+	
+	private SimpleDateFormat formatter5 = new SimpleDateFormat("E, MMM dd yyyy HH:mm:ss");
+	
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
@@ -220,19 +224,39 @@ public class DemoApplication {
 				cStatus.setStatusType(Carstatus);
 				carStatusRepository.save(cStatus);
 			});
+			
+			Stream.of("PIN","ICE","ชาญวิทย์ประกันภัย").forEach(insurance -> {
+				CarInsurance c = new CarInsurance();
+				c.setCompany(insurance);
+				carInsuranceRepository.save(c);
+			});
 
 			CarBrand cb1 = carBrandRepository.getOne((long)1);
 			CarBrand cb2 = carBrandRepository.getOne((long)2);
 			CarBrand cb3 = carBrandRepository.getOne((long)3);
+			
+			CarInsurance ci1 = carInsuranceRepository.getOne((long)1);
+			CarInsurance ci2 = carInsuranceRepository.getOne((long)2);
+			CarInsurance ci3 = carInsuranceRepository.getOne((long)3);
+			
 			Car c1 = new Car();
+			c1.setLicenseplate("กขค1234");
+			c1.setCarcode("123442");
+			c1.setTypecar("รถยนต์");
 			c1.setBrand(cb1);
-			c1.setLicenseplate("กกก99");
+			c1.setCompany(ci1);
 			Car c2 = new Car();
+			c2.setLicenseplate("กขค1234");
+			c2.setCarcode("123442");
+			c2.setTypecar("รถยนต์");
 			c2.setBrand(cb2);
-			c2.setLicenseplate("กก9999");
+			c2.setCompany(ci2);
 			Car c3 = new Car();
+			c3.setLicenseplate("กขค1234");
+			c3.setCarcode("123442");
+			c3.setTypecar("รถยนต์");
 			c3.setBrand(cb3);
-			c3.setLicenseplate("กก9990");
+			c3.setCompany(ci3);
 
 			carRepository.save(c1);
 			carRepository.save(c2);
@@ -359,23 +383,15 @@ public class DemoApplication {
 			/////////////////////////////////////////////////////SHOOMPU////////////////////////////////////////////////////////////
 			Receiver r = receiverRepository.getOne((long)1);
 			Province p = provinceRepository.getOne((long)1);
+			
 			Carry carry = new Carry();
-			carry.setDate(new Date());
+			carry.setCodenamecarry("wipawee sukkasem");
+			carry.setNamecarry("H123444");
+			carry.setDate(formatter5.parse("Thu, Oct 18 2019 00:00:00"));
 			carry.setStatus("ส่งแล้ว");
 			carry.setCarryNumber("AVX123456789");
 			carry.setReceiver(r);
 			carryRepository.save(carry);
-
-
-			Stream.of("PIN","ICE","ชาญวิทย์ประกันภัย").forEach(insurance -> {
-				CarInsurance c = new CarInsurance();
-				c.setCompany(insurance);
-				carInsuranceRepository.save(c);
-			});
-
-
-
-
 
 
 

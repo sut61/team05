@@ -21,6 +21,16 @@
       </mat-form-field><br>
 
       <mat-form-field appearance="outline">
+        <mat-label>รหัสรถ</mat-label>
+        <input matInput placeholder="รหัสรถ" [(ngModel)]="select.carcode" name="carcode">
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
+        <mat-label>ประเภทรถ</mat-label>
+        <input matInput placeholder="ประเภทรถ" [(ngModel)]="select.typecar" name="typecar">
+      </mat-form-field><br>
+
+      <mat-form-field appearance="outline">
           <mat-label>จังหวัด</mat-label>
           <mat-select placeholder="province" [(ngModel)]="select.nameprovince" name="nameprovince" >
             <mat-option>None</mat-option>
@@ -39,8 +49,8 @@
           </mat-select>
         </mat-form-field><br>
     
-      <button mat-flat-button (click)="save()" [routerLink]="['/app-menu']">บันทึก</button>&nbsp;&nbsp;
-
+      <button mat-flat-button (click)="save()" [routerLink]="['/car']">บันทึก</button>&nbsp;&nbsp;
+      <button mat-flat-button (click)="save()" [routerLink]="['/app-menu']">ยกเลิก</button>
   </div> 
 </body>
 

@@ -12,12 +12,17 @@ export class CarComponent implements OnInit {
 
   nameCarBrand : Array<any>
   licenseplate : Array<any>
+  carcode : Array<any>
+  typecar : Array<any>
   nameprovince : Array<any>
   namecompany : Array<any>
+  
 
   select: any = {
     nameCarBrand : '',
     licenseplate : '',
+    carcode : '',
+    typecar : '',
     nameprovince : '',
     namecompany : ''
   }
@@ -30,9 +35,9 @@ export class CarComponent implements OnInit {
       console.log(this.nameCarBrand);
     });
 
-      this.carService.getCar().subscribe(data => {
-        this.licenseplate = data;
-        console.log(this.licenseplate);
+    this.carService.getCar().subscribe(data => {
+      this.licenseplate = data;
+      console.log(this.licenseplate);
     });
     this.carService.getProvince().subscribe(data => {
       this.nameprovince = data;
@@ -51,6 +56,12 @@ export class CarComponent implements OnInit {
     else if (this.select.licenseplate == null || this.select.licenseplate == '') {
       alert('กรุณาระบุเลขทะเบียนรถ');
     }
+    else if (this.select.carcode == null || this.select.carcode == '') {
+      alert('กรุณาระบุรหัสรถ');
+    }
+    else if (this.select.typecar == null || this.select.typecar == '') {
+      alert('กรุณาระบุประเภทรถ');
+    }
     else if (this.select.nameprovince == null || this.select.nameprovince == '') {
       alert('กรุณาเลือกจังหวัด');
     }
@@ -59,10 +70,12 @@ export class CarComponent implements OnInit {
     } else {
       console.log(this.select.nameCarBrand);
       console.log(this.select.licenseplate);
+      console.log(this.select.carcode);
+      console.log(this.select.typecar);
       console.log(this.select.nameprovince);
       console.log(this.select.namecompany);
     this.http.post('http://localhost:8080/cars/' + this.select.nameCarBrand + '/' + this.select.licenseplate 
-    + '/' + this.select.nameprovince + '/' + this.select.namecompany ,this.select)
+    + '/' + this.select.carcode + '/' + this.select.typecar + '/' + this.select.nameprovince + '/' + this.select.namecompany ,this.select)
     .subscribe(
         data => {
             console.log('PUT Request is successful', data);
@@ -70,7 +83,7 @@ export class CarComponent implements OnInit {
         },
         error => {
             console.log('Error to PUT Request', error);
-            alert("FAIL");
+            alert("บันทึกไม่สำเร็จ !!");
         }
       );
     }
