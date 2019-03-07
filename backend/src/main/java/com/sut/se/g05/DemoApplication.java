@@ -23,7 +23,7 @@ public class DemoApplication {
 	@Bean
 	ApplicationRunner init(BankempRepository bankempRepository, CarInformationRepository carInformationRepository, CarRepository carRepository,
 						   DamageRepository damageRepository, DriverRepository driverRepository, GenderRepository genderRepository,
-						   InformationempRepository informationempRepository, LinkRepository linkRepository, LinkedRepository linkedRepository,
+						   InformationempRepository informationempRepository, LinkRepository linkRepository,
 						   PackageRepository packageRepository, PositionRepository positionRepository, ProvinceRepository provinceRepository,
 						   ReceiverRepository receiverRepository, RepairinfoRepository repairinfoRepository,
 						   SenderRepository senderRepository, CarryRepository carryRepository, BillRepository billRepository,
