@@ -41,34 +41,34 @@ public class CarInformationTest{
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         validator = factory.getValidator();
 	}
-	
-	// @Test
-	// public void contextLoads() {
-	// ////////////////////////////////กรณีที่ถูก///////////////////////////////////
-	// 	CarInformation c = new CarInformation();
-    //     c.setName("Suranaree");
-    //     c.setAddress("Suranaree 30000");
-    //     c.setTelephone("0988313467");
-    //     c.setAge(20);
 
-    //     try {
-    //         entityManager.persist(c);
-    //         entityManager.flush();
-
-           
-    //     }catch(javax.validation.ConstraintViolationException e){
-    //         Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-    //         assertEquals(violations.isEmpty(), false);
-    //         assertEquals(violations.size(), 1);
-    //     }
-
-	// }
+//    @Test
+//    public void TestSuccess() { //
+//        CarInformation c = new CarInformation();
+//        c.setName("tttttttt");
+//        c.setAddress("Suranaree");
+//        c.setIdcardnumber("1319900521311");
+//        c.setTelephone("0988313467");
+//        c.setAge(20);
+//        try{
+//            entityManager.persist(c);
+//
+//
+//            //fail("Should not pass to the line");
+//        } catch (javax.validation.ConstraintViolationException e){
+//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+//            System.out.println("================ From TestSuccess =================");
+//            System.out.println(e);
+//            assertEquals(violations.isEmpty(), false);
+//            assertEquals(violations.size(), 1);
+//        }
+//    }
 
 	@Test
 	public void testNameNull() {
 	CarInformation c = new CarInformation();
         c.setName(null);
-        c.setAddress("Suranaree 30000");
+        c.setAddress("Suranaree30000");
         c.setIdcardnumber("1319900521311");
         c.setTelephone("0988313467");
         c.setAge(20);
@@ -80,6 +80,8 @@ public class CarInformationTest{
 			fail("Should not pass to this line");
         }catch(javax.validation.ConstraintViolationException e){
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("================error=================");//
+            System.out.println(e);//
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         }
@@ -102,6 +104,8 @@ public class CarInformationTest{
 			fail("Should not pass to this line");
         }catch(javax.validation.ConstraintViolationException e){
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("================error================="); //
+            System.out.println(e);
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         }
@@ -123,32 +127,37 @@ public class CarInformationTest{
 			fail("Should not pass to this line");
         }catch(javax.validation.ConstraintViolationException e){
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("================error=================");//
+            System.out.println(e);
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         }
 
 	}
 
-	// @Test
-	// public void testNamenopetter() {
-	// CarInformation c = new CarInformation();
-    //     c.setName("tanz benjamas1996");
-    //     c.setAddress("Suranaree 30000");
-    //     c.setTelephone("0988313467");
-    //     c.setAge(20);
-
-    //     try {
-    //         entityManager.persist(c);
-    //         entityManager.flush();
-
-	// 		fail("Should not pass to this line");
-    //     }catch(javax.validation.ConstraintViolationException e){
-    //         Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-    //         assertEquals(violations.isEmpty(), false);
-    //         assertEquals(violations.size(), 1);
-    //     }
-
-	// }
+//	@Test
+//	public void testNamenopetter() {
+//	CarInformation c = new CarInformation();
+//        c.setName("tanz benjamas1996");
+//        c.setAddress("Suranaree 30000");
+//        c.setIdcardnumber("1319900521311");
+//        c.setTelephone("0988313467");
+//        c.setAge(20);
+//
+//        try {
+//            entityManager.persist(c);
+//            entityManager.flush();
+//
+//			fail("Should not pass to this line");
+//        }catch(javax.validation.ConstraintViolationException e){
+//            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+//            System.out.println("================error=================");//
+//            System.out.println(e);
+//            assertEquals(violations.isEmpty(), false);
+//            assertEquals(violations.size(), 1);
+//        }
+//
+//	}
 
 	////////////////////////////////กรณีที่ถูก/////////////////////////////////////
 	@Test
@@ -167,6 +176,8 @@ public class CarInformationTest{
 			
         }catch(javax.validation.ConstraintViolationException e){
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("================TestSuccess =================");
+            System.out.println(e);
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         }
@@ -188,6 +199,8 @@ public class CarInformationTest{
 			fail("Should not pass to this line");
         }catch(javax.validation.ConstraintViolationException e){
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("================error=================");//
+            System.out.println(e);
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         }
@@ -210,6 +223,8 @@ public class CarInformationTest{
 			fail("Should not pass to this line");
         }catch(javax.validation.ConstraintViolationException e){
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("================error=================");//
+            System.out.println(e);
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         }
@@ -237,31 +252,8 @@ public class CarInformationTest{
         }
 
 	}
-
 	@Test
-	public void testAgeNull() {
-	CarInformation c = new CarInformation();
-        c.setName("tttttttt");
-        c.setAddress("Suranaree");
-        c.setIdcardnumber("1319900521311");
-        c.setTelephone("0988313467");
-        c.setAge(null);
-
-        try {
-            entityManager.persist(c);
-            entityManager.flush();
-
-			fail("Should not pass to this line");
-        }catch(javax.validation.ConstraintViolationException e){
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-        }
-
-    }
-    
-    @Test
-    public void testidcardnumbsrNull() { 
+    public void testidcardnumbsrNull() { //
         CarInformation c = new CarInformation();
         c.setName("tttttttt");
         c.setAddress("suranaree");
@@ -279,10 +271,10 @@ public class CarInformationTest{
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
         }
-    }
-    
+	}
+
     @Test
-    public void testidcardnumbsrlong() { 
+    public void testidcardnumbsrlong() { //
         CarInformation c = new CarInformation();
         c.setName("tttttttt");
         c.setAddress("suranaree");
@@ -303,7 +295,7 @@ public class CarInformationTest{
     }
 
     @Test
-    public void testidcardnumbsrshort() { 
+    public void testidcardnumbsrshort() { //
         CarInformation c = new CarInformation();
         c.setName("tttttttt");
         c.setAddress("suranaree");
@@ -322,9 +314,8 @@ public class CarInformationTest{
             assertEquals(violations.size(), 1);
         }
     }
-
     @Test
-    public void testidcardnumberUnique() { 
+    public void testidcardnumberUnique() { //
         CarInformation c = new CarInformation();
         c.setName("tttttttt");
         c.setAddress("suranaree");
@@ -357,4 +348,28 @@ public class CarInformationTest{
             e.printStackTrace();
         }
     }
+
+
+    @Test
+	public void testAgeNull() {
+	CarInformation c = new CarInformation();
+        c.setName("tttttttt");
+        c.setAddress("Suranaree");
+        c.setIdcardnumber("1319900521311");
+        c.setTelephone("0988313467");
+        c.setAge(null);
+
+        try {
+            entityManager.persist(c);
+            entityManager.flush();
+
+			fail("Should not pass to this line");
+        }catch(javax.validation.ConstraintViolationException e){
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+
+	}
+
 }
