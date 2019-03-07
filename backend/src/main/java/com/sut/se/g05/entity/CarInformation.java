@@ -29,9 +29,10 @@ public class CarInformation {
     @Column(name="carinformationId",unique = true, nullable = false)
    
     private  Long carInformationId;
+
     @NotNull
     @Size(min = 5, max = 30)
-   
+    @Pattern(regexp = "^[ก-๙a-zA-Z]+$")
     private   String name;
 
     @NotNull

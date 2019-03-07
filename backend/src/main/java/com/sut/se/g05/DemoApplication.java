@@ -239,6 +239,7 @@ public class DemoApplication {
 				carInfo.setAddress("49/7 หมู่ 9 หมู่บ้านชลเทพ ต.บางพลีใหญ่ อ.บางพลี จ.สมุทรปราการ 10540");
 				carInfo.setAge(20);
 				carInfo.setTelephone("0988313467");
+				carInfo.setIdcardnumber("1319900521311");
 				carInfo.setName("tanzii");
 				carInformationRepository.save(carInfo);
 			
