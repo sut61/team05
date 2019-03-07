@@ -110,11 +110,12 @@ public class BounceController {
     }
 
 
-    @PostMapping(path ="/bounce/{senderSelect}/{provincesenSelect}/{receiverSelect}/{provinceSelect}/{reasonInput}/{typeproductNameSelect}")
+    @PostMapping(path ="/bounce/{senderSelect}/{provincesenSelect}/{receiverSelect}/{provinceSelect}/{reasonInput}/{typeproductNameSelect}/{otherInput}")
     public Bounce newBounce(@RequestBody Bounce bounce, @PathVariable String senderSelect, @PathVariable String provincesenSelect,
                             @PathVariable String receiverSelect, @PathVariable String provinceSelect,
                             @PathVariable String reasonInput,
-                            @PathVariable String typeproductNameSelect
+                            @PathVariable String typeproductNameSelect,
+                            @PathVariable String otherInput
     ) {
         Bounce a = new Bounce();
         Typeproduct t = typeproductRepository.findBytypeproduct(typeproductNameSelect);
@@ -129,6 +130,7 @@ public class BounceController {
         a.setProvince(p);
         a.setReason(reasonInput);
         a.setTypeproduct(t);
+        a.setOther(otherInput);
         return bounceRepository.save(a);
     }
 

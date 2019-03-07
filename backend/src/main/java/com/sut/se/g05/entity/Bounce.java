@@ -29,7 +29,7 @@ public class Bounce {
     private String reason;
     @NotNull
     @Size(min=5, max=20)
-    private String ice;
+    private String other;
     @ManyToOne
     private Sender sender;
     @ManyToOne

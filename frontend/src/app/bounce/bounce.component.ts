@@ -26,6 +26,7 @@ export class BounceComponent implements OnInit {
     provinceSelect: '',
     reasonInput: '',
     typeproductNameSelect:'',
+    otherInput:''
 };
 
   constructor(private BounceService: BounceService, private httpClient: HttpClient, private router: Router) { }
@@ -60,7 +61,7 @@ export class BounceComponent implements OnInit {
   }
 
   save_func(){
-    this.httpClient.post('http://localhost:8080/bounce/' + this.views.senderSelect + '/' + this.views.provincesenSelect + '/' +  this.views.receiverSelect + '/' + this.views.provinceSelect + '/' + this.views.reasonInput + '/' + this.views.typeproductNameSelect,this.views)
+    this.httpClient.post('http://localhost:8080/bounce/' + this.views.senderSelect + '/' + this.views.provincesenSelect + '/' +  this.views.receiverSelect + '/' + this.views.provinceSelect + '/' + this.views.reasonInput + '/' + this.views.typeproductNameSelect + '/' + this.views.otherInput,this.views)
         .subscribe(
              data => {
                  console.log('PUT Request is successful', data);

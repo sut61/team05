@@ -50,6 +50,11 @@
     </mat-select>
   </mat-form-field><br>
 
+  <mat-form-field appearance="outline" class="form-ice">
+    <mat-label>Other</mat-label>
+    <textarea matInput placeholder="Other" [(ngModel)]="views.otherInput" name="other"></textarea>
+  </mat-form-field><br>
+
   <button mat-raised-button color="warn" (click)="save_func()">บันทึกข้อมูล</button>
 </div>
 </body>

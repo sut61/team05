@@ -54,7 +54,7 @@ public class BounceTest {
     public void testBounceAllCorrect() {
         Bounce a = new Bounce();
         a.setReason("สินค้าแตกหัก");
-        a.setIce("iiiiii");
+        a.setOther("iiiiii");
         a.setSender(senderRepository.findByfirstname("ก"));
         a.setReceiver(receiverRepository.findByfirstname("ข"));
         a.setProvince(provinceRepository.findByprovince("ค"));
@@ -76,7 +76,7 @@ public class BounceTest {
     public void testReasonNull() {
         Bounce a = new Bounce();
         a.setReason(null);
-        a.setIce("iiiiii");
+        a.setOther("iiiiii");
         a.setSender(senderRepository.findByfirstname("ก"));
         a.setReceiver(receiverRepository.findByfirstname("ข"));
         a.setProvince(provinceRepository.findByprovince("ค"));
@@ -100,7 +100,7 @@ public class BounceTest {
     public void testReasonMin() {
         Bounce a = new Bounce();
         a.setReason("กขค");
-        a.setIce("ii");
+        a.setOther("ii");
         a.setSender(senderRepository.findByfirstname("ก"));
         a.setReceiver(receiverRepository.findByfirstname("ข"));
         a.setProvince(provinceRepository.findByprovince("ค"));
@@ -124,7 +124,7 @@ public class BounceTest {
     public void testReasonPattern() {
         Bounce a = new Bounce();
         a.setReason("กขค123");
-        a.setIce("iiiiii");
+        a.setOther("iiiiii");
         a.setSender(senderRepository.findByfirstname("ก"));
         a.setReceiver(receiverRepository.findByfirstname("ข"));
         a.setProvince(provinceRepository.findByprovince("ค"));
