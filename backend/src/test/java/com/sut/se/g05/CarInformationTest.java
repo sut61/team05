@@ -69,6 +69,7 @@ public class CarInformationTest{
 	CarInformation c = new CarInformation();
         c.setName(null);
         c.setAddress("Suranaree 30000");
+        c.setIdcardnumber("1319900521311");
         c.setTelephone("0988313467");
         c.setAge(20);
 
@@ -90,6 +91,7 @@ public class CarInformationTest{
 	CarInformation c = new CarInformation();
         c.setName("ttttttttttttttttttttttttttttttttttttttttttttttt");
         c.setAddress("Suranaree 30000");
+        c.setIdcardnumber("1319900521311");
         c.setTelephone("0988313467");
         c.setAge(20);
 
@@ -110,6 +112,7 @@ public class CarInformationTest{
 	CarInformation c = new CarInformation();
         c.setName("eiei");
         c.setAddress("Suranaree 30000");
+        c.setIdcardnumber("1319900521311");
         c.setTelephone("0988313467");
         c.setAge(20);
 
@@ -153,6 +156,7 @@ public class CarInformationTest{
 	CarInformation c = new CarInformation();
         c.setName("เบญจมาส มัจฉา");
         c.setAddress("Suranaree 30000");
+        c.setIdcardnumber("1319900521311");
         c.setTelephone("0988313467");
         c.setAge(20);
 
@@ -173,6 +177,7 @@ public class CarInformationTest{
 	CarInformation c = new CarInformation();
         c.setName("tttttttt");
         c.setAddress("Suranaree 30000");
+        c.setIdcardnumber("1319900521311");
         c.setTelephone(null);
         c.setAge(20);
 
@@ -194,6 +199,7 @@ public class CarInformationTest{
 	CarInformation c = new CarInformation();
         c.setName("tttttttt");
         c.setAddress("Suranaree 30000");
+        c.setIdcardnumber("1319900521311");
         c.setTelephone("098875242563596259");
         c.setAge(20);
 
@@ -215,6 +221,7 @@ public class CarInformationTest{
 	CarInformation c = new CarInformation();
         c.setName("tttttttt");
         c.setAddress(null);
+        c.setIdcardnumber("1319900521311");
         c.setTelephone("0988313467");
         c.setAge(20);
 
@@ -236,6 +243,7 @@ public class CarInformationTest{
 	CarInformation c = new CarInformation();
         c.setName("tttttttt");
         c.setAddress("Suranaree");
+        c.setIdcardnumber("1319900521311");
         c.setTelephone("0988313467");
         c.setAge(null);
 
