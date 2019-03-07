@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 import java.sql.Timestamp;
 import java.util.Date;
@@ -21,12 +22,20 @@ public class Package {
     @GeneratedValue(generator="pack_seq",strategy=GenerationType.SEQUENCE)
     @Column(name="PACKAGE_ID",unique = true, nullable = true)
     private Long packid;
+    @NotNull
+    @Column(unique = true)
+    private String packNum;
+    @NotNull
     private Date regDate;
+    @NotNull
     private Timestamp regTime;
     @NotNull
     @Size(min = 3, max = 20)
     @Pattern(regexp = "^[a-zA-Z0-9_\\-.]+$")
     private String supply;
+    @NotNull
+    @PositiveOrZero
+    private Long price;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Province.class)
     @JoinColumn(name = "PPId")

@@ -32,5 +32,5 @@ const routes: Routes = [
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = '';
+  title = 'ระบบส่งสินค้าออนไลน์';
 }

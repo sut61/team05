@@ -1,4 +1,9 @@
 <router-outlet></router-outlet>
+<div class="alert" align="center">
+  <span *ngIf="!noti"  >
+            <mat-card>{{message}}</mat-card>
+  </span>
+</div>
 <div class="example-container" align="center">
   <form>
     หมายเลขใบส่ง:
@@ -18,6 +23,12 @@
     เบอร์โทรศัพท์:
     <mat-form-field>
       <input matInput placeholder="เบอร์โทรศัพท์" [(ngModel)]="phone" name="boo">
+    </mat-form-field>
+  </form>
+  <form>
+    จำนวนเงิน:
+    <mat-form-field>
+      <input matInput placeholder="จำนวนเงิน" [(ngModel)]="paid" name="nani">
     </mat-form-field>
   </form>
   <form>

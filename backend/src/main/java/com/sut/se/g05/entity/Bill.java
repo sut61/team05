@@ -5,6 +5,7 @@ import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.sql.Timestamp;
@@ -24,8 +25,12 @@ public class Bill {
     @NotNull @Size(min = 10, max = 10) @Pattern(regexp = "^[\\d{10}]+$")
     @Column(unique = true)
     private String phone;
+    @NotNull
     private Date paidDate;
+    @NotNull
     private Timestamp paidTime;
+    @NotNull @PositiveOrZero
+    private Long paid;
 
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = PaidStatus.class)
     @JoinColumn(name = "psid")

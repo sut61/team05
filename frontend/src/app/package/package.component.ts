@@ -17,10 +17,15 @@ receivers: Array<any>;
 provinces: Array<any>;
 
 employee = new Employee();
+packNum = '';
 supply = '';
+price = '';
 senderSelect = '';
 receiverSelect = '';
 provinceSelect = '';
+
+noti: boolean;
+message: String;
 
   constructor(private httpClient: HttpClient, private router: Router, private PackageService: PackageService) {
     PackageService.currentEmployee.subscribe(data =>{
@@ -29,6 +34,9 @@ provinceSelect = '';
    }
 
   ngOnInit() {
+
+    this.noti = true;
+
     this.PackageService.getSender().subscribe(data => {
       this.senders = data;
       console.log(this.senders);
@@ -50,23 +58,28 @@ provinceSelect = '';
   }
 
   save() {
-    if (this.senderSelect === '' || this.supply === '' || this.receiverSelect === '' || this.provinceSelect === '') {
-      alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+    if (this.senderSelect === '' || this.supply === '' || this.receiverSelect === '' || this.provinceSelect === '' ||
+        this.packNum === '' || this.price === '') {
+      this.noti = false;
+      this.message = 'กรอกข้อมูลให้ครบถ้วน'
 
     } else {
-      this.httpClient.post('http://localhost:8080/package/' + this.senderSelect + '/' + this.supply +
-                            '/' +this.receiverSelect +'/' + this.provinceSelect + '/' + this.employee.informationempid, {})
+      this.httpClient.post('http://localhost:8080/package/' + this.senderSelect + '/' + this.supply + '/' + this.price +
+                            '/' +this.receiverSelect +'/' + this.packNum + '/' + this.provinceSelect + '/' +
+                            this.employee.informationempid, {})
       .subscribe(
           data => {
-              alert("บันทึกสำเร็จ");
+              this.noti = false;
+              this.message = 'บันทึกสำเร็จ';
               console.log('PUT Request is successful', data);
-
               this.reset_func();
-              //this.router.navigate(['/app-menu']);
+
           },
           error => {
-                    alert("fail");
+                    this.noti = false;
+                    this.message = 'บันทึกล้มเหลว'
                     console.log('Error to PUT Request', error);
+                    this.reset_func();
                 }
       );
     }
@@ -88,10 +101,13 @@ provinceSelect = '';
           console.log(this.provinces);
         });
 
+        this.packNum = '';
+        this.price = '';
         this.senderSelect = '';
         this.supply = '';
         this.receiverSelect = '';
         this.provinceSelect = '';
+
   }
 
 }

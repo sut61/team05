@@ -18,8 +18,12 @@ statuses: Array<any>;
 employee = new Employee();
 carryNo = '';
 recName = '';
+paid = '';
 phone = '';
 status = '';
+
+noti: boolean;
+message: String;
 
   constructor(private httpClient: HttpClient, private router: Router, private PackageService: PackageService) {
       PackageService.currentEmployee.subscribe(data =>{
@@ -28,6 +32,9 @@ status = '';
      }
 
   ngOnInit() {
+
+    this.noti = true;
+
     this.PackageService.getStatus().subscribe(data => {
           this.statuses = data;
           console.log(this.statuses);
@@ -44,22 +51,24 @@ status = '';
     }
 
    save() {
-       if (this.carryNo === '' || this.recName === '' || this.phone === '' || this.status === '') {
-         alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+       if (this.carryNo === '' || this.recName === '' || this.phone === '' || this.status === '' || this.paid === '') {
+         this.noti = false;
+         this.message = 'กรุณากรอกข้อมูลให้ครบถ้วน';
        } else {
          this.httpClient.post('http://localhost:8080/bill/' + this.employee.informationempid + '/' + this.carryNo +
-                               '/' +this.recName +'/' + this.phone + '/' + this.status, {})
+                               '/' +this.recName +'/' + this.phone + '/' + this.status + '/' +this.paid, {})
          .subscribe(
              data => {
-                 alert("บันทึกสำเร็จ");
+                 this.noti = false;
+                 this.message = 'บันทึกสำเร็จ';
                  console.log('PUT Request is successful', data);
-
                  this.reset_func();
-                 //this.router.navigate(['/app-menu']);
              },
              error => {
-                       alert("fail");
+                       this.noti = false;
+                       this.message = 'บ ันทึกล้มเหลว';
                        console.log('Error to PUT Request', error);
+                       this.reset_func();
                    }
          );
        }
@@ -80,5 +89,6 @@ status = '';
              this.recName = '';
              this.phone = '';
              this.status = '';
+             this.paid = '';
        }
 }

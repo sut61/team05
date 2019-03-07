@@ -32,9 +32,9 @@ public class BillController {
         return paidStatusRepository.findAll().stream().collect(Collectors.toList());
     }
 
-    @PostMapping(path = "/bill/{employee}/{carryNum}/{recName}/{phone}/{status}")
+    @PostMapping(path = "/bill/{employee}/{carryNum}/{recName}/{phone}/{status}/{paid}")
     public Bill newBill(Bill newBill, @PathVariable Long employee, @PathVariable Long carryNum, @PathVariable String recName,
-                        @PathVariable String phone, @PathVariable Long status){
+                        @PathVariable String phone, @PathVariable Long status, @PathVariable Long paid){
 
         Optional<Informationemp> e = informationempRepository.findById(employee);
         Optional<Carry> c = carryRepository.findById(carryNum);
@@ -47,6 +47,7 @@ public class BillController {
         newBill.setCarry(c.get());
         newBill.setEmployee(e.get());
         newBill.setStatus(s.get());
+        newBill.setPaid(paid);
 
         return billRepository.save(newBill);
     }

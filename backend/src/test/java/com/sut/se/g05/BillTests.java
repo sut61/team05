@@ -56,6 +56,7 @@ public class BillTests {
         Bill b = new Bill();
         b.setRecName("messi");
         b.setPhone("0987654321");
+        b.setPaid((long)5000);
         b.setPaidDate(new Date());
         b.setPaidTime(new Timestamp(System.currentTimeMillis()));
 
@@ -79,6 +80,7 @@ public class BillTests {
         Bill b = new Bill();
         b.setRecName(null);
         b.setPhone("0987654321");
+        b.setPaid((long)5000);
         b.setPaidDate(new Date());
         b.setPaidTime(new Timestamp(System.currentTimeMillis()));
 
@@ -103,6 +105,7 @@ public class BillTests {
         Bill b = new Bill();
         b.setRecName("pp");
         b.setPhone("0987654321");
+        b.setPaid((long)5000);
         b.setPaidDate(new Date());
         b.setPaidTime(new Timestamp(System.currentTimeMillis()));
 
@@ -127,6 +130,7 @@ public class BillTests {
         Bill b = new Bill();
         b.setRecName("wearethailandnumbahwan");
         b.setPhone("0987654321");
+        b.setPaid((long)5000);
         b.setPaidDate(new Date());
         b.setPaidTime(new Timestamp(System.currentTimeMillis()));
 
@@ -151,6 +155,7 @@ public class BillTests {
         Bill b = new Bill();
         b.setRecName("we_rawat");
         b.setPhone("0987654321");
+        b.setPaid((long)5000);
         b.setPaidDate(new Date());
         b.setPaidTime(new Timestamp(System.currentTimeMillis()));
 
@@ -175,6 +180,7 @@ public class BillTests {
         Bill b = new Bill();
         b.setRecName("ronaldo");
         b.setPhone(null);
+        b.setPaid((long)5000);
         b.setPaidDate(new Date());
         b.setPaidTime(new Timestamp(System.currentTimeMillis()));
 
@@ -199,6 +205,7 @@ public class BillTests {
         Bill b = new Bill();
         b.setRecName("ronaldo");
         b.setPhone("onetwotree");
+        b.setPaid((long)5000);
         b.setPaidDate(new Date());
         b.setPaidTime(new Timestamp(System.currentTimeMillis()));
 
@@ -223,6 +230,7 @@ public class BillTests {
         Bill b = new Bill();
         b.setRecName("messi");
         b.setPhone("098765432");
+        b.setPaid((long)5000);
         b.setPaidDate(new Date());
         b.setPaidTime(new Timestamp(System.currentTimeMillis()));
 
@@ -247,6 +255,7 @@ public class BillTests {
         Bill b = new Bill();
         b.setRecName("ronaldo");
         b.setPhone("09876543210");
+        b.setPaid((long)5000);
         b.setPaidDate(new Date());
         b.setPaidTime(new Timestamp(System.currentTimeMillis()));
 
@@ -271,12 +280,18 @@ public class BillTests {
         Bill b1 = new Bill();
         b1.setRecName("ronaldo");
         b1.setPhone("0987654321");
+        b1.setPaid((long)5000);
+        b1.setPaidDate(new Date());
+        b1.setPaidTime(new Timestamp(System.currentTimeMillis()));
         entityManager.persist(b1);
         entityManager.flush();
 
         Bill b2 = new Bill();
         b2.setRecName("messi");
         b2.setPhone("0987654321");
+        b2.setPaid((long)5000);
+        b2.setPaidDate(new Date());
+        b2.setPaidTime(new Timestamp(System.currentTimeMillis()));
         try {
             entityManager.persist(b2);
             entityManager.flush();
@@ -288,26 +303,103 @@ public class BillTests {
         }
     }
 
-    /*@Test
-    public void testPaidStatusUnique() {
-        PaidStatus ps = new PaidStatus();
-        ps.setStatus("จ่าย");
+    @Test
+    public void testDateNotNull() {
+        Bill b = new Bill();
+        b.setRecName("messi");
+        b.setPhone("0987654321");
+        b.setPaid((long)5000);
+        b.setPaidDate(null);
+        b.setPaidTime(new Timestamp(System.currentTimeMillis()));
 
-        entityManager.persist(ps);
-        entityManager.flush();
-
-        PaidStatus ps1 = new PaidStatus();
-        ps1.setStatus("จ่าย");
+        billRepository.save(b);
 
         try {
-            entityManager.persist(ps1);
+            entityManager.persist(b);
             entityManager.flush();
-            fail("You shall not pass");
-        } catch(PersistenceException e){
-            e.printStackTrace();
-            System.out.println("=====Unique=====");
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("=====Date Null=====");
+            System.out.println(e);
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
         }
-    }*/
+    }
 
+    @Test
+    public void testTimeNotNull() {
+        Bill b = new Bill();
+        b.setRecName("messi");
+        b.setPhone("0987654321");
+        b.setPaid((long)5000);
+        b.setPaidDate(new Date());
+        b.setPaidTime(null);
+
+        billRepository.save(b);
+
+        try {
+            entityManager.persist(b);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("=====Time Null=====");
+            System.out.println(e);
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testPaidNotNull() {
+        Bill b = new Bill();
+        b.setRecName("messi");
+        b.setPhone("0987654321");
+        b.setPaid(null);
+        b.setPaidDate(new Date());
+        b.setPaidTime(new Timestamp(System.currentTimeMillis()));
+
+        billRepository.save(b);
+
+        try {
+            entityManager.persist(b);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("=====Paid Null=====");
+            System.out.println(e);
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testPaidPositive() {
+        Bill b = new Bill();
+        b.setRecName("messi");
+        b.setPhone("0987654321");
+        b.setPaid((long)-5000);
+        b.setPaidDate(new Date());
+        b.setPaidTime(new Timestamp(System.currentTimeMillis()));
+
+        billRepository.save(b);
+
+        try {
+            entityManager.persist(b);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch(javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            System.out.println("=====Date Null=====");
+            System.out.println(e);
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
 }
-

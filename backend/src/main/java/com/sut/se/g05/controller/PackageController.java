@@ -45,10 +45,11 @@ public class PackageController {
         return informationempRepository.findById(employeeId).get();
     }
 
-    @PostMapping(path = "/package/{senderName}/{supply}/{receiverName}/{province}/{employeeId}")
+    @PostMapping(path = "/package/{senderName}/{supply}/{price}/{receiverName}/{packNum}/{province}/{employeeId}")
     public Package newPackage(Package newPackage, @PathVariable String senderName,
                               @PathVariable String supply, @PathVariable String receiverName,
-                              @PathVariable Long province, @PathVariable Long employeeId) {
+                              @PathVariable Long province, @PathVariable Long price,
+                              @PathVariable String packNum, @PathVariable Long employeeId) {
 
         Sender sender = senderRepository.findByfirstname(senderName);
         Receiver receiver = receiverRepository.findByfirstname(receiverName);
@@ -60,6 +61,8 @@ public class PackageController {
         newPackage.setReceiver(receiver);
         newPackage.setProvince(provinces.get());
         newPackage.setEmployee(employee.get());
+        newPackage.setPackNum(packNum);
+        newPackage.setPrice(price);
         newPackage.setRegDate(new Date());
         newPackage.setRegTime(new Timestamp(System.currentTimeMillis()));
 

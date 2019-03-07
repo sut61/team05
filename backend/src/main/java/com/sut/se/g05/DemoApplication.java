@@ -1,6 +1,7 @@
 package com.sut.se.g05;
 
 import com.sut.se.g05.entity.*;
+import com.sut.se.g05.entity.Package;
 import com.sut.se.g05.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -10,6 +11,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
+
+import java.sql.Timestamp;
 import java.util.stream.Stream;
 import java.util.Date;
 
@@ -296,6 +299,19 @@ public class DemoApplication {
 				paidStatusRepository.save(p);
 			});
 
+			Sender sp = senderRepository.getOne((long)1);
+			Receiver rp = receiverRepository.getOne((long)1);
+			Province pp = provinceRepository.getOne((long)1);
+			Package pack = new Package();
+			pack.setPackNum("bigtu44");
+			pack.setSupply("submarine");
+			pack.setPrice((long)999999);
+			pack.setRegDate(new Date());
+			pack.setRegTime(new Timestamp(System.currentTimeMillis()));
+			pack.setEmployee(e);
+			pack.setSender(sp);
+			pack.setReceiver(rp);
+			pack.setProvince(pp);
 
 			/////////////////////////////////////////////////////GUN////////////////////////////////////////////////////////////
 
