@@ -33,8 +33,12 @@ public class Carry {
     @NotNull
     @Size(min=5, max=20)
     @Pattern(regexp="^[A-Z0-9]+$")
-    //@Column(unique = true)
+    @Column(unique = true)
     private String carryNumber;
+    @NotNull
+    private String namecarry;
+    @NotNull
+    private String codenamecarry;
 
     @OneToOne
     @JoinColumn(name = "package_ID")
