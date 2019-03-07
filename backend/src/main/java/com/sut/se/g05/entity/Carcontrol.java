@@ -42,7 +42,11 @@ public class Carcontrol {
     private  Date timeout;//
 
     @NonNull
-    private String votepoint; //
+    private Integer votepoint; //
+
+    @NonNull
+    private String idcarcontrol; //
+
     
     @NotNull
     @Size(min=2,max=100)

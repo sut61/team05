@@ -11,6 +11,7 @@ import { Router } from "@angular/router";
 export class CarcontrolComponent implements OnInit {
 
   info : Array<any>
+  idcarcontrol : Array<any>
   time : Array<any>
   timeout : Array<any>//
   annotation : Array<any>
@@ -21,6 +22,7 @@ export class CarcontrolComponent implements OnInit {
   select: any = {
     name : '',
     telephone : '',
+    idcarcontrol : '',
     time : '',
     timeout :'',//
     annotation : '',
@@ -55,6 +57,9 @@ export class CarcontrolComponent implements OnInit {
     else if (this.select.telephone == null || this.select.telephone == '') {
       alert('กรุณาเลือกเบอร์โทร');
     }
+    else if (this.select.idcarcontrol == null || this.select.idcarcontrol == '') {
+      alert('กรุณากรอกเลขที่ใบคุมรถ');
+    }//
     else if (this.select.time == null || this.select.time == '') {
       alert('กรุณาเลือกวันที่');
     }
@@ -76,6 +81,7 @@ export class CarcontrolComponent implements OnInit {
     } else {
       console.log(this.select.name);
       console.log(this.select.telephone);
+      console.log(this.select.idcarcontrol);
       console.log(this.select.time);
       console.log(this.select.timeout);
       console.log(this.select.annotation);
@@ -83,7 +89,7 @@ export class CarcontrolComponent implements OnInit {
        console.log(this.select.stype);
        console.log(this.select.nameprovince);
 
-    this.http.post('http://localhost:8080/carcontrols/' + this.select.name + '/' + this.select.time + '/' + this.select.timeout + '/' + this.select.annotation + '/'  + this.select.votepoint +  '/' + this.select.stype + '/' + this.select.nameprovince,this.select)
+    this.http.post('http://localhost:8080/carcontrols/' + this.select.name + '/' + this.select.idcarcontrol + '/' + this.select.time + '/' + this.select.timeout + '/' + this.select.annotation + '/'  + this.select.votepoint +  '/' + this.select.stype + '/' + this.select.nameprovince,this.select)
     .subscribe(
         data => {
             console.log('PUT Request is successful', data);

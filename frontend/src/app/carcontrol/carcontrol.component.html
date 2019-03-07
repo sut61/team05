@@ -22,6 +22,14 @@
          </mat-form-field>
       <br>
 
+      
+      <mat-form-field class="form-tanz" appearance="outline">
+        <mat-label>idcarcontrol</mat-label>
+        <input matInput placeholder="idcarcontrol" [(ngModel)]="select.idcarcontrol" name = "idcarcontrol">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+    <br>
+
       <mat-form-field class="form-tanz" appearance="outline">
           <input matInput [matDatepicker]="picker" placeholder="Choose a date" [(ngModel)]="select.time" name = "time" >
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>

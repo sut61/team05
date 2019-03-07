@@ -45,12 +45,13 @@ public class CarcontrolController {
     // }
 
 
-    @PostMapping("/carcontrols/{info}/{time}/{timeout}/{annotation}/{votepoint}/{stype}/{nameprovince}")
+    @PostMapping("/carcontrols/{info}/{idcarcontrol}/{time}/{timeout}/{annotation}/{votepoint}/{stype}/{nameprovince}")
     public Carcontrol newCarcontrol(
             @PathVariable Long info,
+            @PathVariable String idcarcontrol, //
             @PathVariable Date time, 
             @PathVariable Date timeout,//
-            @PathVariable String votepoint,// 
+            @PathVariable Integer votepoint,// 
             @PathVariable String annotation, 
             @PathVariable String stype, 
             @PathVariable Long nameprovince
@@ -63,6 +64,7 @@ public class CarcontrolController {
         Province province = provinceRepository.findByprovinceId(nameprovince);
           
         newCarcontrol.setInformation(carInfo);
+        newCarcontrol.setIdcarcontrol(idcarcontrol); //
         newCarcontrol.setTime(time);
         newCarcontrol.setTimeout(timeout);//
         newCarcontrol.setVotepoint(votepoint); //
