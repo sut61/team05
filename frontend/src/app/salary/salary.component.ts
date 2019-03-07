@@ -24,6 +24,8 @@ export class SalaryComponent implements OnInit {
  name: Array<any>;
  banknumber: Array<any>;
  balance: Array<any>;
+ payer: Array<any>;
+ other: Array<any>;
 
    views: any = {
 
@@ -33,6 +35,8 @@ export class SalaryComponent implements OnInit {
   banknumber: '',
   deduetionid: '',
   balance: '',
+  payer: '',
+  other: '',
  };
 
 constructor(private controller: Controller, private httpClient: HttpClient,private router: Router) { }
@@ -74,6 +78,13 @@ constructor(private controller: Controller, private httpClient: HttpClient,priva
       else if (this.views.balance == null || this.views.balance == '') {
              alert('กรุณาระบุุจำนวนเงินคงเหลือ');
       }
+      else if (this.views.payer == null || this.views.payer == '') {
+                   alert('กรุณาระบุผู้จ่ายเงิน');
+      }
+      else if (this.views.other == null || this.views.other == '') {
+                   alert('กรุณาระบุหมายเหตุอื่นๆ');
+            }
+
 
       else {
        console.log(this.views.name);
@@ -82,11 +93,13 @@ constructor(private controller: Controller, private httpClient: HttpClient,priva
        console.log(this.views.banknumber);
        console.log(this.views.deduetionid);
        console.log(this.views.balance);
+        console.log(this.views.payer);
+         console.log(this.views.other);
 
 
   this.httpClient.post('http://localhost:8080/salary/' + this.views.name + '/' + this.views.positionid + '/'
                        + this.views.bankempid + '/' + this.views.banknumber + '/'  + this.views.deduetionid + '/'
-                      + this.views.balance, this.views)
+                      + this.views.balance + '/' + this.views.payer  + '/' + this.views.other , this.views)
   .subscribe(
     data => {
       alert("บันทึกสำเร็จ")
