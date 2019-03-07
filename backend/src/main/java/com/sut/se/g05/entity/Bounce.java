@@ -26,7 +26,7 @@ public class Bounce {
     private Long bounceId;
     @NotNull
     @Size(min=5, max=100)
-    @Pattern(regexp="([ก-ฮ])+")
+    @Pattern(regexp="^([ก-ู]|[เ-์])+")
     private String reason;
     @ManyToOne
     private Sender sender;
