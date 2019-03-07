@@ -34,6 +34,12 @@ public class Salary {
     @NotNull
     Integer balance;
 
+    @NotNull
+    String payer;
+
+    @NotNull
+    String other;
+
     @ManyToOne
     private Position position;
     @ManyToOne
@@ -68,11 +74,29 @@ public class Salary {
         this.balance = balance;
     }
 
-    public Salary(String name, String banknumber, Integer balance, Position position, Bankemp bankemp,
+    public String getPayer() {
+        return payer;
+    }
+
+    public void setPayer(String payer) {
+        this.payer = payer;
+    }
+
+    public String getOther() {
+        return other;
+    }
+
+    public void setOther(String other) {
+        this.other = other;
+    }
+
+    public Salary(String name, String banknumber, Integer balance,String payer, String other, Position position, Bankemp bankemp,
                   Deduetion deduetion) {
         this.name = name;
         this.banknumber = banknumber;
         this.balance = balance;
+        this.payer = payer;
+        this.other = other;
         this.position = position;
         this.bankemp = bankemp;
         this.deduetion = deduetion;

@@ -40,9 +40,9 @@ class SalaryController {
     }
 
 
-    @PostMapping(path = "/salary/{name}/{positionid}/{bankempid}/{banknumber}/{deduetionid}/{balance}")
+    @PostMapping(path = "/salary/{name}/{positionid}/{bankempid}/{banknumber}/{deduetionid}/{balance}/{payer}/{other}")
     public Salary newsalary(@PathVariable String name, @PathVariable Long positionid, @PathVariable Long bankempid,
-            @PathVariable String banknumber, @PathVariable Long deduetionid, @PathVariable Integer balance)
+                            @PathVariable String banknumber, @PathVariable Long deduetionid, @PathVariable Integer balance ,@PathVariable String payer,@PathVariable String other)
             throws ParseException {
 
         Salary s = new Salary();
@@ -55,6 +55,8 @@ class SalaryController {
         s.setBanknumber(banknumber);
         s.setDeduetion(d);
         s.setBalance(balance);
+        s.setPayer(payer);
+        s.setOther(other);
 
         salaryRepository.save(s);
         return s;

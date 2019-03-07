@@ -58,6 +58,8 @@ public class SalaryTest {
         s.setName("kannika");
         s.setBanknumber("012345678901");
         s.setBalance(20000);
+        s.setPayer("joy");
+        s.setOther("eiei");
         s.setPosition(positionRepository.findBypositionid(1L));
         s.setBankemp(bankempRepository.findBybankempid(1L));
         s.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
@@ -81,6 +83,8 @@ public class SalaryTest {
         s.setName(null);
         s.setBanknumber("012345678901");
         s.setBalance(20000);
+        s.setPayer("joy");
+        s.setOther("eiei");
         s.setPosition(positionRepository.findBypositionid(1L));
         s.setBankemp(bankempRepository.findBybankempid(1L));
         s.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
@@ -109,6 +113,8 @@ public class SalaryTest {
         s.setName("kkkkkkkkkkkkkkkkkkk");
         s.setBanknumber("012345678901");
         s.setBalance(20000);
+        s.setPayer("joy");
+        s.setOther("eiei");
         s.setPosition(positionRepository.findBypositionid(1L));
         s.setBankemp(bankempRepository.findBybankempid(1L));
         s.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
@@ -137,6 +143,8 @@ public class SalaryTest {
         s.setName("k");
         s.setBanknumber("012345678901");
         s.setBalance(20000);
+        s.setPayer("joy");
+        s.setOther("eiei");
         s.setPosition(positionRepository.findBypositionid(1L));
         s.setBankemp(bankempRepository.findBybankempid(1L));
         s.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
@@ -164,6 +172,8 @@ public class SalaryTest {
         s.setName("k");
         s.setBanknumber("0123456789010000");
         s.setBalance(20000);
+        s.setPayer("joy");
+        s.setOther("eiei");
         s.setPosition(positionRepository.findBypositionid(1L));
         s.setBankemp(bankempRepository.findBybankempid(1L));
         s.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
@@ -190,6 +200,8 @@ public class SalaryTest {
         s.setName("kannika");
         s.setBanknumber("012345678901");
         s.setBalance(20000);
+        s.setPayer("joy");
+        s.setOther("eiei");
         s.setPosition(positionRepository.findBypositionid(1L));
         s.setBankemp(bankempRepository.findBybankempid(1L));
         s.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
@@ -200,6 +212,8 @@ public class SalaryTest {
         s2.setName("kannik");
         s2.setBanknumber("012345678901");
         s2.setBalance(2000);
+        s.setPayer("shompoo");
+        s.setOther("eieiei");
         s2.setPosition(positionRepository.findBypositionid(1L));
         s2.setBankemp(bankempRepository.findBybankempid(1L));
         s2.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
