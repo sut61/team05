@@ -41,6 +41,9 @@ public class CarInformation {
     @Size(min = 10, max = 10)
     @Pattern(regexp = "^[0]\\d+$")
     private   String telephone;
+
+    @NonNull
+    private String idcardnumber;
     
     @NotNull
     private   Integer age;

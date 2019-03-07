@@ -62,10 +62,11 @@ public class CarInformationController{
     //province
 
 
-    @PostMapping(path ="/CarInformation/{name}/{address}/{telephone}/{age}/{gender}/{carbrand}/{province}")
+    @PostMapping(path ="/CarInformation/{name}/{address}/{telephone}/{age}/{idcardnumber}/{gender}/{carbrand}/{province}")
     public CarInformation newcarInformation(@PathVariable String name,
                                             @PathVariable String address,
                                             @PathVariable String telephone,
+                                            @PathVariable String idcardnumber,
                                             @PathVariable Integer age,
                                             @PathVariable Long gender,
                                             @PathVariable Long carbrand,
@@ -82,6 +83,7 @@ public class CarInformationController{
         c.setName(name);
         c.setAddress(address);
         c.setTelephone(telephone);
+        c.setIdcardnumber(idcardnumber);
         c.setAge(age);
         c.setGender(g);
         c.setProvince(p);

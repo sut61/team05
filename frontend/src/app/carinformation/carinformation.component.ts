@@ -27,6 +27,8 @@ export class CarinformationComponent implements OnInit {
 
   telephone:Array<any>;
 
+  idcardnumber:Array<any>;
+
   age:Array<any>;
 
  
@@ -35,6 +37,7 @@ export class CarinformationComponent implements OnInit {
     name:'',
     address:'',
     telephone:'',
+    idcardnumber:'',
     age:'',
     gender:'',
     carbrand:'',
@@ -78,6 +81,8 @@ this.controller.getCarInformation().subscribe(data => {
       alert('No found address');
     }else if(this.views.telephone==''){
         alert('No found telephone');
+    }else if(this.views.idcardnumber==''){ 
+        alert('No found IDcardnumber');
     }else if(this.views.age==''){
         alert('No found age');
     }else if(this.views.gender==''){
@@ -94,7 +99,7 @@ this.controller.getCarInformation().subscribe(data => {
   }
       save_func(){
         
-     this.httpClient.post('http://localhost:8080/CarInformation/'+ this.views.name + '/' + this.views.address + '/' + this.views.telephone + '/' + this.views.age + '/' + this.views.gender + '/' + this.views.carbrand + '/'  + this.views.provice,this.views)
+     this.httpClient.post('http://localhost:8080/CarInformation/'+ this.views.name + '/' + this.views.address + '/' + this.views.telephone + '/' + this.views.age + '/' + this.views.idcardnumber + '/' + this.views.gender + '/' + this.views.carbrand + '/'  + this.views.provice,this.views)
         .subscribe(
           data => {
             console.log('PUT Request is successful', data);
