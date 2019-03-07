@@ -272,7 +272,10 @@ public class DemoApplication {
 			
 				Carcontrol control = new Carcontrol();
 				control.setInformation(carInfo);
-				control.setTime(new Date());				
+				control.setTime(new Date());
+				control.setIdcarcontrol("asddfff");	//
+				control.setTimeout(new Date());	//
+				control.setVotepoint(1);//				
 				CarStatus cStatus = carStatusRepository.findByStatusType("ส่ง");
 				control.setStatusType(cStatus);
 				control.setAnnotation("สวัสดีวันนี้ไปส่งแล้วรถน้ำมัยหมดแย่มากๆเลยอ่ะ");

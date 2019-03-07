@@ -38,20 +38,22 @@ public class Carcontrol {
     @NotNull
     private  Date time;
 
-    @NonNull
+    @NotNull
     private  Date timeout;//
 
-    @NonNull
+    @NotNull
+   
     private Integer votepoint; //
 
-    @NonNull
+    @NotNull
+    @Size(min=5,max=10)
+    @Pattern(regexp="[a-zA-z0-9]*")
+    @Column(unique = true)
     private String idcarcontrol; //
 
     
     @NotNull
-    @Size(min=2,max=100)
-    @Pattern(regexp = "^[a-zA-Zก-๙]+$")
-	private  String annotation;
+    private  String annotation;
 
 	@ManyToOne
 	@JoinColumn(name="NameProvince")

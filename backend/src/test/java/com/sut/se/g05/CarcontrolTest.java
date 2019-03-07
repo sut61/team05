@@ -51,6 +51,9 @@ public class CarcontrolTest {
 
 		Carcontrol car = new Carcontrol();
 		car.setTime(new Date());
+		car.setTimeout(new Date());
+		car.setVotepoint(1);
+		car.setIdcarcontrol("aaaaa");
 		car.setAnnotation("helloworld");
 		try {
             entityManager.persist(car);
@@ -65,12 +68,110 @@ public class CarcontrolTest {
 
 	}
 
-	@Test
+	 @Test
 	public void carconmin() {
 
 		Carcontrol car = new Carcontrol();
+		
 		car.setTime(new Date());
-		car.setAnnotation("a");
+		car.setTimeout(new Date());
+		car.setVotepoint(1);
+		car.setIdcarcontrol("a");
+		car.setAnnotation("helloworld");
+		try {
+            entityManager.persist(car);
+            entityManager.flush();
+
+			fail("Should not pass to this line");
+        }catch(javax.validation.ConstraintViolationException e){
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+
+	}
+
+	
+	@Test
+	public void carconnull() {
+
+		Carcontrol car = new Carcontrol();
+		
+		car.setTime(new Date());
+		car.setTimeout(new Date());
+		car.setVotepoint(1);
+		car.setIdcarcontrol(null);
+		car.setAnnotation("helloworld");
+		try {
+            entityManager.persist(car);
+            entityManager.flush();
+
+			fail("Should not pass to this line");
+        }catch(javax.validation.ConstraintViolationException e){
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+
+	}
+
+
+	@Test
+	public void setTimeNull() {
+
+		Carcontrol car = new Carcontrol();
+		
+		car.setTime(null);
+		car.setTimeout(new Date());
+		car.setVotepoint(1);
+		car.setIdcarcontrol("aaaaa");
+		car.setAnnotation("helloworld");
+		try {
+            entityManager.persist(car);
+            entityManager.flush();
+
+			fail("Should not pass to this line");
+        }catch(javax.validation.ConstraintViolationException e){
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+
+	}
+
+	@Test
+	public void timeoutnull() {
+
+		Carcontrol car = new Carcontrol();
+		
+		car.setTime(new Date());
+		car.setTimeout(null);
+		car.setVotepoint(1);
+		car.setIdcarcontrol("aaaaaa");
+		car.setAnnotation("helloworld");
+		try {
+            entityManager.persist(car);
+            entityManager.flush();
+
+			fail("Should not pass to this line");
+        }catch(javax.validation.ConstraintViolationException e){
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+
+	}
+
+	@Test
+	public void Annotationnull() {
+
+		Carcontrol car = new Carcontrol();
+		
+		car.setTime(new Date());
+		car.setTimeout(new Date());
+		car.setVotepoint(1);
+		car.setIdcarcontrol("aaaaa");
+		car.setAnnotation(null);
 		try {
             entityManager.persist(car);
             entityManager.flush();
@@ -88,8 +189,12 @@ public class CarcontrolTest {
 	public void carconmax() {
 
 		Carcontrol car = new Carcontrol();
+		
 		car.setTime(new Date());
-		car.setAnnotation("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		car.setTimeout(new Date());
+		car.setVotepoint(1);
+		car.setIdcarcontrol("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+		car.setAnnotation("aaaaaaaa");
 		try {
             entityManager.persist(car);
             entityManager.flush();
@@ -104,11 +209,15 @@ public class CarcontrolTest {
 	}
 
 	@Test
-	public void carcontrolnull() {
+	public void CarconNotPattern() {
 
 		Carcontrol car = new Carcontrol();
+		
 		car.setTime(new Date());
-		car.setAnnotation(null);
+		car.setTimeout(new Date());
+		car.setVotepoint(1);
+		car.setIdcarcontrol("ฟหกฟหกดฟหด");
+		car.setAnnotation("aaaaa");
 		try {
             entityManager.persist(car);
             entityManager.flush();
@@ -118,9 +227,38 @@ public class CarcontrolTest {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
             assertEquals(violations.size(), 1);
-        }
-
+		}
 	}
+	
 
+	@Test(expected = javax.persistence.PersistenceException.class)
+	public void testCarconUnique() { 
+		Carcontrol car = new Carcontrol();
+		Carcontrol car1 = new Carcontrol();
+		
+		car.setTime(new Date());
+		car.setTimeout(new Date());
+		car.setVotepoint(1);
+		car.setIdcarcontrol("aaaaa");
+		car.setAnnotation("aaaaa");
+		entityManager.persist(car);
+		entityManager.flush();
+
+		car1.setTime(new Date());
+		car1.setTimeout(new Date());
+		car1.setVotepoint(2);
+		car1.setIdcarcontrol("aaaaa");
+		car1.setAnnotation("asdasfd");
+		entityManager.persist(car1);
+
+
+		System.out.println();
+		System.out.println("----------> BeUnique <--------------------");
+		System.out.println();
+		System.out.println();
+  
+		entityManager.flush();
+		fail("Should not pass to this line");
+	}
 }
 
