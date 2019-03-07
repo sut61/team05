@@ -190,6 +190,9 @@ public class SalaryTest {
         s.setName("kannika");
         s.setBanknumber("012345678901");
         s.setBalance(20000);
+        s.setPosition(positionRepository.findBypositionid(1L));
+        s.setBankemp(bankempRepository.findBybankempid(1L));
+        s.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
         entityManager.persist(s);
         entityManager.flush();
 
@@ -197,6 +200,9 @@ public class SalaryTest {
         s2.setName("kannik");
         s2.setBanknumber("012345678901");
         s2.setBalance(2000);
+        s2.setPosition(positionRepository.findBypositionid(1L));
+        s2.setBankemp(bankempRepository.findBybankempid(1L));
+        s2.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
         try {
             entityManager.persist(s2);
             entityManager.flush();
