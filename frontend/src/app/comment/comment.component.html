@@ -18,7 +18,6 @@
           <input matInput placeholder="กรุณาเบอร์โทรศัพท์" [(ngModel)]="comment.phone" name="phone" required>
         </mat-form-field><br>
 
-        
           <mat-form-field class="example-full-width4">
             <mat-select placeholder="เพศ" name="soo" [(ngModel)]="gender" required>
               <mat-option *ngFor="let gender of genders" [value]="gender.genderId">
@@ -35,33 +34,14 @@
               </mat-select>
             </mat-form-field>
 
-        <h6>การบริการ รับ/ส่ง สินค้า :&nbsp;
-        <mat-form-field class="example-full-width">
+        <h6>ภาพรวมในการบริการ :&nbsp;
+        <mat-form-field class="example-full-width6">
           <mat-select placeholder="ระดับความพึงพอใจ" name="level" [(ngModel)]="comment.level1" required>
             <mat-option *ngFor="let level of levels" [value]="level.levelId">
               {{level.levelName}}
             </mat-option>
           </mat-select>
         </mat-form-field></h6>
-
-        <h6>ระยะเวลาในการส่งสินค้า :
-        <mat-form-field class="example-full-width">
-          <mat-select placeholder="ระดับความพึงพอใจ" name="level" [(ngModel)]="comment.level2" required>
-            <mat-option *ngFor="let level of levels" [value]="level.levelId">
-              {{level.levelName}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field></h6>
-
-        <h6>สภาพของสินค้า :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <mat-form-field class="example-full-width">
-          <mat-select placeholder="ระดับความพึงพอใจ" name="level" [(ngModel)]="comment.level3" required>
-            <mat-option *ngFor="let level of levels" [value]="level.levelId">
-              {{level.levelName}}
-            </mat-option>
-          </mat-select>
-        </mat-form-field></h6>
-
 
       <mat-form-field class="example-full-width3">
         <textarea matInput placeholder="ข้อเสนอแนะอื่นๆ"[(ngModel)]="comment.post" name="post" ></textarea>

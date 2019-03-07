@@ -46,8 +46,6 @@ headers: new HttpHeaders({
 export class Comment {
   commentid: any;
   level1: any;
-  level2: any;
-  level3: any;
   name: any;
   phone: any;
   post: any;

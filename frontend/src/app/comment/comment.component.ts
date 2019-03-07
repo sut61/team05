@@ -63,27 +63,18 @@ constructor(
       alert('กรุณาเลือกจังหวัด')
     }else if(this.comment.level1 == '' || this.comment.level1 == null){
       alert('กรุณาเลือกระดับความพึงพอใจ')
-    }else if(this.comment.level2 == '' || this.comment.level2 == null){
-      alert('กรุณาเลือกระดับความพึงพอใจ')
-    }else if(this.comment.level3 == '' || this.comment.level3 == null){
-      alert('กรุณาเลือกระดับความพึงพอใจ')
     } else {
     console.log(this.comment.name);
     console.log(this.comment.phone);
     console.log(this.comment.level1);
-    console.log(this.comment.level2);
-    console.log(this.comment.level3);
     console.log(this.comment.post);
     this.httpClient.post('//localhost:8080/Comment/' 
       + this.comment.level1 + '/' 
-      + this.comment.level2 + '/' 
-      + this.comment.level3 + '/'
       + this.comment.name + '/'
       + this.comment.phone + '/' 
       + this.comment.post + '/'
       + this.province + '/'
       + this.gender,this.comment)
-      
     .subscribe(
       data => {
                     alert("บันทึกสำเร็จ");
