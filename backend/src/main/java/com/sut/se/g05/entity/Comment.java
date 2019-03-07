@@ -30,7 +30,7 @@ public class Comment {
     private String phone;
 
     @NotNull @Size(min = 3, max = 20)
-    @Pattern(regexp = "^[0-9ก-๙a-zA-Z' '-]+$")
+    @Pattern(regexp = "^[ก-๙a-zA-Z' '-]+$")
     private String name;
 
     @NotNull
