@@ -210,7 +210,7 @@ public class BounceTest {
         entityManager.flush();
 
         Typeproduct t1 = new Typeproduct();
-        t1.setTypeproduct("iii");
+        t1.setTypeproduct("iiiiii");
         entityManager.persist(t1);
         entityManager.flush();
 
