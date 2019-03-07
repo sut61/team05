@@ -54,7 +54,7 @@ public class BounceTest {
     public void testBounceAllCorrect() {
         Bounce a = new Bounce();
         a.setReason("สินค้าแตกหัก");
-        a.setIce("ii");
+        a.setIce("iiiiii");
         a.setSender(senderRepository.findByfirstname("ก"));
         a.setReceiver(receiverRepository.findByfirstname("ข"));
         a.setProvince(provinceRepository.findByprovince("ค"));
@@ -76,7 +76,7 @@ public class BounceTest {
     public void testReasonNull() {
         Bounce a = new Bounce();
         a.setReason(null);
-        a.setIce("ii");
+        a.setIce("iiiiii");
         a.setSender(senderRepository.findByfirstname("ก"));
         a.setReceiver(receiverRepository.findByfirstname("ข"));
         a.setProvince(provinceRepository.findByprovince("ค"));
@@ -124,7 +124,7 @@ public class BounceTest {
     public void testReasonPattern() {
         Bounce a = new Bounce();
         a.setReason("กขค123");
-        a.setIce("ii");
+        a.setIce("iiiiii");
         a.setSender(senderRepository.findByfirstname("ก"));
         a.setReceiver(receiverRepository.findByfirstname("ข"));
         a.setProvince(provinceRepository.findByprovince("ค"));
@@ -147,7 +147,7 @@ public class BounceTest {
     @Test
     public void testTypeproductAllCorrect() {
         Typeproduct t = new Typeproduct();
-        t.setTypeproduct("iii");
+        t.setTypeproduct("iiiiii");
 
         try {
             entityManager.persist(t);
@@ -185,7 +185,7 @@ public class BounceTest {
     @Test
     public void testTypeproductMin() {
         Typeproduct t = new Typeproduct();
-        t.setTypeproduct("i");
+        t.setTypeproduct("ii");
 
         try {
             entityManager.persist(t);
@@ -205,7 +205,7 @@ public class BounceTest {
     @Test(expected=javax.persistence.PersistenceException.class)
     public void testTypeproductUnique() {
         Typeproduct t = new Typeproduct();
-        t.setTypeproduct("iii");
+        t.setTypeproduct("iiiiii");
         entityManager.persist(t);
         entityManager.flush();
 
