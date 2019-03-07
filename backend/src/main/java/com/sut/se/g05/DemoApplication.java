@@ -246,15 +246,15 @@ public class DemoApplication {
 			c1.setBrand(cb1);
 			c1.setCompany(ci1);
 			Car c2 = new Car();
-			c2.setLicenseplate("กขค1234");
-			c2.setCarcode("123442");
-			c2.setTypecar("รถยนต์");
+			c2.setLicenseplate("กตง1234");
+			c2.setCarcode("27632");
+			c2.setTypecar("มอไซต์");
 			c2.setBrand(cb2);
 			c2.setCompany(ci2);
 			Car c3 = new Car();
-			c3.setLicenseplate("กขค1234");
-			c3.setCarcode("123442");
-			c3.setTypecar("รถยนต์");
+			c3.setLicenseplate("นยร1234");
+			c3.setCarcode("28693");
+			c3.setTypecar("รถ 6 ล้อ");
 			c3.setBrand(cb3);
 			c3.setCompany(ci3);
 
