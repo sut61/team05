@@ -1,14 +1,9 @@
 package com.sut.se.g05.entity;
 
 import lombok.*;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.validation.constraints.*;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Data
 @Entity
@@ -27,6 +22,7 @@ public class Typeproduct {
     @NotNull
     private Long typeproductId;
     @NotNull
+    @Column(unique = true)
     private @NonNull String typeproduct;
 
 }

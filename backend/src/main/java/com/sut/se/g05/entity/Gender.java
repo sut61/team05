@@ -1,13 +1,11 @@
 package com.sut.se.g05.entity;
 
 import lombok.*;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -24,5 +22,8 @@ public class Gender {
     @Column(name="GENDER_ID",unique = true, nullable = true)
 
     private Long genderId;
-    private String gender;
+    @NotNull
+    @Column(unique = true)
+    private @NonNull String gender;
+
 }

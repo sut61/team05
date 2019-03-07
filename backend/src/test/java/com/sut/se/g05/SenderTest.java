@@ -1,7 +1,7 @@
 package com.sut.se.g05;
 
-import com.sut.se.g05.entity.Sender;
-import com.sut.se.g05.repository.SenderRepository;
+import com.sut.se.g05.entity.*;
+import com.sut.se.g05.repository.*;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,6 +25,9 @@ public class SenderTest {
 
     @Autowired
     private SenderRepository senderRepository;
+
+    @Autowired
+    private GenderRepository genderRepository;
 
     @Autowired
     private TestEntityManager entityManager;
@@ -194,7 +197,6 @@ public class SenderTest {
         }
     }
 
-
     @Test
     public void testPatternPhone() {
         Sender s = new Sender();
@@ -288,46 +290,24 @@ public class SenderTest {
         }
     }
 
-
     @Test(expected=javax.persistence.PersistenceException.class)
-    public void testAddressUnique() {
-        Sender s = new Sender();
-        s.setFirstname("แพรวโพยม");
-        s.setLastname("สอนสุภาพ");
-        s.setAddress("37/2");
-        s.setPostcode("65180");
-        s.setPhone("0956399315");
-        s.setEmail("ice@gmail.com");
-        s.setPassword("123");
-        entityManager.persist(s);
+    public void uniqueGender(){
+        Gender a = new Gender();
+        a.setGender("ABC");
+        entityManager.persist(a);
         entityManager.flush();
-
-
-        Sender s1 = new Sender();
-        s1.setFirstname("แพรวโพยม");
-        s1.setLastname("สอนสุภาพ");
-        s1.setAddress("37/2");
-        s1.setPostcode("65180");
-        s1.setPhone("0956399315");
-        s1.setEmail("ice@gmail.com");
-        s1.setPassword("123");
-        entityManager.persist(s1);
-        entityManager.flush();
-
         try {
-            entityManager.persist(s1);
+            Gender aa = new Gender();
+            aa.setGender("ABC");
+            entityManager.persist(aa);
             entityManager.flush();
-
-            fail("Should not pass to this line");
-        } catch (javax.validation.ConstraintViolationException e) {
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-            System.out.println();
-            System.out.println(e.getMessage() + "======================================== Test AddressUnique ========================================");
-            System.out.println();
+            fail("Should not pass this line");
+        } catch(javax.persistence.PersistenceException e) {
+            System.out.println("=================================================");
+            System.out.println("Error Unique " + e.getMessage());
+            System.out.println("=================================================");
+            throw new javax.persistence.PersistenceException();
         }
     }
-
 
 }

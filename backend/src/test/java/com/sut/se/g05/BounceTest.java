@@ -26,6 +26,7 @@ public class BounceTest {
 
     @Autowired
     private BounceRepository bounceRepository;
+
     @Autowired
     private TypeproductRepository typeproductRepository;
 
@@ -44,11 +45,15 @@ public class BounceTest {
     public void testBounceAllCorrect() {
         Bounce a = new Bounce();
         a.setReason("สินค้าแตกหัก");
+        a.setSender("แพรวโพยม");
+        a.setProvince("พิษณุโลก");
+        a.setReceiver("ฐิติมากานต์");
+        a.setProvince("น่าน");
 
         try {
             entityManager.persist(a);
             entityManager.flush();
-            //fail("Should not pass to this line");
+//            fail("Should not pass to this line");
         } catch (javax.validation.ConstraintViolationException e) {
             System.out.println( "======================================== Test BounceAllCorrect ========================================");
             System.out.println();
@@ -81,6 +86,10 @@ public class BounceTest {
     public void testReasonNull() {
         Bounce a = new Bounce();
         a.setReason(null);
+        a.setSender("แพรวโพยม");
+        a.setProvince("พิษณุโลก");
+        a.setReceiver("ฐิติมากานต์");
+        a.setProvince("น่าน");
 
         try {
             entityManager.persist(a);
@@ -96,4 +105,80 @@ public class BounceTest {
             System.out.println();
         }
     }
+
+    @Test
+    public void testReasonMin() {
+        Bounce a = new Bounce();
+        a.setReason("iii");
+        a.setSender("แพรวโพยม");
+        a.setProvince("พิษณุโลก");
+        a.setReceiver("ฐิติมากานต์");
+        a.setProvince("น่าน");
+
+        try {
+            entityManager.persist(a);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+//            assertEquals(violations.size(), 1);
+            System.out.println();
+            System.out.println(e.getMessage()+"======================================== Test Reason Min ========================================");
+            System.out.println();
+        }
+    }
+
+    @Test
+    public void testReasonPattern() {
+        Bounce a = new Bounce();
+        a.setReason("iii");
+        a.setSender("แพรวโพยม");
+        a.setProvince("พิษณุโลก");
+        a.setReceiver("เธอ");
+        a.setProvince("เชียงใหม่");
+
+        try {
+            entityManager.persist(a);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 2);
+            System.out.println();
+            System.out.println(e.getMessage()+"======================================== Test Reason Pattern ========================================");
+            System.out.println();
+        }
+    }
+
+    @Test(expected=javax.persistence.PersistenceException.class)
+    public void testTypeproductUnique() {
+        Typeproduct t = new Typeproduct();
+        t.setTypeproduct("iii");
+        entityManager.persist(t);
+        entityManager.flush();
+
+        Typeproduct t1 = new Typeproduct();
+        t1.setTypeproduct("iii");
+        entityManager.persist(t1);
+        entityManager.flush();
+
+        try {
+            entityManager.persist(t1);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println();
+            System.out.println(e.getMessage() + "======================================== Test TypeproductUnique ========================================");
+            System.out.println();
+        }
+    }
+
 }

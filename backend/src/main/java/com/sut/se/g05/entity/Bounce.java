@@ -1,17 +1,12 @@
 package com.sut.se.g05.entity;
 
-import lombok.*;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.*;
+
 import javax.persistence.*;
-import java.lang.annotation.Annotation;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -30,13 +25,15 @@ public class Bounce {
     @NotNull
     private Long bounceId;
     @NotNull
+    @Size(min=5, max=100)
+    @Pattern(regexp="([ก-ฮ])+")
     private String reason;
-    @ManyToOne
-    private Sender sender;
-    @ManyToOne
-    private Receiver receiver;
-    @ManyToOne
-    private Province province;
+    @NotNull
+    private String sender;
+    @NotNull
+    private String receiver;
+    @NotNull
+    private String province;
 
 
     //Many To One with Linksen
@@ -44,6 +41,7 @@ public class Bounce {
     @JoinColumn(name = "BSId")
     @JsonIgnore
     private Linksen linksen;
+
 
     //Many To One with Typeproduct
     @ManyToOne(fetch = FetchType.EAGER, targetEntity = Typeproduct.class)
