@@ -19,27 +19,18 @@ public class CarryController {
     @Autowired
     private CarryRepository carryRepository;
     @Autowired
-    private LinkedRepository linkedRepository;
-    @Autowired
     private PackageRepository packageRepository;
     @Autowired
     private ProvinceRepository provinceRepository;
     @Autowired
     private ReceiverRepository receiverRepository;
 
-    // public CarryController(CarryRepository carryRepository) {
-    //     this.carryRepository = carryRepository;
-    // }
 
     @GetMapping("/carrys")
     public Collection<Carry> carry() {
         return carryRepository.findAll().stream().collect(Collectors.toList());
     }
-
-    @GetMapping("/linkeds")
-    public Collection<Linked> linked() {
-        return linkedRepository.findAll().stream().collect(Collectors.toList());
-    }
+    
 
     @GetMapping("/packages")
     public Collection<Package> packages() {

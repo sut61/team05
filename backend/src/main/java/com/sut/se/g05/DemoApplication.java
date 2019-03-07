@@ -62,7 +62,6 @@ public class DemoApplication {
 
 			Bounce a = new Bounce();
 			a.setReason("สินค้าแตกหัก");
-			a.setIce("iceice");
 			Typeproduct t = typeproductRepository.findBytypeproduct("รองเท้า");
 			a.setTypeproduct(t);
 
@@ -204,7 +203,7 @@ public class DemoApplication {
 			bounceRepository.findAll().forEach(System.out::println);
 
 
-			/////////////////////////////////////////////////////TAN////////////////////////////////////////////////////////////
+			/////////////////////////////////////////////////////TAN//////////////////////////////////////////////////////////
 
 			Stream.of("Toyota","Isuzu","Nissan").forEach(carbrand -> {
 				CarBrand cb = new CarBrand();
@@ -239,7 +238,6 @@ public class DemoApplication {
 				carInfo.setAddress("49/7 หมู่ 9 หมู่บ้านชลเทพ ต.บางพลีใหญ่ อ.บางพลี จ.สมุทรปราการ 10540");
 				carInfo.setAge(20);
 				carInfo.setTelephone("0988313467");
-				carInfo.setIdcardnumber("1319900521311"); 
 				carInfo.setName("tanzii");
 				carInformationRepository.save(carInfo);
 			
@@ -351,16 +349,17 @@ public class DemoApplication {
 			carryRepository.save(carry);
 
 
-			Linked linked = new Linked();
-			linked.setCarryLinked(carry);
-			linked.setProvinceLinked(p);
-			linkedRepository.save(linked);
-
 			Stream.of("PIN","ICE","ชาญวิทย์ประกันภัย").forEach(insurance -> {
 				CarInsurance c = new CarInsurance();
 				c.setCompany(insurance);
 				carInsuranceRepository.save(c);
 			});
+
+
+
+
+
+
 
 
 			System.out.print("===================StartApplication=======================");
