@@ -58,9 +58,9 @@ public class SalaryTest {
         s.setName("kannika");
         s.setBanknumber("012345678901");
         s.setBalance(20000);
-        s.setPosition(positionRepository.findBypositionid(null));
-        s.setBankemp(bankempRepository.findBybankempid(null));
-        s.setDeduetion(deduetionbRepository.findBydeduetionid(null));
+        s.setPosition(positionRepository.findBypositionid(1L));
+        s.setBankemp(bankempRepository.findBybankempid(1L));
+        s.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
 
         try {
             entityManager.persist(s);
@@ -81,9 +81,9 @@ public class SalaryTest {
         s.setName(null);
         s.setBanknumber("012345678901");
         s.setBalance(20000);
-        s.setPosition(positionRepository.findBypositionid(null));
-        s.setBankemp(bankempRepository.findBybankempid(null));
-        s.setDeduetion(deduetionbRepository.findBydeduetionid(null));
+        s.setPosition(positionRepository.findBypositionid(1L));
+        s.setBankemp(bankempRepository.findBybankempid(1L));
+        s.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
 
         try {
             entityManager.persist(s);
@@ -109,9 +109,9 @@ public class SalaryTest {
         s.setName("kkkkkkkkkkkkkkkkkkk");
         s.setBanknumber("012345678901");
         s.setBalance(20000);
-        s.setPosition(positionRepository.findBypositionid(null));
-        s.setBankemp(bankempRepository.findBybankempid(null));
-        s.setDeduetion(deduetionbRepository.findBydeduetionid(null));
+        s.setPosition(positionRepository.findBypositionid(1L));
+        s.setBankemp(bankempRepository.findBybankempid(1L));
+        s.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
 
         try {
             entityManager.persist(s);
@@ -137,9 +137,9 @@ public class SalaryTest {
         s.setName("k");
         s.setBanknumber("012345678901");
         s.setBalance(20000);
-        s.setPosition(positionRepository.findBypositionid(null));
-        s.setBankemp(bankempRepository.findBybankempid(null));
-        s.setDeduetion(deduetionbRepository.findBydeduetionid(null));
+        s.setPosition(positionRepository.findBypositionid(1L));
+        s.setBankemp(bankempRepository.findBybankempid(1L));
+        s.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
 
         try {
             entityManager.persist(s);
@@ -164,9 +164,9 @@ public class SalaryTest {
         s.setName("k");
         s.setBanknumber("0123456789010000");
         s.setBalance(20000);
-        s.setPosition(positionRepository.findBypositionid(null));
-        s.setBankemp(bankempRepository.findBybankempid(null));
-        s.setDeduetion(deduetionbRepository.findBydeduetionid(null));
+        s.setPosition(positionRepository.findBypositionid(1L));
+        s.setBankemp(bankempRepository.findBybankempid(1L));
+        s.setDeduetion(deduetionbRepository.findBydeduetionid(1L));
 
         try {
             entityManager.persist(s);
