@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.sut.se.g05.entity.*;
 import com.sut.se.g05.repository.*;
+
+import java.sql.Timestamp;
 import java.util.Collection;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -61,6 +63,7 @@ public class RepairinfoController {
         newRepairinfo.setRepairDate(new Date());
         newRepairinfo.setEmployeeName(employeeName);
         newRepairinfo.setNote(note);
+        newRepairinfo.setRepairTime(new Timestamp(System.currentTimeMillis()));
 
         return  repairinfoRepository.save(newRepairinfo);
     }

@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Optional;
 
@@ -28,12 +29,17 @@ public class Repairinfo {
     private String phone;
 
     @NotNull @Size(min = 3, max = 20)
-    @Pattern(regexp = "^[ก-๙a-zA-Z]+$")
+    @Pattern(regexp = "^[ก-๙a-zA-Z' ']+$")
     private String employeeName;
 
+    @Pattern(regexp = "^[0-9ก-๙a-zA-Z' '-]+$")
     private String note;
 
+    @NotNull
     private Date repairDate;
+
+    @NotNull
+    private Timestamp repairTime;
 
     @ManyToOne(fetch=FetchType.EAGER, targetEntity = Car.class)
     private Car car;

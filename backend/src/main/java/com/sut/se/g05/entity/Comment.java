@@ -6,8 +6,10 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Optional;
+import java.util.Set;
 
 @Getter @Setter
 @Data
@@ -28,11 +30,16 @@ public class Comment {
     private String phone;
 
     @NotNull @Size(min = 3, max = 20)
-    @Pattern(regexp = "^[ก-๙a-zA-Z]+$")
+    @Pattern(regexp = "^[0-9ก-๙a-zA-Z' '-]+$")
     private String name;
 
+    @NotNull
     private Date commentDate;
 
+    @NotNull
+    private Timestamp commentTime;
+
+    @Pattern(regexp = "^[0-9ก-๙a-zA-Z' '-]+$")
     private String post;
 
     @ManyToOne(fetch=FetchType.EAGER, targetEntity = Gender.class)
@@ -43,8 +50,5 @@ public class Comment {
 
     @ManyToOne(fetch=FetchType.EAGER, targetEntity = Level.class)
     private Level level1;
-    @ManyToOne(fetch=FetchType.EAGER, targetEntity = Level.class)
-    private Level level2;
-    @ManyToOne(fetch=FetchType.EAGER, targetEntity = Level.class)
-    private Level level3;
+
 }
