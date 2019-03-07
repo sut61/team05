@@ -28,12 +28,12 @@ public class Bounce {
     @Size(min=5, max=100)
     @Pattern(regexp="([ก-ฮ])+")
     private String reason;
-    @NotNull
-    private String sender;
-    @NotNull
-    private String receiver;
-    @NotNull
-    private String province;
+    @ManyToOne
+    private Sender sender;
+    @ManyToOne
+    private Receiver receiver;
+    @ManyToOne
+    private Province province;
 
 
     //Many To One with Linksen
