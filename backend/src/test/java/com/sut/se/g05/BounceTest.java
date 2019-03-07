@@ -60,25 +60,6 @@ public class BounceTest {
     }
 
     @Test
-    public void testTypeproductAllCorrect() {
-        Typeproduct t = new Typeproduct();
-        t.setTypeproduct("รองเท้า");
-
-        try {
-            entityManager.persist(t);
-            entityManager.flush();
-            //fail("Should not pass to this line");
-        } catch (javax.validation.ConstraintViolationException e) {
-            System.out.println( "======================================== Test TypeproductAllCorrect ========================================");
-            System.out.println();
-            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
-            assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 1);
-        }
-    }
-
-
-    @Test
     public void testReasonNull() {
         Bounce a = new Bounce();
         a.setReason(null);
@@ -131,7 +112,7 @@ public class BounceTest {
         } catch (javax.validation.ConstraintViolationException e) {
             Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
             assertEquals(violations.isEmpty(), false);
-            assertEquals(violations.size(), 2);
+            assertEquals(violations.size(), 1);
             System.out.println();
             System.out.println(e.getMessage()+"======================================== Test Reason Pattern ========================================");
             System.out.println();
