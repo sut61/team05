@@ -28,7 +28,7 @@ public class Carry {
     private Date date;
     @NotNull
     @Size(min=5, max=20)
-    @Pattern(regexp="^([ก-ู]|[เ-์])+")
+    @Pattern(regexp="^([ก-ู]|[เ-์])+$")
     private String status;
     @NotNull
     @Size(min=5, max=20)
