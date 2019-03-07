@@ -34,10 +34,7 @@ public class Salary {
     @NotNull
     Integer balance;
 
-    @NotNull
     String payer;
-
-    @NotNull
     String other;
 
     @ManyToOne
