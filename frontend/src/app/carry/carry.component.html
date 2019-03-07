@@ -7,6 +7,16 @@
     </mat-toolbar><br><br><br><br><br><br>
 
     <mat-form-field appearance="outline">
+      <mat-label>รหัสชื่อผู้ออกใบส่งสินค้า</mat-label>
+      <input matInput placeholder="codenamecarry" [(ngModel)]="select.codenamecarry" name="codenamecarry">
+  </mat-form-field><br>
+
+  <mat-form-field appearance="outline">
+    <mat-label>ชื่อผู้ออกใบส่งสินค้า</mat-label>
+    <input matInput placeholder="namecarry" [(ngModel)]="select.namecarry" name="namecarry">
+</mat-form-field><br>
+
+    <mat-form-field appearance="outline">
       <mat-select placeholder="เลขที่ใบรับสินค้า" [(ngModel)]="select.packageId" name = "name">
         <mat-option *ngFor="let packageId of packageId" [value]="packageId.packid">
             {{packageId.packid}}
@@ -72,8 +82,8 @@
       </mat-select>
     </mat-form-field><br>
   
-    <button mat-flat-button (click)="save()" [routerLink]="['/app-menu']">บันทึก</button>&nbsp;&nbsp;
-  
+    <button mat-flat-button (click)="save()" [routerLink]="['/carry']">บันทึก</button>&nbsp;&nbsp;
+    <button mat-flat-button (click)="save()" [routerLink]="['/app-menu']">ยกเลิก</button>
   </div>
   
 </body>
