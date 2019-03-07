@@ -1,9 +1,10 @@
 package com.sut.se.g05.entity;
 
 import lombok.*;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 @Data
 @Entity
@@ -22,7 +23,8 @@ public class Typeproduct {
     @NotNull
     private Long typeproductId;
     @NotNull
+    @Size(min=5, max=100)
     @Column(unique = true)
-    private @NonNull String typeproduct;
+    private String typeproduct;
 
 }

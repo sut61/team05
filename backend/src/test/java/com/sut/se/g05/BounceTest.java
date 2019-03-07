@@ -31,6 +31,15 @@ public class BounceTest {
     private TypeproductRepository typeproductRepository;
 
     @Autowired
+    private SenderRepository senderRepository;
+
+    @Autowired
+    private ReceiverRepository receiverRepository;
+
+    @Autowired
+    private ProvinceRepository provinceRepository;
+
+    @Autowired
     private TestEntityManager entityManager;
 
     private Validator validator;
@@ -45,6 +54,10 @@ public class BounceTest {
     public void testBounceAllCorrect() {
         Bounce a = new Bounce();
         a.setReason("สินค้าแตกหัก");
+        a.setIce("ii");
+        a.setSender(senderRepository.findByfirstname("ก"));
+        a.setReceiver(receiverRepository.findByfirstname("ข"));
+        a.setProvince(provinceRepository.findByprovince("ค"));
 
         try {
             entityManager.persist(a);
@@ -63,6 +76,10 @@ public class BounceTest {
     public void testReasonNull() {
         Bounce a = new Bounce();
         a.setReason(null);
+        a.setIce("ii");
+        a.setSender(senderRepository.findByfirstname("ก"));
+        a.setReceiver(receiverRepository.findByfirstname("ข"));
+        a.setProvince(provinceRepository.findByprovince("ค"));
 
         try {
             entityManager.persist(a);
@@ -83,6 +100,10 @@ public class BounceTest {
     public void testReasonMin() {
         Bounce a = new Bounce();
         a.setReason("กขค");
+        a.setIce("ii");
+        a.setSender(senderRepository.findByfirstname("ก"));
+        a.setReceiver(receiverRepository.findByfirstname("ข"));
+        a.setProvince(provinceRepository.findByprovince("ค"));
 
         try {
             entityManager.persist(a);
@@ -103,6 +124,10 @@ public class BounceTest {
     public void testReasonPattern() {
         Bounce a = new Bounce();
         a.setReason("กขค123");
+        a.setIce("ii");
+        a.setSender(senderRepository.findByfirstname("ก"));
+        a.setReceiver(receiverRepository.findByfirstname("ข"));
+        a.setProvince(provinceRepository.findByprovince("ค"));
 
         try {
             entityManager.persist(a);
@@ -115,6 +140,64 @@ public class BounceTest {
             assertEquals(violations.size(), 1);
             System.out.println();
             System.out.println(e.getMessage()+"======================================== Test Reason Pattern ========================================");
+            System.out.println();
+        }
+    }
+
+    @Test
+    public void testTypeproductAllCorrect() {
+        Typeproduct t = new Typeproduct();
+        t.setTypeproduct("iii");
+
+        try {
+            entityManager.persist(t);
+            entityManager.flush();
+//            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            System.out.println( "======================================== Test TypeproductAllCorrect ========================================");
+            System.out.println();
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+        }
+    }
+
+    @Test
+    public void testTypeproductNull() {
+        Typeproduct t = new Typeproduct();
+        t.setTypeproduct(null);
+
+        try {
+            entityManager.persist(t);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+            assertEquals(violations.size(), 1);
+            System.out.println();
+            System.out.println(e.getMessage()+"======================================== Test Typeproduct Null ========================================");
+            System.out.println();
+        }
+    }
+
+    @Test
+    public void testTypeproductMin() {
+        Typeproduct t = new Typeproduct();
+        t.setTypeproduct("i");
+
+        try {
+            entityManager.persist(t);
+            entityManager.flush();
+
+            fail("Should not pass to this line");
+        } catch (javax.validation.ConstraintViolationException e) {
+            Set<ConstraintViolation<?>> violations = e.getConstraintViolations();
+            assertEquals(violations.isEmpty(), false);
+//            assertEquals(violations.size(), 1);
+            System.out.println();
+            System.out.println(e.getMessage()+"======================================== Test Typeproduct Min ========================================");
             System.out.println();
         }
     }

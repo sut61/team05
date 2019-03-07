@@ -62,6 +62,7 @@ public class DemoApplication {
 
 			Bounce a = new Bounce();
 			a.setReason("สินค้าแตกหัก");
+			a.setIce("ice");
 			Typeproduct t = typeproductRepository.findBytypeproduct("รองเท้า");
 			a.setTypeproduct(t);
 

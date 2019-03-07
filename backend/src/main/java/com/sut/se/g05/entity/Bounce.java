@@ -2,7 +2,6 @@ package com.sut.se.g05.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -28,6 +27,9 @@ public class Bounce {
     @Size(min=5, max=100)
     @Pattern(regexp="^([ก-ู]|[เ-์])+")
     private String reason;
+    @NotNull
+    @Size(min=5, max=20)
+    private String ice;
     @ManyToOne
     private Sender sender;
     @ManyToOne
