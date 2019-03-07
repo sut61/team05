@@ -90,7 +90,7 @@ constructor(private controller:Controller,private httpClient: HttpClient,private
              },
              error => {
                   console.log('Error', error);
-                  alert('กรุณากรอกข้อมูลให้ครบถ้วน');
+                  alert('fail');
             }
     );
     }
