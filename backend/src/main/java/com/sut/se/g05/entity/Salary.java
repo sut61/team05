@@ -33,7 +33,6 @@ public class Salary {
 
     @NotNull
     Integer balance;
-
     String payer;
     String other;
 
