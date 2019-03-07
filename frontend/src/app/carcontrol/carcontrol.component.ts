@@ -12,7 +12,9 @@ export class CarcontrolComponent implements OnInit {
 
   info : Array<any>
   time : Array<any>
+  timeout : Array<any>//
   annotation : Array<any>
+  votepoint : Array<any>//
   stype : Array<any>
   nameprovinces : Array<any>
 
@@ -20,7 +22,9 @@ export class CarcontrolComponent implements OnInit {
     name : '',
     telephone : '',
     time : '',
+    timeout :'',//
     annotation : '',
+    votepoint : '',//
     stype : '',
     nameprovince : ''
   }
@@ -54,9 +58,16 @@ export class CarcontrolComponent implements OnInit {
     else if (this.select.time == null || this.select.time == '') {
       alert('กรุณาเลือกวันที่');
     }
+    else if (this.select.timeout == null || this.select.timeout == '') {
+      alert('กรุณาเลือกวันที่กลับ');//
+    }
+
     else if (this.select.annotation == null || this.select.annotation == '') {
       alert('กรุณากรอก *หมายเหตุ*');
     }
+    else if (this.select.votepoint == null || this.select.votepoint == '') {
+      alert('กรุณากรอก *ความพึงพอใจ1-4*');
+    }//
     else if (this.select.stype == null || this.select.stype == '') {
       alert('กรุณาเลือกสเตตัส');
     }
@@ -66,11 +77,13 @@ export class CarcontrolComponent implements OnInit {
       console.log(this.select.name);
       console.log(this.select.telephone);
       console.log(this.select.time);
+      console.log(this.select.timeout);
       console.log(this.select.annotation);
+      console.log(this.select.votepoint);
        console.log(this.select.stype);
        console.log(this.select.nameprovince);
 
-    this.http.post('http://localhost:8080/carcontrols/' + this.select.name + '/' + this.select.time + '/' + this.select.annotation + '/' + this.select.stype + '/' + this.select.nameprovince,this.select)
+    this.http.post('http://localhost:8080/carcontrols/' + this.select.name + '/' + this.select.time + '/' + this.select.timeout + '/' + this.select.annotation + '/'  + this.select.votepoint +  '/' + this.select.stype + '/' + this.select.nameprovince,this.select)
     .subscribe(
         data => {
             console.log('PUT Request is successful', data);

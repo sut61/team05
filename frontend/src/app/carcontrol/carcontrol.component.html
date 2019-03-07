@@ -29,6 +29,13 @@
           <mat-datepicker #picker></mat-datepicker>
       </mat-form-field><br><br>
 
+      <mat-form-field class="form-tanz" appearance="outline">
+        <input matInput [matDatepicker]="picker1" placeholder="Choose a dateout"  [(ngModel)]="select.timeout" name = "timeout">
+        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+        
+        <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field><br>
+
     <mat-form-field class="form-tanz" appearance="outline">
         <mat-label>Status</mat-label>
         <mat-select placeholder="status" [(ngModel)]="select.stype" name="stype">
@@ -45,6 +52,13 @@
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       </mat-form-field>
       <br>
+
+      <mat-form-field class="form-tanz" appearance="outline">
+        <mat-label>vote*</mat-label>
+        <input matInput placeholder="vote*" [(ngModel)]="select.votepoint" name = "votepoint">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+    <br>
 
       
 

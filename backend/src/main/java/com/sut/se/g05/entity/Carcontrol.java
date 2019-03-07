@@ -37,6 +37,13 @@ public class Carcontrol {
     
     @NotNull
     private  Date time;
+
+    @NonNull
+    private  Date timeout;//
+
+    @NonNull
+    private String votepoint; //
+    
     @NotNull
     @Size(min=2,max=100)
     @Pattern(regexp = "^[a-zA-Zก-๙]+$")

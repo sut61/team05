@@ -45,10 +45,15 @@ public class CarcontrolController {
     // }
 
 
-    @PostMapping("/carcontrols/{info}/{time}/{annotation}/{stype}/{nameprovince}")
+    @PostMapping("/carcontrols/{info}/{time}/{timeout}/{annotation}/{votepoint}/{stype}/{nameprovince}")
     public Carcontrol newCarcontrol(
-            @PathVariable Long info, @PathVariable Date time, @PathVariable String annotation, 
-            @PathVariable String stype, @PathVariable Long nameprovince
+            @PathVariable Long info,
+            @PathVariable Date time, 
+            @PathVariable Date timeout,//
+            @PathVariable String votepoint,// 
+            @PathVariable String annotation, 
+            @PathVariable String stype, 
+            @PathVariable Long nameprovince
 
     ) throws ParseException {
         Carcontrol newCarcontrol = new Carcontrol();
@@ -59,6 +64,8 @@ public class CarcontrolController {
           
         newCarcontrol.setInformation(carInfo);
         newCarcontrol.setTime(time);
+        newCarcontrol.setTimeout(timeout);//
+        newCarcontrol.setVotepoint(votepoint); //
         newCarcontrol.setStatusType(cStatus);
         newCarcontrol.setProvince(province);
         newCarcontrol.setAnnotation(annotation);
