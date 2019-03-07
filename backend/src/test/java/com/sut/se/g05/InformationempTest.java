@@ -32,6 +32,15 @@ public class InformationempTest {
     private InformationempRepository informationRepository;
 
     @Autowired
+    private PositionRepository positionRepository;
+
+    @Autowired
+    private BankempRepository bankempRepository;
+
+    @Autowired
+    private GenderRepository genderRepository;
+
+    @Autowired
     private TestEntityManager entityManager;
 
     private Validator validator;
@@ -53,6 +62,9 @@ public class InformationempTest {
         i.setBanknumber("123456");
         i.setEmail("kan@gmail.com");
         i.setPassword("123");
+        i.setPosition(positionRepository.findBypositionid(1L));
+        i.setBankemp(bankempRepository.findBybankempid(1L));
+        i.setGender(genderRepository.findBygenderId(1L));
 
         informationRepository.save(i);
 
@@ -79,6 +91,9 @@ public class InformationempTest {
         i.setBanknumber("123456");
         i.setEmail("kan@gmail.com");
         i.setPassword("123");
+        i.setPosition(positionRepository.findBypositionid(1L));
+        i.setBankemp(bankempRepository.findBybankempid(1L));
+        i.setGender(genderRepository.findBygenderId(1L));
 
         try {
             entityManager.persist(i);
@@ -108,6 +123,9 @@ public class InformationempTest {
         i.setBanknumber("123456");
         i.setEmail("kan@gmail.com");
         i.setPassword("123");
+        i.setPosition(positionRepository.findBypositionid(1L));
+        i.setBankemp(bankempRepository.findBybankempid(1L));
+        i.setGender(genderRepository.findBygenderId(1L));
 
         try {
             entityManager.persist(i);
@@ -137,6 +155,9 @@ public class InformationempTest {
         i.setBanknumber("123456");
         i.setEmail("kan@gmail.com");
         i.setPassword("123");
+        i.setPosition(positionRepository.findBypositionid(1L));
+        i.setBankemp(bankempRepository.findBybankempid(1L));
+        i.setGender(genderRepository.findBygenderId(1L));
 
         try {
             entityManager.persist(i);
@@ -165,6 +186,9 @@ public class InformationempTest {
         i.setBanknumber("123456");
         i.setEmail("kan@gmail.com");
         i.setPassword("123");
+        i.setPosition(positionRepository.findBypositionid(1L));
+        i.setBankemp(bankempRepository.findBybankempid(1L));
+        i.setGender(genderRepository.findBygenderId(1L));
 
         try {
             entityManager.persist(i);
@@ -193,6 +217,9 @@ public class InformationempTest {
         i.setBanknumber("123456");
         i.setEmail("kan@gmail.com");
         i.setPassword("123");
+        i.setPosition(positionRepository.findBypositionid(1L));
+        i.setBankemp(bankempRepository.findBybankempid(1L));
+        i.setGender(genderRepository.findBygenderId(1L));
         entityManager.persist(i);
         entityManager.flush();
 
@@ -204,6 +231,9 @@ public class InformationempTest {
         i2.setBanknumber("123456");
         i2.setEmail("ka@gmail.com");
         i2.setPassword("12");
+        i2.setPosition(positionRepository.findBypositionid(1L));
+        i2.setBankemp(bankempRepository.findBybankempid(1L));
+        i2.setGender(genderRepository.findBygenderId(1L));
         try {
             entityManager.persist(i2);
             entityManager.flush();
