@@ -31,7 +31,7 @@ public class CarInformation {
     private  Long carInformationId;
     @NotNull
     @Size(min = 5, max = 30)
-    @Pattern(regexp = "^[a-z A-Zก-ฮ]+$")
+   
     private   String name;
 
     @NotNull
@@ -42,7 +42,9 @@ public class CarInformation {
     @Pattern(regexp = "^[0]\\d+$")
     private   String telephone;
 
-    @NonNull
+    @NotNull
+    @Size(min = 13, max = 13)
+    @Column(unique = true)
     private String idcardnumber;
     
     @NotNull
