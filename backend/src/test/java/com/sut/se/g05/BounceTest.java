@@ -45,10 +45,6 @@ public class BounceTest {
     public void testBounceAllCorrect() {
         Bounce a = new Bounce();
         a.setReason("สินค้าแตกหัก");
-        a.setSender("แพรวโพยม");
-        a.setProvince("พิษณุโลก");
-        a.setReceiver("ฐิติมากานต์");
-        a.setProvince("น่าน");
 
         try {
             entityManager.persist(a);
@@ -86,10 +82,6 @@ public class BounceTest {
     public void testReasonNull() {
         Bounce a = new Bounce();
         a.setReason(null);
-        a.setSender("แพรวโพยม");
-        a.setProvince("พิษณุโลก");
-        a.setReceiver("ฐิติมากานต์");
-        a.setProvince("น่าน");
 
         try {
             entityManager.persist(a);
@@ -109,11 +101,7 @@ public class BounceTest {
     @Test
     public void testReasonMin() {
         Bounce a = new Bounce();
-        a.setReason("iii");
-        a.setSender("แพรวโพยม");
-        a.setProvince("พิษณุโลก");
-        a.setReceiver("ฐิติมากานต์");
-        a.setProvince("น่าน");
+        a.setReason("กขค");
 
         try {
             entityManager.persist(a);
@@ -133,11 +121,7 @@ public class BounceTest {
     @Test
     public void testReasonPattern() {
         Bounce a = new Bounce();
-        a.setReason("iii");
-        a.setSender("แพรวโพยม");
-        a.setProvince("พิษณุโลก");
-        a.setReceiver("เธอ");
-        a.setProvince("เชียงใหม่");
+        a.setReason("กขค123");
 
         try {
             entityManager.persist(a);
